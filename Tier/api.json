@@ -8,11 +8,6 @@
             "amount": "{option_item-gave}",
             "LongassThing": "{raw.response.Donation.0.amount}"
         }
-        [
-            {
-            "Note3": "Bot/api Made By Akuma"
-            }
-        ]
     ],
     "bronse-(I)": [
         {
