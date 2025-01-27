@@ -7,7 +7,8 @@
             "Hold": "dominator07509 Hold's The Items",
             "amount": "{option_item-gave}",
             "LongassThing": "{raw.response.Donation.0.amount}",
-            "BotCommandCode": "CMD_a62f5850-9121-40e5-827d-d01d0aae10bc"
+            "BotCommandCode": "CMD_a62f5850-9121-40e5-827d-d01d0aae10bc",
+            "Command": "donaterole"
         }
     ],
     "bronse-(I)": [
