@@ -2,6 +2,7 @@
     "Donation": [
         {
             "Note": "Thank you {option_user} For (`{raw.response.Donation.0.LongassThing}`)",
+            "Note%50": "Thank you {option_user} This means a lot (`{raw.response.Donation.0.LongassThing}`)",
             "Note2": "{raw.response.{option_tier}.0.Role}",
             "Hold": "dominator07509 Hold's The Items",
             "amount": "{option_item-gave}",
