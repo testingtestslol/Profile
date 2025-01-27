@@ -1,7 +1,7 @@
 {
     "Donation": [
         {
-            "Note": "Thank you {option_user} For {raw.response.Donation.0.amount} You have Unlocked <@&{raw.response.{option_tier}.0.name}> (Role Given)" ,
+            "Note": "Thank you {option_user} For `{raw.response.Donation.0.amount}` You have Unlocked <@&{raw.response.{option_tier}.0.name}> (Role Given)" ,
             "Hold": "dominator07509 Hold's The Items",
             "amount": "{option_item-gave}"
         }
@@ -15,6 +15,24 @@
     "silver-(II)": [
         {
             "name": "1333309702339297332",
+            "amount": "???"
+        }
+    ],
+    "gold-(III)": [
+        {
+            "name": "1333310872176689213",
+            "amount": "???"
+        }
+    ],
+    "imperial-(IV)": [
+        {
+            "name": "1333311132873523275",
+            "amount": "???"
+        }
+    ],
+    "Dom-og-(V)": [
+        {
+            "name": "1333311133976891462",
             "amount": "???"
         }
     ]
