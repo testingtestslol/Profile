@@ -13,42 +13,48 @@
         {
             "Role": "You have Unlocked <@&1333309052163457065>",
             "name": "1333309052163457065",
-            "amount": "50k+"
+            "amount": "50k+",
+            "color": "#cd7f32"
         }
     ],
     "silver-(II)": [
         {
             "Role": "You have Unlocked <@&1333309702339297332>",
             "name": "1333309702339297332",
-            "amount": "100k+"
+            "amount": "100k+",
+            "color": "#c0c0c0"
         }
     ],
     "gold-(III)": [
         {
             "Role": "You have Unlocked <@&1333310872176689213>",
             "name": "1333310872176689213",
-            "amount": "500k+"
+            "amount": "500k+",
+            "color": "#ffd700"
         }
     ],
     "imperial-(IV)": [
         {
             "Role": "You have Unlocked <@&1333311132873523275>",
             "name": "1333311132873523275",
-            "amount": "1m+"
+            "amount": "1m+",
+            "color": "#a30505"
         }
     ],
     "Dom-og-(V)": [
         {
             "Role": "You have Unlocked <@&1333311133976891462>",
             "name": "1333311133976891462",
-            "amount": "5m+"
+            "amount": "5m+",
+            "color": "#440505"
         }
     ],
     "No-Role": [
         {
             "Role": "`Sorry not a enough For the Next Role`",
             "name": "1299636672396394557",
-            "amount": ""
+            "amount": "",
+            "color": "#0055c5"
         }
     ]
 }
