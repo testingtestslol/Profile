@@ -4,7 +4,6 @@
             "Note": "Thank you {option_user} For (`{raw.response.Donation.0.LongassThing}`)",
             "Note2": "{raw.response.{option_tier}.0.Role}",
             "Hold": "dominator07509 Hold's The Items",
-            "if": "(Role Given)",
             "amount": "{option_item-gave}",
             "LongassThing": "{raw.response.Donation.0.amount}"
         }
@@ -14,6 +13,7 @@
             "Role": "You have Unlocked <@&1333309052163457065>",
             "name": "1333309052163457065",
             "amount": "50k+",
+            "if": "(Role Given)",
             "color": "#cd7f32"
         }
     ],
@@ -22,6 +22,7 @@
             "Role": "You have Unlocked <@&1333309702339297332>",
             "name": "1333309702339297332",
             "amount": "100k+",
+            "if": "(Role Given)",
             "color": "#c0c0c0"
         }
     ],
@@ -30,6 +31,7 @@
             "Role": "You have Unlocked <@&1333310872176689213>",
             "name": "1333310872176689213",
             "amount": "500k+",
+            "if": "(Role Given)",
             "color": "#ffd700"
         }
     ],
@@ -38,6 +40,7 @@
             "Role": "You have Unlocked <@&1333311132873523275>",
             "name": "1333311132873523275",
             "amount": "1m+",
+            "if": "(Role Given)",
             "color": "#a30505"
         }
     ],
@@ -46,6 +49,7 @@
             "Role": "You have Unlocked <@&1333311133976891462>",
             "name": "1333311133976891462",
             "amount": "5m+",
+            "if": "(Role Given)",
             "color": "#440505"
         }
     ],
@@ -54,6 +58,7 @@
             "Role": "`Sorry not a enough For the Next Role`",
             "name": "1299636672396394557",
             "amount": "",
+            "if": "(No Role Given)",
             "color": "#0055c5"
         }
     ]
