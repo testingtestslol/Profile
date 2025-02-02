@@ -1,13 +1,8 @@
-//I (Sheriff) made this script so everybody can use the badges for free only for yousefl
-//People shouldn't be forced to link
-
-//The script manipulates the api request for the juice, it might not work first try, just refresh it and it worked
-
 let shortId = "Y2OOB2"; //shortid (6 chars long)
 let linked_badge = true; //true or false
 let booster_badge = true; //true or false
 let badges = [];
-badges.push("file:///C:/Users/Public.DESKTOP-HMN7ECH/Desktop/Untitled_2.webp") //example, you can insert as many as you want
+badges.push("https://akuma-doesnt-get-paid.github.io/Domshelperbotapi/Untitled_2.webp") //example, you can insert as many as you want
 let type = "override"; //keep original badges and add only your badge = append | remove all original badges only add your own badge = override
 
 /* DONT CHANGE ANYTHING BELOW */
