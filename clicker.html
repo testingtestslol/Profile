@@ -86,8 +86,8 @@
         <button id="upgrade">Upgrade - Cost: 50</button>
         <button id="doubleButton" style="display: none;">2x - Double Cookies</button>
         
-        <!-- Custom Cookie Amount Input -->
-        <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount">
+        <!-- Custom Cookie Amount Input (Max 9999) -->
+        <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount" max="9999">
         <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
     </div>
 
@@ -149,7 +149,7 @@
         // Password wall: Handle correct/incorrect password
         submitPasswordBtn.addEventListener('click', function() {
             const enteredPassword = document.getElementById('passwordInput').value;
-            if (enteredPassword === 'Akuma<3') {
+            if (enteredPassword === 'Akuma<') {
                 passwordWall.style.display = 'none'; // Hide the password wall
                 gamePage.style.display = 'block'; // Show the game page
             } else {
@@ -180,11 +180,13 @@
         // Add custom cookies after entering amount
         addCookiesBtn.addEventListener('click', function() {
             const customAmount = parseInt(cookieAmountInput.value);
-            if (!isNaN(customAmount) && customAmount > 0) {
+            if (!isNaN(customAmount) && customAmount > 0 && customAmount <= 9999) {
                 cookies += customAmount;
                 scoreElement.textContent = cookies;
             } else {
-                alert("Please enter a valid number of cookies.");
+                // Show the pop-up if the amount exceeds 9999
+                alert("Max is 9,999 set by the dev.");
+                cookieAmountInput.value = ''; // Clear the input field
             }
         });
     </script>
