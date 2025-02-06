@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    button {
+      padding: 20px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<button id="coolButton">Click Me!</button>
+
+<script>
+  const button = document.getElementById('coolButton');
+  
+  button.addEventListener('click', () => {
+    button.style.backgroundColor = 'rgba(255, 99, 71, 0.8)';
+    button.innerHTML = "You're Awesome!";
+    setTimeout(() => {
+      button.style.backgroundColor = 'lightblue';
+      button.innerHTML = "Click Me!";
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>
