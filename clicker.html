@@ -131,6 +131,9 @@
                 <button id="bg2Btn" class="bg-btn">Buy Background 2 (200 Cookies)</button>
                 <button id="bg3Btn" class="bg-btn">Buy Background 3 (300 Cookies)</button>
             </div>
+
+            <!-- Logout Button -->
+            <button id="logoutBtn">Logout</button>
         </div>
     </div>
 
@@ -154,6 +157,7 @@
         const usernameInput = document.getElementById('usernameInput');
         const usernameDisplay = document.getElementById('usernameDisplay');
         const userCountElement = document.getElementById('userCount');
+        const logoutButton = document.getElementById('logoutBtn');
         let username = '';
 
         if (!localStorage.getItem('userCount')) {
@@ -258,6 +262,16 @@
                 alert("Max is 9,999 set by the dev. soz");
                 cookieAmountInput.value = '';
             }
+        });
+
+        logoutButton.addEventListener('click', function() {
+            // Reset cookies and hide the game page
+            clearInterval(cookieInterval);
+            cookies = 0;
+            scoreElement.textContent = cookies;
+            usernameDisplay.textContent = 'Welcome, Player!';
+            gamePage.style.display = 'none';
+            passwordWall.style.display = 'flex'; // Show login page
         });
 
         document.getElementById('bg1Btn').addEventListener('click', function() {
