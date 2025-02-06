@@ -84,6 +84,9 @@
         <input type="password" id="passwordInput" placeholder="Enter password">
         <button id="submitPasswordBtn">Login</button>
         <p id="passwordError">Incorrect Password! Please try again.</p>
+
+        <!-- User Count Display -->
+        <h3 id="userCount">Current Users: 0</h3>
     </div>
 
     <!-- Game Page (Hidden initially) -->
@@ -119,7 +122,21 @@
         const passwordError = document.getElementById('passwordError');
         const usernameInput = document.getElementById('usernameInput');
         const usernameDisplay = document.getElementById('usernameDisplay');
+        const userCountElement = document.getElementById('userCount');
         let username = '';
+
+        // Initialize user count in localStorage
+        if (!localStorage.getItem('userCount')) {
+            localStorage.setItem('userCount', '0');
+        }
+
+        // Update user count display
+        function updateUserCount() {
+            const currentCount = parseInt(localStorage.getItem('userCount'));
+            userCountElement.textContent = `Current Users: ${currentCount}`;
+        }
+
+        updateUserCount();
 
         const rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'];
 
@@ -177,9 +194,15 @@
             }
             
             if (enteredPassword === 'Akuma') {
-                usernameDisplay.textContent = `Welcome, ${enteredUsername || 'Player'}!`;
+                username = enteredUsername || 'Player';
+                usernameDisplay.textContent = `Welcome, ${username}!`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
+
+                // Increment user count in localStorage and update display
+                let currentCount = parseInt(localStorage.getItem('userCount'));
+                localStorage.setItem('userCount', (currentCount + 1).toString());
+                updateUserCount();
 
                 cookieInterval = setInterval(function() {
                     cookies += 1;
