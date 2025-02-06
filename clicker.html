@@ -149,7 +149,7 @@
         // Password wall: Handle correct/incorrect password
         submitPasswordBtn.addEventListener('click', function() {
             const enteredPassword = document.getElementById('passwordInput').value;
-            if (enteredPassword === 'Akuma<') {
+            if (enteredPassword === 'Akuma<3') {
                 passwordWall.style.display = 'none'; // Hide the password wall
                 gamePage.style.display = 'block'; // Show the game page
             } else {
@@ -170,13 +170,6 @@
             }
         });
 
-        // Double Cookies on 2x Button click
-        doubleButton.addEventListener('click', function() {
-            cookies *= 2; // Double the total cookies
-            scoreElement.textContent = cookies;
-            alert('Your cookies have been doubled!');
-        });
-
         // Add custom cookies after entering amount
         addCookiesBtn.addEventListener('click', function() {
             const customAmount = parseInt(cookieAmountInput.value);
@@ -185,7 +178,7 @@
                 scoreElement.textContent = cookies;
             } else {
                 // Show the pop-up if the amount exceeds 9999
-                alert("Max is 9,999 set by the dev.");
+                alert("Max is 9,999 set by the developer Aka Akuma;
                 cookieAmountInput.value = ''; // Clear the input field
             }
         });
