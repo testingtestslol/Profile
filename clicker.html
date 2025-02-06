@@ -193,7 +193,7 @@
             const enteredPassword = document.getElementById('passwordInput').value;
             const enteredUsername = usernameInput.value.trim();
 
-            if (enteredUsername === "Nigger" || enteredUsername === "Mrbeast") {
+            if (enteredUsername === "Nigger" || enteredUsername === "Mrbeast" || enteredUsername === "Owner" || enteredUsername === "Admin" || enteredUsername === "Dick) {
                 alert("This username is not allowed.");
                 return;
             }
@@ -214,9 +214,8 @@
                 }, 1000);
 
             } else if (enteredPassword === '1169111190824308768') {
-                usernameDisplay.innerHTML = `<span style="color: green;">[Admin]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 username = enteredUsername || 'Player';
-                usernameDisplay.textContent = `Welcome, ${username} [Admin]`;
+                usernameDisplay.textContent = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
 
@@ -237,7 +236,7 @@
         passwordInputForExtras.addEventListener('input', function() {
             const enteredPassword = passwordInputForExtras.value;
             if (enteredPassword === '1169111190824308768') {
-                usernameDisplay.innerHTML = `<span style="color: green;">[Admin]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
+                usernameDisplay.innerHTML = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 cookieAmountInput.style.display = 'inline-block'; // Show custom cookie amount input
                 addCookiesBtn.style.display = 'inline-block';   // Show add cookies button
                 doubleButton.style.display = 'inline-block'; // Show 2x button
