@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Data Display</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
       padding: 20px;
     }
@@ -16,7 +14,7 @@
       margin: 0 auto;
       padding: 20px;
       background-color: white;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
     }
     h1 {
       color: #333;
@@ -39,15 +37,31 @@
 
 <script>
   // Fetch data from the API
-  fetch('https://juice-api.irrvlo.xyz/api/customizations')
-    .then(response => response.json())
-    .then(data => {
-      // Display the API data in the div
-      document.getElementById('apiData').textContent = JSON.stringify(data, null, 2);
-    })
-    .catch(error => {
-      document.getElementById('apiData').textContent = 'Error loading data: ' + error;
-    });
+  function fetchData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://juice-api.irrvlo.xyz/api/customizations', true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        
+        // Extract shortId values from the data and display them
+        if (data && Array.isArray(data.customizations)) {
+          var shortIds = data.customizations.map(function(item) {
+            return item.shortId;
+          });
+          document.getElementById('apiData').textContent = shortIds.join('\n');
+        } else {
+          document.getElementById('apiData').textContent = 'No customizations data available';
+        }
+      } else {
+        document.getElementById('apiData').textContent = 'Error loading data: ' + xhr.status;
+      }
+    };
+    xhr.send();
+  }
+
+  // Call the fetchData function when the page loads
+  window.onload = fetchData;
 </script>
 
 </body>
