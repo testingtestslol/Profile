@@ -215,7 +215,7 @@
 
             } else if (enteredPassword === '1169111190824308768') {
                 username = enteredUsername || 'Player';
-                usernameDisplay.textContent = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
+                usernameDisplay.innerHTML = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
 
