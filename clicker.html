@@ -71,7 +71,7 @@
     <div id="passwordWall">
         <h1>Enter Password to Access the Game</h1>
         <input type="password" id="passwordInput" placeholder="Enter password">
-        <button id="submitPasswordBtn">Login</button>
+        <button id="submitPasswordBtn">Submit</button>
         <p id="passwordError">Incorrect Password! Please try again.</p>
     </div>
 
@@ -96,6 +96,7 @@
         let cookiesPerClick = 1;
         let upgradeCost = 50;
         let upgradeCount = 0; // Track the number of upgrades to change the cookie color
+        let cookieInterval;
         const cookieElement = document.getElementById('cookie');
         const scoreElement = document.getElementById('score').children[0];
         const upgradeButton = document.getElementById('upgrade');
@@ -152,8 +153,15 @@
             if (enteredPassword === 'Akuma') {
                 passwordWall.style.display = 'none'; // Hide the password wall
                 gamePage.style.display = 'block'; // Show the game page
+
+                // Start increasing cookies by 1 every second after the password is entered
+                cookieInterval = setInterval(function() {
+                    cookies += 1; // Increase cookies by 1 every second
+                    scoreElement.textContent = cookies;
+                }, 1000); // Update every 1000 milliseconds (1 second)
+
             } else if (enteredPassword === 'Password') {
-                alert("You think i am That dumb.."); // Alert if the user tries to login with "Akuma"
+                alert("💀 That's not going to work"); // Alert if the user tries to login with "Akuma"
             } else {
                 passwordError.style.display = 'block'; // Show error message for incorrect password
             }
@@ -186,7 +194,7 @@
                 scoreElement.textContent = cookies;
             } else {
                 // Show the pop-up if the amount exceeds 9999
-                alert("Max is 9,999 set by the developer, Soz");
+                alert("Max is 9,999 set by the dev. soz");
                 cookieAmountInput.value = ''; // Clear the input field
             }
         });
