@@ -71,7 +71,7 @@
     <div id="passwordWall">
         <h1>Enter Password to Access the Game</h1>
         <input type="password" id="passwordInput" placeholder="Enter password">
-        <button id="submitPasswordBtn">Submit</button>
+        <button id="submitPasswordBtn">Login</button>
         <p id="passwordError">Incorrect Password! Please try again.</p>
     </div>
 
@@ -149,7 +149,7 @@
         // Password wall: Handle correct/incorrect password
         submitPasswordBtn.addEventListener('click', function() {
             const enteredPassword = document.getElementById('passwordInput').value;
-            if (enteredPassword === 'Akuma<3') {
+            if (enteredPassword === 'Akuma') {
                 passwordWall.style.display = 'none'; // Hide the password wall
                 gamePage.style.display = 'block'; // Show the game page
             } else {
@@ -159,7 +159,7 @@
 
         // Password check and showing extra buttons
         passwordInputForExtras.addEventListener('input', function() {
-            if (passwordInputForExtras.value === 'Akuma<3') {
+            if (passwordInputForExtras.value === 'Akuma') {
                 doubleButton.style.display = 'inline-block'; // Show the 2x button
                 cookieAmountInput.style.display = 'inline-block'; // Show the custom amount input field
                 addCookiesBtn.style.display = 'inline-block'; // Show the Add Cookies button
@@ -170,6 +170,12 @@
             }
         });
 
+        // Double Cookies on 2x Button click (No pop-up)
+        doubleButton.addEventListener('click', function() {
+            cookies *= 2; // Double the total cookies
+            scoreElement.textContent = cookies;
+        });
+
         // Add custom cookies after entering amount
         addCookiesBtn.addEventListener('click', function() {
             const customAmount = parseInt(cookieAmountInput.value);
@@ -178,7 +184,7 @@
                 scoreElement.textContent = cookies;
             } else {
                 // Show the pop-up if the amount exceeds 9999
-                alert("Max is 9,999 set by the developer Aka Akuma;
+                alert("Max is 9,999 set by the developer.);
                 cookieAmountInput.value = ''; // Clear the input field
             }
         });
