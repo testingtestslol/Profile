@@ -20,6 +20,7 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin-top: 100px;
+            position: relative;
         }
         #score {
             font-size: 30px;
@@ -64,6 +65,15 @@
         #gamePage {
             display: none;
         }
+        .floating-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+            opacity: 1;
+            pointer-events: none;
+            transition: all 0.8s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -82,13 +92,10 @@
         <div id="cookie"></div>
         <div id="score">Cookies: <span>0</span></div>
 
-        <!-- Password Input Section (Visible after password is entered) -->
         <input type="password" id="passwordInputForExtras" placeholder="Enter password to unlock extra features">
-        
         <button id="upgrade">Upgrade - Cost: 50</button>
         <button id="doubleButton" style="display: none;">2x - Double Cookies</button>
         
-        <!-- Custom Cookie Amount Input (Max 9999) -->
         <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount" max="9999">
         <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
     </div>
@@ -114,24 +121,38 @@
         const usernameDisplay = document.getElementById('usernameDisplay');
         let username = '';
 
-        // Define rainbow colors
-        const rainbowColors = [
-            '#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'
-        ];
+        const rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'];
 
-        // Function to change the cookie color based on upgrade count
         function changeCookieColor() {
             const colorIndex = upgradeCount % rainbowColors.length;
             cookieElement.style.backgroundColor = rainbowColors[colorIndex];
         }
 
-        // Cookie click event
-        cookieElement.addEventListener('click', function() {
+        function showFloatingText(amount, x, y) {
+            const floatingText = document.createElement('div');
+            floatingText.textContent = `+${amount}`;
+            floatingText.classList.add('floating-text');
+            floatingText.style.left = `${x}px`;
+            floatingText.style.top = `${y}px`;
+
+            document.body.appendChild(floatingText);
+
+            setTimeout(() => {
+                floatingText.style.top = `${y - 50}px`;
+                floatingText.style.opacity = '0';
+            }, 10);
+
+            setTimeout(() => {
+                floatingText.remove();
+            }, 800);
+        }
+
+        cookieElement.addEventListener('click', function(event) {
             cookies += cookiesPerClick;
             scoreElement.textContent = cookies;
+            showFloatingText(cookiesPerClick, event.clientX, event.clientY);
         });
 
-        // Upgrade event
         upgradeButton.addEventListener('click', function() {
             if (cookies >= upgradeCost) {
                 cookies -= upgradeCost;
@@ -146,30 +167,20 @@
             }
         });
 
-        // Password wall: Handle correct/incorrect password
         submitPasswordBtn.addEventListener('click', function() {
             const enteredPassword = document.getElementById('passwordInput').value;
             const enteredUsername = usernameInput.value.trim();
             
-            // Blacklist the usernames "N word" and "Mrbeast"
             if (enteredUsername === "Nigger" || enteredUsername === "Mrbeast") {
                 alert("This username is not allowed.");
-                return; // Don't proceed if the username is blacklisted
+                return;
             }
             
             if (enteredPassword === 'Akuma') {
-                if (enteredUsername !== '') {
-                    username = enteredUsername;
-                    usernameDisplay.textContent = `Welcome, ${username}!`;
-                } else {
-                    username = 'Player';
-                    usernameDisplay.textContent = `Welcome, Player!`;
-                }
-                
+                usernameDisplay.textContent = `Welcome, ${enteredUsername || 'Player'}!`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
 
-                // Start increasing cookies by 1 every second after the password is entered
                 cookieInterval = setInterval(function() {
                     cookies += 1;
                     scoreElement.textContent = cookies;
@@ -182,7 +193,6 @@
             }
         });
 
-        // Password check and showing extra buttons
         passwordInputForExtras.addEventListener('input', function() {
             if (passwordInputForExtras.value === '1169111190824308768') {
                 doubleButton.style.display = 'inline-block';
@@ -195,13 +205,11 @@
             }
         });
 
-        // Double Cookies on 2x Button click (No pop-up)
         doubleButton.addEventListener('click', function() {
             cookies *= 2;
             scoreElement.textContent = cookies;
         });
 
-        // Add custom cookies after entering amount
         addCookiesBtn.addEventListener('click', function() {
             const customAmount = parseInt(cookieAmountInput.value);
             if (!isNaN(customAmount) && customAmount > 0 && customAmount <= 9999) {
