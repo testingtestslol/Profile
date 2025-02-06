@@ -215,7 +215,7 @@
 
             } else if (enteredPassword === '1169111190824308768') {
                 username = enteredUsername || 'Player';
-                usernameDisplay.innerHTML = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
+                usernameDisplay.innerHTML = `<span style="color: Blue;">[Owner]</span> ${username}`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
 
@@ -236,7 +236,7 @@
         passwordInputForExtras.addEventListener('input', function() {
             const enteredPassword = passwordInputForExtras.value;
             if (enteredPassword === '1169111190824308768') {
-                usernameDisplay.innerHTML = `<span style="color: green;">[Owner]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
+                usernameDisplay.innerHTML = `<span style="color: Blue;">[Owner]</span> ${username}`;
                 cookieAmountInput.style.display = 'inline-block'; // Show custom cookie amount input
                 addCookiesBtn.style.display = 'inline-block';   // Show add cookies button
                 doubleButton.style.display = 'inline-block'; // Show 2x button
