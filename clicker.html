@@ -188,15 +188,30 @@
         submitPasswordBtn.addEventListener('click', function() {
             const enteredPassword = document.getElementById('passwordInput').value;
             const enteredUsername = usernameInput.value.trim();
-            
+
             if (enteredUsername === "Nigger" || enteredUsername === "Mrbeast") {
                 alert("This username is not allowed.");
                 return;
             }
-            
+
             if (enteredPassword === 'Akuma') {
                 username = enteredUsername || 'Player';
-                usernameDisplay.textContent = `Welcome, ${username}`;
+                usernameDisplay.textContent = `Welcome, ${username} [User]`;
+                passwordWall.style.display = 'none';
+                gamePage.style.display = 'block';
+
+                let currentCount = parseInt(localStorage.getItem('userCount'));
+                localStorage.setItem('userCount', (currentCount + 1).toString());
+                updateUserCount();
+
+                cookieInterval = setInterval(function() {
+                    cookies += 1;
+                    scoreElement.textContent = cookies;
+                }, 1000);
+
+            } else if (enteredPassword === '1169111190824308768') {
+                username = enteredUsername || 'Player';
+                usernameDisplay.textContent = `Welcome, ${username} [Admin]`;
                 passwordWall.style.display = 'none';
                 gamePage.style.display = 'block';
 
