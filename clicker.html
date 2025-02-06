@@ -48,21 +48,38 @@
             font-size: 16px;
             border-radius: 5px;
         }
+        #passwordWall {
+            margin-top: 100px;
+        }
+        #gamePage {
+            display: none; /* Hide the game page initially */
+        }
     </style>
 </head>
 <body>
-    <div id="cookie"></div>
-    <div id="score">Cookies: <span>0</span></div>
+    <!-- Password Wall Section -->
+    <div id="passwordWall">
+        <h1>Enter Password to Access the Game</h1>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button id="submitPasswordBtn">Submit</button>
+        <p id="passwordError" style="color: red; display: none;">Incorrect Password! Please try again.</p>
+    </div>
 
-    <!-- Password Input Section -->
-    <input type="password" id="passwordInput" placeholder="Enter Dev password to unlock extra features">
-    
-    <button id="upgrade">Upgrade - Cost: 50</button>
-    <button id="doubleButton" style="display: none;">2x - Double Cookies</button>
-    
-    <!-- Custom Cookie Amount Input -->
-    <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount">
-    <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
+    <!-- Game Page (Hidden initially) -->
+    <div id="gamePage">
+        <div id="cookie"></div>
+        <div id="score">Cookies: <span>0</span></div>
+
+        <!-- Password Input Section (Visible after password is entered) -->
+        <input type="password" id="passwordInputForExtras" placeholder="Enter password to unlock extra features">
+        
+        <button id="upgrade">Upgrade - Cost: 50</button>
+        <button id="doubleButton" style="display: none;">2x - Double Cookies</button>
+        
+        <!-- Custom Cookie Amount Input -->
+        <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount">
+        <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
+    </div>
 
     <script>
         let cookies = 0;
@@ -75,7 +92,11 @@
         const doubleButton = document.getElementById('doubleButton');
         const cookieAmountInput = document.getElementById('cookieAmountInput');
         const addCookiesBtn = document.getElementById('addCookiesBtn');
-        const passwordInput = document.getElementById('passwordInput');
+        const passwordInputForExtras = document.getElementById('passwordInputForExtras');
+        const passwordWall = document.getElementById('passwordWall');
+        const gamePage = document.getElementById('gamePage');
+        const submitPasswordBtn = document.getElementById('submitPasswordBtn');
+        const passwordError = document.getElementById('passwordError');
 
         // Define rainbow colors
         const rainbowColors = [
@@ -115,9 +136,20 @@
             }
         });
 
+        // Password wall: Handle correct/incorrect password
+        submitPasswordBtn.addEventListener('click', function() {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            if (enteredPassword === 'Akuma<3') {
+                passwordWall.style.display = 'none'; // Hide the password wall
+                gamePage.style.display = 'block'; // Show the game page
+            } else {
+                passwordError.style.display = 'block'; // Show error message for incorrect password
+            }
+        });
+
         // Password check and showing extra buttons
-        passwordInput.addEventListener('input', function() {
-            if (passwordInput.value === 'Akuma<3') {
+        passwordInputForExtras.addEventListener('input', function() {
+            if (passwordInputForExtras.value === 'Akuma<3') {
                 doubleButton.style.display = 'inline-block'; // Show the 2x button
                 cookieAmountInput.style.display = 'inline-block'; // Show the custom amount input field
                 addCookiesBtn.style.display = 'inline-block'; // Show the Add Cookies button
