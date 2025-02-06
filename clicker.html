@@ -180,7 +180,7 @@
             if (cookies >= upgradeCost) {
                 cookies -= upgradeCost;
                 cookiesPerClick += 1;
-                upgradeCount += 1000;
+                upgradeCount += 1;
                 upgradeCost = Math.floor(upgradeCost * 1.5);
                 scoreElement.textContent = cookies;
                 upgradeButton.textContent = `Upgrade - Cost: ${upgradeCost}`;
