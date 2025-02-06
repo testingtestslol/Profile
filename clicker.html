@@ -8,7 +8,8 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f5f5f5;
+            background-color: black; /* Set background color to black */
+            color: white; /* Set text color to white */
         }
         #cookie {
             width: 150px;
@@ -51,6 +52,15 @@
         #passwordWall {
             margin-top: 100px;
         }
+        #passwordInput, #cookieAmountInput, #addCookiesBtn {
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+        }
+        #passwordError {
+            color: red;
+            display: none;
+        }
         #gamePage {
             display: none; /* Hide the game page initially */
         }
@@ -62,7 +72,7 @@
         <h1>Enter Password to Access the Game</h1>
         <input type="password" id="passwordInput" placeholder="Enter password">
         <button id="submitPasswordBtn">Submit</button>
-        <p id="passwordError" style="color: red; display: none;">Incorrect Password! Please try again.</p>
+        <p id="passwordError">Incorrect Password! Please try again.</p>
     </div>
 
     <!-- Game Page (Hidden initially) -->
