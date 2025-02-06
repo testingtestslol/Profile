@@ -264,21 +264,15 @@
             }
         });
 
-       // Show shop modal
-        shopButton.addEventListener('click', function() {
-            bgShopModal.style.display = 'block';
+        logoutButton.addEventListener('click', function() {
+            // Reset cookies and hide the game page
+            clearInterval(cookieInterval);
+            cookies = 0;
+            scoreElement.textContent = cookies;
+            usernameDisplay.textContent = 'Welcome, Player!';
+            gamePage.style.display = 'none';
+            passwordWall.style.display = 'flex'; // Show login page
         });
-
-        // Close shop modal
-        closeShopModal.addEventListener('click', function() {
-            bgShopModal.style.display = 'none';
-        });
-
-        window.onclick = function(event) {
-            if (event.target === bgShopModal) {
-                bgShopModal.style.display = 'none';
-            }
-        };
 
         document.getElementById('bg1Btn').addEventListener('click', function() {
             if (cookies >= 100) {
@@ -312,15 +306,6 @@
                 alert("You don't have enough cookies!");
             }
         });
-
-        logoutButton.addEventListener('click', function() {
-            // Reset cookies and hide the game page
-            clearInterval(cookieInterval);
-            cookies = 0;
-            scoreElement.textContent = cookies;
-            usernameDisplay.textContent = 'Welcome, Player!';
-            gamePage.style.display = 'none';
-            passwordWall.style.display = 'flex'; // Show login page
     </script>
 </body>
 </html>
