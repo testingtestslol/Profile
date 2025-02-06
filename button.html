@@ -3,43 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Button</title>
+  <title>Follow Me Box</title>
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-      background-color: #f0f0f0;
+      overflow: hidden;
+      background-color: #222;
     }
-    button {
-      padding: 20px 40px;
-      font-size: 20px;
-      border: none;
+
+    #followBox {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #4CAF50;
       border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    button:hover {
-      transform: scale(1.1);
+      pointer-events: none;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
 <body>
 
-<button id="coolButton">Click Me!</button>
+<div id="followBox"></div>
 
 <script>
-  const button = document.getElementById('coolButton');
-  
-  button.addEventListener('click', () => {
-    button.style.backgroundColor = 'rgba(255, 99, 71, 0.8)';
-    button.innerHTML = "You're Awesome!";
-    setTimeout(() => {
-      button.style.backgroundColor = 'lightblue';
-      button.innerHTML = "Click Me!";
-    }, 2000);
+  const box = document.getElementById('followBox');
+
+  // Move box with mouse
+  document.addEventListener('mousemove', (e) => {
+    box.style.left = `${e.pageX - 50}px`;
+    box.style.top = `${e.pageY - 50}px`;
+  });
+
+  // Change box color when clicked
+  document.addEventListener('click', () => {
+    const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    box.style.backgroundColor = randomColor;
   });
 </script>
 
