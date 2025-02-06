@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        #cookie {
+            width: 150px;
+            height: 150px;
+            background-color: #f4a261;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+        }
+        #score {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #score span {
+            font-size: 50px;
+            color: #2d6a4f;
+        }
+        #upgrade, #doubleButton, #addCookiesBtn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #upgrade:hover, #doubleButton:hover, #addCookiesBtn:hover {
+            background-color: #264c3f;
+        }
+        #passwordInput, #cookieAmountInput {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cookie"></div>
+    <div id="score">Cookies: <span>0</span></div>
+
+    <!-- Password Input Section -->
+    <input type="password" id="passwordInput" placeholder="Enter Dev password to unlock extra features">
+    
+    <button id="upgrade">Upgrade - Cost: 50</button>
+    <button id="doubleButton" style="display: none;">2x - Double Cookies</button>
+    
+    <!-- Custom Cookie Amount Input -->
+    <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount">
+    <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
+
+    <script>
+        let cookies = 0;
+        let cookiesPerClick = 1;
+        let upgradeCost = 50;
+        let upgradeCount = 0; // Track the number of upgrades to change the cookie color
+        const cookieElement = document.getElementById('cookie');
+        const scoreElement = document.getElementById('score').children[0];
+        const upgradeButton = document.getElementById('upgrade');
+        const doubleButton = document.getElementById('doubleButton');
+        const cookieAmountInput = document.getElementById('cookieAmountInput');
+        const addCookiesBtn = document.getElementById('addCookiesBtn');
+        const passwordInput = document.getElementById('passwordInput');
+
+        // Define rainbow colors
+        const rainbowColors = [
+            '#FF0000', // Red
+            '#FF7F00', // Orange
+            '#FFFF00', // Yellow
+            '#00FF00', // Green
+            '#0000FF', // Blue
+            '#4B0082', // Indigo
+            '#9400D3'  // Violet
+        ];
+
+        // Function to change the cookie color based on upgrade count (cycling through rainbow colors)
+        function changeCookieColor() {
+            const colorIndex = upgradeCount % rainbowColors.length; // Cycle through the rainbow colors
+            cookieElement.style.backgroundColor = rainbowColors[colorIndex];
+        }
+
+        // Cookie click event
+        cookieElement.addEventListener('click', function() {
+            cookies += cookiesPerClick;
+            scoreElement.textContent = cookies;
+        });
+
+        // Upgrade event
+        upgradeButton.addEventListener('click', function() {
+            if (cookies >= upgradeCost) {
+                cookies -= upgradeCost;
+                cookiesPerClick += 1; // Increase cookies per click by 1
+                upgradeCount += 1; // Increment the upgrade count
+                upgradeCost = Math.floor(upgradeCost * 1.5); // Increase upgrade cost over time
+                scoreElement.textContent = cookies;
+                upgradeButton.textContent = `Upgrade - Cost: ${upgradeCost}`;
+                changeCookieColor(); // Change the cookie color after the upgrade
+            } else {
+                alert("You don't have enough cookies for this upgrade!");
+            }
+        });
+
+        // Password check and showing extra buttons
+        passwordInput.addEventListener('input', function() {
+            if (passwordInput.value === 'Akuma<3') {
+                doubleButton.style.display = 'inline-block'; // Show the 2x button
+                cookieAmountInput.style.display = 'inline-block'; // Show the custom amount input field
+                addCookiesBtn.style.display = 'inline-block'; // Show the Add Cookies button
+            } else {
+                doubleButton.style.display = 'none'; // Hide the 2x button if wrong password
+                cookieAmountInput.style.display = 'none'; // Hide the input for custom cookies
+                addCookiesBtn.style.display = 'none'; // Hide the Add Cookies button
+            }
+        });
+
+        // Double Cookies on 2x Button click
+        doubleButton.addEventListener('click', function() {
+            cookies *= 2; // Double the total cookies
+            scoreElement.textContent = cookies;
+            alert('Your cookies have been doubled!');
+        });
+
+        // Add custom cookies after entering amount
+        addCookiesBtn.addEventListener('click', function() {
+            const customAmount = parseInt(cookieAmountInput.value);
+            if (!isNaN(customAmount) && customAmount > 0) {
+                cookies += customAmount;
+                scoreElement.textContent = cookies;
+            } else {
+                alert("Please enter a valid number of cookies.");
+            }
+        });
+    </script>
+</body>
+</html>
