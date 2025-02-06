@@ -31,7 +31,7 @@
             font-size: 50px;
             color: #2d6a4f;
         }
-        #upgrade, #doubleButton, #addCookiesBtn {
+        #upgrade, #doubleButton, #addCookiesBtn, #bg1Button, #bg2Button, #bg3Button {
             margin-top: 30px;
             padding: 10px 20px;
             font-size: 16px;
@@ -41,7 +41,7 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        #upgrade:hover, #doubleButton:hover, #addCookiesBtn:hover {
+        #upgrade:hover, #doubleButton:hover, #addCookiesBtn:hover, #bg1Button:hover, #bg2Button:hover, #bg3Button:hover {
             background-color: #264c3f;
         }
         #passwordInput, #cookieAmountInput, #usernameInput {
@@ -101,6 +101,12 @@
         
         <input type="number" id="cookieAmountInput" style="display: none;" placeholder="Enter custom cookies amount" max="9999">
         <button id="addCookiesBtn" style="display: none;">Add Cookies</button>
+
+        <!-- Background Shop Section -->
+        <h3>Background Shop</h3>
+        <button id="bg1Button">Buy Background 1 - 500 Cookies</button>
+        <button id="bg2Button">Buy Background 2 - 1000 Cookies</button>
+        <button id="bg3Button">Buy Background 3 - 1500 Cookies</button>
     </div>
 
     <script>
@@ -123,7 +129,11 @@
         const usernameInput = document.getElementById('usernameInput');
         const usernameDisplay = document.getElementById('usernameDisplay');
         const userCountElement = document.getElementById('userCount');
+        const bg1Button = document.getElementById('bg1Button');
+        const bg2Button = document.getElementById('bg2Button');
+        const bg3Button = document.getElementById('bg3Button');
         let username = '';
+        let currentBg = "url('default.jpg')"; // Initial background
 
         // Initialize user count in localStorage
         if (!localStorage.getItem('userCount')) {
@@ -241,6 +251,55 @@
             } else {
                 alert("Max is 9,999 set by the dev. soz");
                 cookieAmountInput.value = '';
+            }
+        });
+
+        // Background Shop Purchase Handling
+        bg1Button.addEventListener('click', function() {
+            if (cookies >= 500) {
+                cookies -= 500;
+                currentBg = "url('https://images.pexels.com/photos/27487190/pexels-photo-27487190/free-photo-of-jellyfish-in-blue-water-with-a-blue-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"; // Replace with actual background URL
+                document.body.style.backgroundImage = currentBg;
+                scoreElement.textContent = cookies;
+
+                // Disable the button after purchase
+                bg1Button.disabled = true;
+                bg1Button.style.backgroundColor = '#d3d3d3'; // Change to a disabled color
+                bg1Button.style.cursor = 'not-allowed';
+            } else {
+                alert("Not enough cookies!");
+            }
+        });
+
+        bg2Button.addEventListener('click', function() {
+            if (cookies >= 1000) {
+                cookies -= 1000;
+                currentBg = "url('https://images.pexels.com/photos/963278/pexels-photo-963278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"; // Replace with actual background URL
+                document.body.style.backgroundImage = currentBg;
+                scoreElement.textContent = cookies;
+
+                // Disable the button after purchase
+                bg2Button.disabled = true;
+                bg2Button.style.backgroundColor = '#d3d3d3'; // Change to a disabled color
+                bg2Button.style.cursor = 'not-allowed';
+            } else {
+                alert("Not enough cookies!");
+            }
+        });
+
+        bg3Button.addEventListener('click', function() {
+            if (cookies >= 1500) {
+                cookies -= 1500;
+                currentBg = "url('https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"; // Replace with actual background URL
+                document.body.style.backgroundImage = currentBg;
+                scoreElement.textContent = cookies;
+
+                // Disable the button after purchase
+                bg3Button.disabled = true;
+                bg3Button.style.backgroundColor = '#d3d3d3'; // Change to a disabled color
+                bg3Button.style.cursor = 'not-allowed';
+            } else {
+                alert("Not enough cookies!");
             }
         });
     </script>
