@@ -205,7 +205,7 @@
                 gamePage.style.display = 'block';
 
                 let currentCount = parseInt(localStorage.getItem('userCount'));
-                localStorage.setItem('userCount', (currentCount + 10).toString());
+                localStorage.setItem('userCount', (currentCount + 1).toString());
                 updateUserCount();
 
                 cookieInterval = setInterval(function() {
