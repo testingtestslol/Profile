@@ -69,10 +69,10 @@
 <body>
     <!-- Password Wall Section -->
     <div id="passwordWall">
-        <h1>Enter Password and Pick a Username to Access the Game</h1>
+        <h1>Enter Password to Access the Game</h1>
         <input type="text" id="usernameInput" placeholder="Enter Username">
         <input type="password" id="passwordInput" placeholder="Enter password">
-        <button id="submitPasswordBtn">Login</button>
+        <button id="submitPasswordBtn">Submit</button>
         <p id="passwordError">Incorrect Password! Please try again.</p>
     </div>
 
@@ -151,6 +151,12 @@
             const enteredPassword = document.getElementById('passwordInput').value;
             const enteredUsername = usernameInput.value.trim();
             
+            // Blacklist the usernames "N word" and "Mrbeast"
+            if (enteredUsername === "Nigger" || enteredUsername === "Mrbeast") {
+                alert("This username is not allowed.");
+                return; // Don't proceed if the username is blacklisted
+            }
+            
             if (enteredPassword === 'Akuma') {
                 if (enteredUsername !== '') {
                     username = enteredUsername;
@@ -169,8 +175,8 @@
                     scoreElement.textContent = cookies;
                 }, 1000);
 
-            } else if (enteredPassword === 'Password') {
-                alert("Bruh");
+            } else if (enteredPassword === 'password') {
+                alert("bruh");
             } else {
                 passwordError.style.display = 'block';
             }
@@ -202,7 +208,7 @@
                 cookies += customAmount;
                 scoreElement.textContent = cookies;
             } else {
-                alert("Max is 9,999 set by the dev, soz");
+                alert("Max is 9,999 set by the dev. soz");
                 cookieAmountInput.value = '';
             }
         });
