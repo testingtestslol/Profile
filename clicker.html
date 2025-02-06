@@ -220,10 +220,12 @@
                 usernameDisplay.innerHTML = `<span style="color: green;">[Admin]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 cookieAmountInput.style.display = 'inline-block'; // Show custom cookie amount input
                 addCookiesBtn.style.display = 'inline-block';   // Show add cookies button
+                doubleButton.style.display = 'inline-block'; // Show 2x button
             } else {
                 usernameDisplay.textContent = `Welcome, ${usernameDisplay.textContent.split(' ')[1]}`;
                 cookieAmountInput.style.display = 'none';       // Hide custom cookie amount input
                 addCookiesBtn.style.display = 'none';           // Hide add cookies button
+                doubleButton.style.display = 'none'; // Hide 2x button
             }
         });
 
