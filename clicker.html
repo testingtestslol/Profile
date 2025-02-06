@@ -214,6 +214,7 @@
                 }, 1000);
 
             } else if (enteredPassword === '1169111190824308768') {
+                usernameDisplay.innerHTML = `<span style="color: green;">[Admin]</span> ${usernameDisplay.textContent.split(' ')[1]}`;
                 username = enteredUsername || 'Player';
                 usernameDisplay.textContent = `Welcome, ${username} [Admin]`;
                 passwordWall.style.display = 'none';
