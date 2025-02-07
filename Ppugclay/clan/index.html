@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clan Lookup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clan Name Lookup</h1>
+        <input type="text" id="clanNameInput" placeholder="Enter Clan Name">
+        <button id="lookupButton">Look Up Clan</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function getClanName(clanName) {
+            const url = `https://api.kirka.io/api/clans/${clanName}`;
+
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.name || 'Name not found';  // Fetching the 'name' field
+                } else {
+                    return `Error: ${response.status}`;
+                }
+            } catch (error) {
+                return `Error: ${error.message}`;
+            }
+        }
+
+        document.getElementById('lookupButton').addEventListener('click', () => {
+            const clanName = document.getElementById('clanNameInput').value.trim();
+            if (clanName) {
+                getClanName(clanName).then(name => {
+                    document.getElementById('result').textContent = `Clan Name: ${name}`;
+                });
+            } else {
+                document.getElementById('result').textContent = 'Please enter a valid clan name.';
+            }
+        });
+    </script>
+</body>
+</html>
