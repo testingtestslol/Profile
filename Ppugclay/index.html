@@ -191,8 +191,6 @@
     <div class="icon-row" id="iconRow3"></div>
     <!-- 4 Icon Row -->
     <div class="icon-row" id="iconRow4"></div>
-    <!-- css Icon row --> 
-    <div class="icon-row" id="iconRowcss"></div>
     <button onclick="goBack()">Back</button> <!-- Back Button -->
 </div>
     
@@ -216,40 +214,32 @@
         const correctPassword = '#985CBJ'; // Default password
         const specialPassword = '#Y2OOB2'; // First special password
         const special2Password = '#BOFVRC'; // Second special password
-        const newPassword = 'css';
-
 
         function checkPassword() {
-    const passwordInput = document.getElementById('passwordInput').value;
-    const passwordPrompt = document.getElementById('passwordPrompt');
-    
-    if (passwordInput === correctPassword || passwordInput === specialPassword || 
-        passwordInput === special2Password || passwordInput === newPassword || 
-        passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
-        
-        passwordPrompt.classList.add('success');
-        
-        setTimeout(() => {
-            passwordPrompt.classList.remove('success');
-        }, 1000);
-        
-        document.getElementById('passwordPrompt').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-        
-        if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
-            loadSpecialIcons();
-        } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
-            loadSpecial2Icons();
-        } else if (passwordInput === special3Password || passwordInput.toLowerCase() === special3Password.toLowerCase()) {
-            loadSpecial3Icons();
-        } else {
-            loadDefaultIcons();
+            const passwordInput = document.getElementById('passwordInput').value;
+            const passwordPrompt = document.getElementById('passwordPrompt');
+            
+            if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput === special2Password || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
+                passwordPrompt.classList.add('success');
+                
+                setTimeout(() => {
+                    passwordPrompt.classList.remove('success');
+                }, 1000);
+                
+                document.getElementById('passwordPrompt').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+                if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
+                    loadSpecialIcons();
+                } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
+                    loadSpecial2Icons();
+                } else {
+                    loadDefaultIcons();
+                }
+            } else {
+                alert('Incorrect password. Try again.');
+            }
         }
-    } else {
-        alert('Incorrect password. Try again.');
-    }
-}
-
 
         function loadDefaultIcons() {
     const iconRow = document.getElementById('iconRow');
@@ -266,82 +256,59 @@
 
     const iconRow2 = document.getElementById('iconRow2');
     iconRow2.innerHTML = `
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/Blast%20VITA-render-3d.webp" alt="Blast Vita"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/Blast M60-render-3d.webp" alt="Blast m60"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 60,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/Astra-render-3d.webp" alt="Astra"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 600,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/Sleepy-render-3d.webp" alt="Sleepy"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 600,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/1337-render-3d.webp" alt="1337"></div>
-        <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 1,000,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Hellbent-render-3d.webp" alt="Hellbent"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Monarch-render-3d.webp" alt="Monarch"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/LAR/Void%20LAR-render-3d.webp" alt="Void LAR"></div>
+        <div class="icon" onclick="showPopup('Created by: Jacob#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Fluorescent-render.png" alt="Fluorescent"></div>
+        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Dragon-render.png" alt="Dragon"></div>
     `;
-            
-    const iconRow3 = document.getElementById('iconRow3');
-    iconRow3.innerHTML = `
-        <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 40,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Turtle-render-3d.webp" alt="Turtle"></div>
-        <div class="icon" onclick="showPopup('Created by: Unknown#00000 | 200,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Ritual-render-3d.webp" alt="Ritual"></div>
-        <div class="icon" onclick="showPopup('Created by: pyrnjok#DT14X3 | 300,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Twilight-render-3d.webp" alt="Twilight"></div>
-        <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 600,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Cornfield-render-3d.webp" alt="Cornfield"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Blast Bayonet-render-3d.webp" alt="Blast Bayonet"></div>
-        <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 500,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Alpha-render-3d.webp" alt="Alpha"></div>
-        <div class="icon" onclick="showPopup('Created by: Kirka#DG1PO7 + Delta#Y9W4QC | 340,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Or-render-3d.webp" alt="or"></div>
-        <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 800,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Jade-render-3d.webp" alt="Jade"></div>
-    `;
-
-    const iconRow4 = document.getElementById('iconRow4');
-    iconRow4.innerHTML = `
-    <div class="icon" onclick="showPopup('Created by: Meeyah#154LVD | 90,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Vampire-render-3d.webp" alt="Vampire"></div>
-    <div class="icon" onclick="showPopup('Created by: Llama#JP2WSM | 200,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/Eruption-render-3d.webp" alt="Eruption"></div>
-    `;
-        
+    // Add more icons as needed
 }
-
 
         function loadSpecialIcons() {
             const iconRow = document.getElementById('iconRow');
             iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Jaymeson"></div>
+            <div class="icon" onclick="showPopup('Special: Yellow Skin')"><img src="https://path_to_special_skin_image_1.jpg" alt="Yellow Skin"></div>
+            <div class="icon" onclick="showPopup('Special: Red Skin')"><img src="https://path_to_special_skin_image_2.jpg" alt="Red Skin"></div>
             `;
-            
+
+            const iconRow2 = document.getElementById('iconRow2');
+            iconRow2.innerHTML = `
+            <div class="icon" onclick="showPopup('Special: Blue Skin')"><img src="https://path_to_special_skin_image_3.jpg" alt="Blue Skin"></div>
+            <div class="icon" onclick="showPopup('Special: Green Skin')"><img src="https://path_to_special_skin_image_4.jpg" alt="Green Skin"></div>
+            `;
         }
 
         function loadSpecial2Icons() {
             const iconRow = document.getElementById('iconRow');
             iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 1.700.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Gaia-render.png" alt="Gaia"></div>
-                <div class="icon" onclick="showPopup('Created by: Meeyah#154LVD | 1.100.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Ice%20Cold-render-3d.webp" alt="Ice cold"></div>
-                <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 1.400.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/Damascus-render-3d.webp" alt="Damascus"></div>
-            `;
-        }
-         
-        function loadSpecial3Icons() {
-            const iconRow = document.getElementById('iconRow');
-            iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 1.700.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Gaia-render.png" alt="Gaia"></div>
+            <div class="icon" onclick="showPopup('Special2: Purple Skin')"><img src="https://path_to_special2_skin_image_1.jpg" alt="Purple Skin"></div>
+            <div class="icon" onclick="showPopup('Special2: Orange Skin')"><img src="https://path_to_special2_skin_image_2.jpg" alt="Orange Skin"></div>
             `;
         }
 
-        function showPopup(text) {
-            document.getElementById('popup-text').textContent = text;
-            document.getElementById('popup').style.display = 'block';
+        function showPopup(message) {
+            const popup = document.getElementById('popup');
+            const popupText = document.getElementById('popup-text');
+            popupText.textContent = message;
+            popup.style.display = 'block';
         }
 
         function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        function showHelp() {
-            document.getElementById('helpPopup').style.display = 'block'; // Show help popup
-        }
-
-        function closeHelp() {
-            document.getElementById('helpPopup').style.display = 'none'; // Close help popup
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
         }
 
         function goBack() {
-            document.getElementById('content').style.display = 'none';
             document.getElementById('passwordPrompt').style.display = 'block';
-            document.getElementById('passwordInput').value = ''; // Clear the password input field
+            document.getElementById('content').style.display = 'none';
+        }
+
+        function showHelp() {
+            const helpPopup = document.getElementById('helpPopup');
+            helpPopup.style.display = 'block';
+        }
+
+        function closeHelp() {
+            const helpPopup = document.getElementById('helpPopup');
+            helpPopup.style.display = 'none';
         }
     </script>
 </body>
