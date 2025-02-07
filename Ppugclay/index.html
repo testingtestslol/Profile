@@ -178,10 +178,13 @@
     </div>
 
     <div id="content" class="container">
-        <h2>Cool skins</h2>
-        <div class="icon-row" id="iconRow"></div>
-        <button onclick="goBack()">Back</button> <!-- Back Button -->
-    </div>
+    <h2>Cool skins</h2>
+    <!-- First Icon Row -->
+    <div class="icon-row" id="iconRow"></div>
+    <!-- Second Icon Row (New Row) -->
+    <div class="icon-row" id="iconRow2"></div>
+    <button onclick="goBack()">Back</button> <!-- Back Button -->
+</div>
     
     <div class="popup" id="popup">
         <p id="popup-text"></p>
@@ -232,16 +235,24 @@
         }
 
         function loadDefaultIcons() {
-            const iconRow = document.getElementById('iconRow');
-            iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Created by: Pyrnjok#DT14X3 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
-                <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
-                <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Rub1x"></div>
-                <div class="icon" onclick="showPopup('Created by: Boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="PCB"></div>
-                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 2,200,000 | Sprout')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Sprout"></div>
-                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 500,000 | Choco')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Choco"></div>
-            `;
-        }
+    const iconRow = document.getElementById('iconRow');
+    iconRow.innerHTML = `
+        <div class="icon" onclick="showPopup('Created by: Pyrnjok#DT14X3 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
+        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
+        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Rub1x"></div>
+        <div class="icon" onclick="showPopup('Created by: Boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="PCB"></div>
+        <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 2,200,000 | Sprout')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Sprout"></div>
+        <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 500,000 | Choco')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Choco"></div>
+    `;
+
+    const iconRow2 = document.getElementById('iconRow2');
+    iconRow2.innerHTML = `
+        <div class="icon" onclick="showPopup('Created by: Unknown#123456 | 1,000,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
+        <div class="icon" onclick="showPopup('Created by: Unknown#654321 | 1,500,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
+        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Rub1x"></div>
+    `;
+}
+
 
         function loadSpecialIcons() {
             const iconRow = document.getElementById('iconRow');
