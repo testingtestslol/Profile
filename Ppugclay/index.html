@@ -141,6 +141,31 @@
         #passwordPrompt.success {
             animation: successAnimation 1s ease-in-out;
         }
+
+        /* Help Popup */
+        #helpPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+        }
+
+        #helpPopup button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +173,7 @@
     
     <div id="passwordPrompt">
         <h2>Please enter the password to access the page:</h2>
-        <input type="password" id="passwordInput" placeholder="Enter Id">
+        <input type="password" id="passwordInput" placeholder="Enter Password">
         <button onclick="checkPassword()">Submit</button>
     </div>
 
@@ -164,12 +189,13 @@
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <div class="popup" id="helpPopup">
+    <!-- Help Popup -->
+    <div id="helpPopup">
         <p>Passwords:</p>
         <ul>
-            <li>#985CBJ / #985cbj</li>
-            <li>#Y2OOB2 / #y2oob2</li>
-            <li>#BOFVRC / #bofvrc</li>
+            <li>#985CBJ # 985CBJ</li>
+            <li>#Y2OOB2 / Y2OOB2</li>
+            <li>#BOFVRC / BOFVRC</li>
         </ul>
         <button onclick="closeHelp()">Close</button>
     </div>
@@ -184,23 +210,21 @@
             const passwordPrompt = document.getElementById('passwordPrompt');
             
             if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput === special2Password || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
-                // Add success animation to the password prompt
                 passwordPrompt.classList.add('success');
                 
                 setTimeout(() => {
-                    // Reset animation after it finishes
                     passwordPrompt.classList.remove('success');
-                }, 1000); // Duration of the animation
+                }, 1000);
                 
                 document.getElementById('passwordPrompt').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 
                 if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
-                    loadSpecialIcons(); // Load first special icons if password is #Y2OOB2
+                    loadSpecialIcons();
                 } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
-                    loadSpecial2Icons(); // Load second special icons if password is #BOFVRC
+                    loadSpecial2Icons();
                 } else {
-                    loadDefaultIcons(); // Load default icons if password is #985CBJ or its variation
+                    loadDefaultIcons();
                 }
             } else {
                 alert('Incorrect password. Try again.');
@@ -222,7 +246,7 @@
         function loadSpecialIcons() {
             const iconRow = document.getElementById('iconRow');
             iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000)"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Jaymeson"></div>
+                <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Jaymeson"></div>
             `;
         }
 
@@ -238,3 +262,25 @@
         function showPopup(text) {
             document.getElementById('popup-text').textContent = text;
             document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function showHelp() {
+            document.getElementById('helpPopup').style.display = 'block'; // Show help popup
+        }
+
+        function closeHelp() {
+            document.getElementById('helpPopup').style.display = 'none'; // Close help popup
+        }
+
+        function goBack() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('passwordPrompt').style.display = 'block';
+            document.getElementById('passwordInput').value = ''; // Clear the password input field
+        }
+    </script>
+</body>
+</html>
