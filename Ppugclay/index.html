@@ -191,6 +191,8 @@
     <div class="icon-row" id="iconRow3"></div>
     <!-- 4 Icon Row -->
     <div class="icon-row" id="iconRow4"></div>
+    <!-- css Icon row --> 
+    <div class="icon-row" id="iconRowcss"></div>
     <button onclick="goBack()">Back</button> <!-- Back Button -->
 </div>
     
@@ -214,32 +216,40 @@
         const correctPassword = '#985CBJ'; // Default password
         const specialPassword = '#Y2OOB2'; // First special password
         const special2Password = '#BOFVRC'; // Second special password
+        const newPassword = 'css';
+
 
         function checkPassword() {
-            const passwordInput = document.getElementById('passwordInput').value;
-            const passwordPrompt = document.getElementById('passwordPrompt');
-            
-            if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput === special2Password || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
-                passwordPrompt.classList.add('success');
-                
-                setTimeout(() => {
-                    passwordPrompt.classList.remove('success');
-                }, 1000);
-                
-                document.getElementById('passwordPrompt').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                
-                if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
-                    loadSpecialIcons();
-                } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
-                    loadSpecial2Icons();
-                } else {
-                    loadDefaultIcons();
-                }
-            } else {
-                alert('Incorrect password. Try again.');
-            }
+    const passwordInput = document.getElementById('passwordInput').value;
+    const passwordPrompt = document.getElementById('passwordPrompt');
+    
+    if (passwordInput === correctPassword || passwordInput === specialPassword || 
+        passwordInput === special2Password || passwordInput === newPassword || 
+        passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
+        
+        passwordPrompt.classList.add('success');
+        
+        setTimeout(() => {
+            passwordPrompt.classList.remove('success');
+        }, 1000);
+        
+        document.getElementById('passwordPrompt').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        
+        if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
+            loadSpecialIcons();
+        } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
+            loadSpecial2Icons();
+        } else if (passwordInput === special3Password || passwordInput.toLowerCase() === special3Password.toLowerCase()) {
+            loadSpecial3Icons();
+        } else {
+            loadDefaultIcons();
         }
+    } else {
+        alert('Incorrect password. Try again.');
+    }
+}
+
 
         function loadDefaultIcons() {
     const iconRow = document.getElementById('iconRow');
@@ -302,6 +312,13 @@
                 <div class="icon" onclick="showPopup('Created by: Meeyah#154LVD | 1.100.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Ice%20Cold-render-3d.webp" alt="Ice cold"></div>
                 <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 1.400.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/Damascus-render-3d.webp" alt="Damascus"></div>
             `;
+        }
+         
+        function loadSpecial3Icons() {
+            const iconRow = document.getElementById('iconRow');
+            iconRow.innerHTML = `
+                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 1.700.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Gaia-render.png" alt="Gaia"></div>
+                `;
         }
 
         function showPopup(text) {
