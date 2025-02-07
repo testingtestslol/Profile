@@ -159,19 +159,20 @@
         const specialPassword = '#Y2OOB2'; // Special password for different icons
 
         function checkPassword() {
-            const passwordInput = document.getElementById('passwordInput').value;
-            if (passwordInput === correctPassword || passwordInput === specialPassword) {
-                document.getElementById('passwordPrompt').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                if (passwordInput === specialPassword) {
-                    loadSpecialIcons(); // Load special icons if password is #Y2OOB2
-                } else {
-                    loadDefaultIcons(); // Load default icons if password is #985CBJ
-                }
-            } else {
-                alert('Incorrect password. Try again.');
-            }
+    const passwordInput = document.getElementById('passwordInput').value;
+    if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
+        document.getElementById('passwordPrompt').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
+            loadSpecialIcons(); // Load special icons if password is #Y2OOB2 or its variation
+        } else {
+            loadDefaultIcons(); // Load default icons if password is #985CBJ or its variation
         }
+    } else {
+        alert('Incorrect password. Try again.');
+    }
+}
+
 
         function loadDefaultIcons() {
             const iconRow = document.getElementById('iconRow');
