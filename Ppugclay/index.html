@@ -179,6 +179,47 @@
             padding: 10px;
             border-radius: 4px;
         }
+        /* Credits Button */
+#creditsButton {
+    padding: 10px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#creditsButton:hover {
+    background-color: #e68900;
+}
+
+/* Credits Popup */
+#creditsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+}
+
+#creditsPopup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
     </style>
 </head>
 <body>
@@ -187,6 +228,22 @@
         <h2>Please enter the password to access the page:</h2>
         <input type="password" id="passwordInput" placeholder="Enter Id">
         <button onclick="checkPassword()">Submit</button>
+        <!-- Credits Button -->
+<button id="creditsButton" onclick="showCredits()">Credits</button>
+
+<!-- Credits Popup -->
+<div id="creditsPopup">
+    <p>Skins were created by the following users:</p>
+    <ul>
+        <li>Pyrnjok#DT14X3</li>
+        <li>Llama#JP2WSM</li>
+        <li>Gecko#SNIPER</li>
+        <li>Boden#BBDC3T</li>
+        <li>And many more contributors!</li>
+    </ul>
+    <button onclick="closeCredits()">Close</button>
+</div>
+
     
     </div>
 
@@ -345,11 +402,17 @@
             document.getElementById('passwordPrompt').style.display = 'block';
             document.getElementById('passwordInput').value = ''; // Clear the password input field
         }
-         
-         document.getElementById('creditsButton').addEventListener('click', () => {
-            const creditsSection = document.getElementById('credits');
-            creditsSection.style.display = creditsSection.style.display === 'none' ? 'block' : 'none';
-        });
+        
+         // Function to show the credits popup
+function showCredits() {
+    document.getElementById('creditsPopup').style.display = 'block';
+}
+
+// Function to close the credits popup
+function closeCredits() {
+    document.getElementById('creditsPopup').style.display = 'none';
+}
+
     </script>
 </body>
 </html>
