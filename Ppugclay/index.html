@@ -36,7 +36,7 @@
             border: none;
             margin-bottom: 10px;
             width: 100%;
-            text-align: center; /* Center text inside the input */
+            text-align: center;
         }
         button {
             padding: 10px;
@@ -112,7 +112,7 @@
         #helpButton {
             position: absolute;
             top: 10px;
-            right: 10px; /* Changed from left: 10px to right: 10px */
+            right: 10px;
             font-size: 20px;
             cursor: pointer;
             color: white;
@@ -122,6 +122,25 @@
             border-radius: 5px;
         }
 
+        /* Success animation for password entry */
+        @keyframes successAnimation {
+            0% {
+                transform: scale(1);
+                background-color: rgba(0, 255, 0, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: rgba(0, 255, 0, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                background-color: rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        #passwordPrompt.success {
+            animation: successAnimation 1s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -148,85 +167,74 @@
     <div class="popup" id="helpPopup">
         <p>Passwords:</p>
         <ul>
-            <li>#985CBJ # 985CBJ</li>
-            <li>#Y2OOB2 / Y2OOB2</li>
-            <li>#BOFVRC / BOFVRC</li>
+            <li>#985CBJ / #985cbj</li>
+            <li>#Y2OOB2 / #y2oob2</li>
+            <li>#BOFVRC / #bofvrc</li>
         </ul>
         <button onclick="closeHelp()">Close</button>
     </div>
     
     <script>
         const correctPassword = '#985CBJ'; // Default password
-const specialPassword = '#Y2OOB2'; // First special password
-const special2Password = '#BOFVRC'; // Second special password
+        const specialPassword = '#Y2OOB2'; // First special password
+        const special2Password = '#BOFVRC'; // Second special password
 
-function checkPassword() {
-    const passwordInput = document.getElementById('passwordInput').value;
-    if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput === special2Password || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
-        document.getElementById('passwordPrompt').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-        if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
-            loadSpecialIcons(); // Load first special icons if password is #Y2OOB2
-        } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
-            loadSpecial2Icons(); // Load second special icons if password is #BOFVRC
-        } else {
-            loadDefaultIcons(); // Load default icons if password is #985CBJ or its variation
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput').value;
+            const passwordPrompt = document.getElementById('passwordPrompt');
+            
+            if (passwordInput === correctPassword || passwordInput === specialPassword || passwordInput === special2Password || passwordInput.toLowerCase() === correctPassword.toLowerCase()) {
+                // Add success animation to the password prompt
+                passwordPrompt.classList.add('success');
+                
+                setTimeout(() => {
+                    // Reset animation after it finishes
+                    passwordPrompt.classList.remove('success');
+                }, 1000); // Duration of the animation
+                
+                document.getElementById('passwordPrompt').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+                if (passwordInput === specialPassword || passwordInput.toLowerCase() === specialPassword.toLowerCase()) {
+                    loadSpecialIcons(); // Load first special icons if password is #Y2OOB2
+                } else if (passwordInput === special2Password || passwordInput.toLowerCase() === special2Password.toLowerCase()) {
+                    loadSpecial2Icons(); // Load second special icons if password is #BOFVRC
+                } else {
+                    loadDefaultIcons(); // Load default icons if password is #985CBJ or its variation
+                }
+            } else {
+                alert('Incorrect password. Try again.');
+            }
         }
-    } else {
-        alert('Incorrect password. Try again.');
-    }
-}
 
-function loadDefaultIcons() {
-    const iconRow = document.getElementById('iconRow');
-    iconRow.innerHTML = `
-        <div class="icon" onclick="showPopup('Created by: Pyrnjok#DT14X3 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
-        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
-        <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Rub1x"></div>
-        <div class="icon" onclick="showPopup('Created by: Boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="PCB"></div>
-        <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 2,200,000 | Sprout')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Sprout"></div>
-        <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 500,000 | Choco')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Choco"></div>
-    `;
-}
+        function loadDefaultIcons() {
+            const iconRow = document.getElementById('iconRow');
+            iconRow.innerHTML = `
+                <div class="icon" onclick="showPopup('Created by: Pyrnjok#DT14X3 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
+                <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
+                <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Rub1x"></div>
+                <div class="icon" onclick="showPopup('Created by: Boden#BBDC3T | 400,000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="PCB"></div>
+                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 2,200,000 | Sprout')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Sprout"></div>
+                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 500,000 | Choco')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Choco"></div>
+            `;
+        }
 
-function loadSpecialIcons() {
-    const iconRow = document.getElementById('iconRow');
-    iconRow.innerHTML = `
-        <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000)"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Jaymeson"></div>
-    `;
-}
+        function loadSpecialIcons() {
+            const iconRow = document.getElementById('iconRow');
+            iconRow.innerHTML = `
+                <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000)"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Jaymeson"></div>
+            `;
+        }
 
-function loadSpecial2Icons() {
-    const iconRow = document.getElementById('iconRow');
-    iconRow.innerHTML = `
-        <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 1.700.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Gaia-render.png" alt="Gaia"></div>
-        <div class="icon" onclick="showPopup('Created by: Meeyah#154LVD | 1.100.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Ice%20Cold-render-3d.webp" alt="Ice cold"></div>
-        <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 1.400.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/Damascus-render-3d.webp" alt="Damascus"></div>
-    `;
-}
+        function loadSpecial2Icons() {
+            const iconRow = document.getElementById('iconRow');
+            iconRow.innerHTML = `
+                <div class="icon" onclick="showPopup('Created by: Gecko#SNIPER | 1.700.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Gaia-render.png" alt="Gaia"></div>
+                <div class="icon" onclick="showPopup('Created by: Meeyah#154LVD | 1.100.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/Ice%20Cold-render-3d.webp" alt="Ice cold"></div>
+                <div class="icon" onclick="showPopup('Created by: boden#BBDC3T | 1.400.000')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/Damascus-render-3d.webp" alt="Damascus"></div>
+            `;
+        }
 
-function showPopup(text) {
-    document.getElementById('popup-text').textContent = text;
-    document.getElementById('popup').style.display = 'block';
-}
-
-function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-}
-
-function showHelp() {
-    document.getElementById('helpPopup').style.display = 'block'; // Show help popup
-}
-
-function closeHelp() {
-    document.getElementById('helpPopup').style.display = 'none'; // Close help popup
-}
-
-function goBack() {
-    document.getElementById('content').style.display = 'none';
-    document.getElementById('passwordPrompt').style.display = 'block';
-    document.getElementById('passwordInput').value = ''; // Clear the password input field
-}
-    </script>
-</body>
-</html>
+        function showPopup(text) {
+            document.getElementById('popup-text').textContent = text;
+            document.getElementById('popup').style.display = 'block';
