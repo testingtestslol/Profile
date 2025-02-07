@@ -23,6 +23,9 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #passwordPrompt h2 {
             margin-bottom: 20px;
@@ -33,6 +36,7 @@
             border: none;
             margin-bottom: 10px;
             width: 100%;
+            text-align: center; /* Center text inside the input */
         }
         button {
             padding: 10px;
@@ -79,7 +83,7 @@
         }
         .icon:hover {
             transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 0, 0.4);
         }
         .popup {
             display: none;
