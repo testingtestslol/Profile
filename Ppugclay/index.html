@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://irrvlo.xyz/topo.svg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cool Icon Row with Images</h2>
+        <div class="icon-row">
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Icon 1"></div>
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Icon 2"></div>
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="Icon 3"></div>
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Icon 4"></div>
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Icon 5"></div>
+            <div class="icon"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="Icon 6"></div>
+        </div>
+    </div>
+</body>
+</html>
