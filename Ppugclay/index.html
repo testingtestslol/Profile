@@ -16,6 +16,36 @@
             color: white;
             text-align: center;
         }
+        #passwordPrompt {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 300px;
+        }
+        #passwordPrompt h2 {
+            margin-bottom: 20px;
+        }
+        #passwordInput {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
         .container {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -57,7 +87,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: url('https://irrvlo.xyz/topo.svg') no-repeat center center/cover;
+            background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -65,18 +95,26 @@
         }
         .popup p {
             font-size: 20px;
-            color: white;
+            color: black;
         }
         .popup button {
             margin-top: 10px;
             padding: 5px 10px;
             cursor: pointer;
         }
+        #content {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>My top 6 Skins</h2>
+    <div id="passwordPrompt">
+        <h2>Please enter the password to access the page:</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div id="content" class="container">
+        <h2>Cool Icon Row with Popup Menu</h2>
         <div class="icon-row">
             <div class="icon" onclick="showPopup('Created by: Pyrnjok#DT14X3 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Infernal"></div>
             <div class="icon" onclick="showPopup('Created by: Unknown#000000 | TBD')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="V0id"></div>
@@ -94,10 +132,23 @@
     </div>
     
     <script>
+        const correctPassword = '#985CBJ'; // Set your password here
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput').value;
+            if (passwordInput === correctPassword) {
+                document.getElementById('passwordPrompt').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Try again.');
+            }
+        }
+
         function showPopup(text) {
             document.getElementById('popup-text').textContent = text;
             document.getElementById('popup').style.display = 'block';
         }
+        
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
         }
