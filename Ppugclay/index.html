@@ -63,9 +63,9 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-        .popup img {
-            width: 950px;
-            height: 250px;
+        .popup p {
+            font-size: 20px;
+            color: black;
         }
         .popup button {
             margin-top: 10px;
@@ -78,24 +78,24 @@
     <div class="container">
         <h2>Cool Icon Row with Popup Menu</h2>
         <div class="icon-row">
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Icon 1"></div>
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="Icon 2"></div>
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Icon 3"></div>
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="Icon 4"></div>
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Icon 5"></div>
-            <div class="icon" onclick="showPopup('https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Icon 6"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/Infernal-render-3d.webp" alt="Icon 1"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/V0id-render.png" alt="Icon 2"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/Rub1x-render-3d.webp" alt="Icon 3"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/PCB-render-3d.webp" alt="Icon 4"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Sprout-render.png" alt="Icon 5"></div>
+            <div class="icon" onclick="showPopup('Hello')"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Choco-render.png" alt="Icon 6"></div>
         </div>
     </div>
     
     <div class="popup" id="popup">
-        <img id="popup-img" src="" alt="Popup Icon">
+        <p id="popup-text"></p>
         <br>
         <button onclick="closePopup()">Close</button>
     </div>
     
     <script>
-        function showPopup(imageSrc) {
-            document.getElementById('popup-img').src = imageSrc;
+        function showPopup(text) {
+            document.getElementById('popup-text').textContent = text;
             document.getElementById('popup').style.display = 'block';
         }
         function closePopup() {
