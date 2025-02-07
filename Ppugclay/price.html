@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Price Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Item Price Lookup</h1>
+    <label for="item-name">Enter item name:</label>
+    <input type="text" id="item-name" placeholder="Item name...">
+    <button onclick="lookupItem()">Look Up</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function lookupItem() {
+            const itemName = document.getElementById('item-name').value;
+            if (!itemName) {
+                document.getElementById('result').innerHTML = 'Please enter an item name.';
+                return;
+            }
+
+            const apiUrl = 'https://kirka.irrvlo.xyz/api/items';
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Search for the item by name and get its price
+                const item = data.find(i => i.name.toLowerCase() === itemName.toLowerCase());
+
+                if (item) {
+                    // Display the price of the item
+                    document.getElementById('result').innerHTML = `The price of "${itemName}" is: $${item.price}`;
+                } else {
+                    document.getElementById('result').innerHTML = `Item "${itemName}" not found.`;
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Error fetching data.';
+            }
+        }
+    </script>
+
+</body>
+</html>
