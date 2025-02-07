@@ -99,7 +99,7 @@
         }
         .popup p {
             font-size: 20px;
-            color: white;
+            color: White;
         }
         .popup button {
             margin-top: 10px;
@@ -109,16 +109,31 @@
         #content {
             display: none;
         }
+        #helpButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            background: url('https://irrvlo.xyz/topo.svg') no-repeat center center/cover;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+    <button id="helpButton" onclick="showHelp()">?</button> <!-- Help Button -->
+    
     <div id="passwordPrompt">
         <h2>Please enter the password to access the page:</h2>
         <input type="password" id="passwordInput" placeholder="Enter Password">
         <button onclick="checkPassword()">Submit</button>
     </div>
+
     <div id="content" class="container">
-        <h2>Best skins</h2>
+        <h2>Cool Icon Row with Popup Menu</h2>
         <div class="icon-row" id="iconRow"></div>
         <button onclick="goBack()">Back</button> <!-- Back Button -->
     </div>
@@ -127,6 +142,15 @@
         <p id="popup-text"></p>
         <br>
         <button onclick="closePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="helpPopup">
+        <p>Passwords:</p>
+        <ul>
+            <li>#985CBJ</li>
+            <li>#Y2OOB2</li>
+        </ul>
+        <button onclick="closeHelp()">Close</button>
     </div>
     
     <script>
@@ -139,9 +163,9 @@
                 document.getElementById('passwordPrompt').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 if (passwordInput === specialPassword) {
-                    loadSpecialIcons(); // Load special icons if password is #WERWER
+                    loadSpecialIcons(); // Load special icons if password is #Y2OOB2
                 } else {
-                    loadDefaultIcons(); // Load default icons if password is the default
+                    loadDefaultIcons(); // Load default icons if password is #985CBJ
                 }
             } else {
                 alert('Incorrect password. Try again.');
@@ -174,6 +198,14 @@
         
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
+        }
+
+        function showHelp() {
+            document.getElementById('helpPopup').style.display = 'block'; // Show help popup
+        }
+
+        function closeHelp() {
+            document.getElementById('helpPopup').style.display = 'none'; // Close help popup
         }
 
         // Back button function
