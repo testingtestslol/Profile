@@ -118,8 +118,9 @@
         <button onclick="checkPassword()">Submit</button>
     </div>
     <div id="content" class="container">
-        <h2>Cool Icon Row with Popup Menu</h2>
+        <h2>Best skins</h2>
         <div class="icon-row" id="iconRow"></div>
+        <button onclick="goBack()">Back</button> <!-- Back Button -->
     </div>
     
     <div class="popup" id="popup">
@@ -130,7 +131,7 @@
     
     <script>
         const correctPassword = '#985CBJ'; // Default password
-        const specialPassword = '#WERWER'; // Special password for different icons
+        const specialPassword = '#Y2OOB2'; // Special password for different icons
 
         function checkPassword() {
             const passwordInput = document.getElementById('passwordInput').value;
@@ -162,9 +163,7 @@
         function loadSpecialIcons() {
             const iconRow = document.getElementById('iconRow');
             iconRow.innerHTML = `
-                <div class="icon" onclick="showPopup('Special Skin 1')"><img src="https://example.com/special-skin-1.jpg" alt="Special Skin 1"></div>
-                <div class="icon" onclick="showPopup('Special Skin 2')"><img src="https://example.com/special-skin-2.jpg" alt="Special Skin 2"></div>
-                <div class="icon" onclick="showPopup('Special Skin 3')"><img src="https://example.com/special-skin-3.jpg" alt="Special Skin 3"></div>
+                <div class="icon" onclick="showPopup('Created by: skywalk#7VUNQK | 200,000)"><img src="https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/Jaymeson-render.png" alt="Special Skin 1"></div>
             `;
         }
 
@@ -175,6 +174,13 @@
         
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
+        }
+
+        // Back button function
+        function goBack() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('passwordPrompt').style.display = 'block';
+            document.getElementById('passwordInput').value = ''; // Clear the password input field
         }
     </script>
 </body>
