@@ -87,7 +87,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
+            background: url('https://irrvlo.xyz/topo.svg') no-repeat center center/cover;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -95,7 +95,7 @@
         }
         .popup p {
             font-size: 20px;
-            color: black;
+            color: white;
         }
         .popup button {
             margin-top: 10px;
@@ -110,7 +110,7 @@
 <body>
     <div id="passwordPrompt">
         <h2>Please enter the password to access the page:</h2>
-        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <input type="password" id="passwordInput" placeholder="Password">
         <button onclick="checkPassword()">Submit</button>
     </div>
     <div id="content" class="container">
