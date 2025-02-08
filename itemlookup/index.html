@@ -69,7 +69,7 @@
             <option value="Weatie">Weatie</option>
             </select>
          <select id="menu2">
-             <option value="render">Skin</option>
+             <option value="render">render</option>
              <option value="texture">texture</option>
         </select>
         <button onclick="generateContent()">Look up</button>
@@ -116,10 +116,10 @@
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-render-3d.webp";
     } else if (selectedOption === "Weatie") {
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-render-3d.webp";
-    } else if (selectedOption2 === "render") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-"+ selectedOption2 +".webp";
-    } else if (selectedOption2 === "texture") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-"+ selectedOption2 +".webp";
+    } else if (selectedOption2 === "render-3d.webp") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-"+ selectedOption2 +"";
+    } else if (selectedOption2 === "texture.png") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-"+ selectedOption2 +"";
     }
 
     // Reset the content display areas
