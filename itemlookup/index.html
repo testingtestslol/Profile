@@ -48,12 +48,22 @@
 </head>
 <body>
     <h1>Say Something and Generate a Link or Display an Image</h1>
+    <p>Tip. If Vita, Scar, M60, Mac-10, Ar-9, Lar all have to be capital so VITA, SCAR, M60, MAC-10, AR-9, LAR</p>
     <div class="container">
         <input type="text" id="userInput" placeholder="Type something or image URL here...">
         <select id="menu">
             <option value="Characters">Characters</option>
             <option value="VITA">VITA</option>
             <option value="SCAR">SCAR</option>
+            <option value="LAR">LAR</option>
+            <option value="M60">M60</option>
+            <option value="MAC-10">MAC-10</option>
+            <option value="AR-9">AR-9</option>
+            <option value="Shark">Shark</option>
+            <option value="Tomahawk">Tomahawk</option>
+            <option value="Bayonet">Bayonet</option>
+            <option value="Revolver">Revolver</option>
+            <option value="Weatie">Weatie</option>
         </select>
         <button onclick="generateContent()">Generate</button>
     </div>
@@ -75,6 +85,26 @@
                 generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
             } else if (selectedOption === "SCAR") {
                 generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Revolver") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "LAR") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "M60") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "MAC-10") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Tomahawk") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "AR-9") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Shark") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Bayonet") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Revolver") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render.webp";
+            } else if (selectedOption === "Weatie") {
+                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render.webp";
             }
             
             // Reset the content display areas
@@ -86,7 +116,7 @@
                 document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='Image'>";
             } else {
                 // Display the generated link
-                document.getElementById("linkDisplay").innerHTML = "Generated Link: <a href='" + generatedLink + "' target='_blank'>" + generatedLink + "</a>";
+                document.getElementById("linkDisplay").innerHTML = "Generated Link: "+ generatedLink +" ";
                 // Display the generated image
                 document.getElementById("imageDisplay").innerHTML = "<img src='" + generatedLink + "' alt='Generated Image'>";
             }
