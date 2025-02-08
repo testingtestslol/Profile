@@ -77,52 +77,58 @@
 
     <script>
         function generateContent() {
-            var userInput = document.getElementById("userInput").value;
-            var selectedOption = document.getElementById("menu").value;
-            var formattedInput = encodeURIComponent(userInput);
-            
-            // Adjust the link based on the selected option (h, d, s)
-            var generatedLink;
-            if (selectedOption === "Characters") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/" + formattedInput + "-render.png";
-            } else if (selectedOption === "VITA") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "SCAR") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "Revolver") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Revolver/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "LAR") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/LAR/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "M60") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "MAC-10") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "Tomahawk") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "AR-9") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "Shark") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "Bayonet") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + formattedInput + "-render-3d.webp";
-            } else if (selectedOption === "Weatie") {
-                generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + formattedInput + "-render-3d.webp";
-            }
-            
-            // Reset the content display areas
-            document.getElementById("linkDisplay").innerHTML = "";
-            document.getElementById("imageDisplay").innerHTML = "";
+    var userInput = document.getElementById("userInput").value;
+    var selectedOption = document.getElementById("menu").value;
+    var formattedInput = encodeURIComponent(userInput);
 
-            // Check if the input is a valid image URL (basic check for .jpeg, .jpg, .gif, .png, .webp)
-            if (isValidImageURL(userInput)) {
-                document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='" + userInput +"'>";
-            } else {
-                // Display the generated link
-                document.getElementById("linkDisplay").innerHTML = "Skin Name: "+ userInput +" ";
-                // Display the generated image
-                document.getElementById("imageDisplay").innerHTML = "<img src='" + generatedLink + "' alt='If you are seeing this You typed the Skin name wrong Sooo this is a Error'>";
-            }
-        }
+    // Capitalize specific words if they're part of the user input
+    userInput = userInput.replace(/\b(Vita|Scar|M60|Mac-10|Ar-9)\b/g, function(match) {
+        return match.toUpperCase();
+    });
+
+    // Adjust the link based on the selected option (h, d, s)
+    var generatedLink;
+    if (selectedOption === "Characters") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/" + formattedInput + "-render.png";
+    } else if (selectedOption === "VITA") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "SCAR") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "Revolver") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Revolver/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "LAR") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/LAR/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "M60") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "MAC-10") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "Tomahawk") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "AR-9") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "Shark") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "Bayonet") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + formattedInput + "-render-3d.webp";
+    } else if (selectedOption === "Weatie") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + formattedInput + "-render-3d.webp";
+    }
+
+    // Reset the content display areas
+    document.getElementById("linkDisplay").innerHTML = "";
+    document.getElementById("imageDisplay").innerHTML = "";
+
+    // Check if the input is a valid image URL (basic check for .jpeg, .jpg, .gif, .png, .webp)
+    if (isValidImageURL(userInput)) {
+        document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='" + userInput +"'>";
+    } else {
+        // Display the generated link
+        document.getElementById("linkDisplay").innerHTML = "Skin Name: "+ userInput +" ";
+        // Display the generated image
+        document.getElementById("imageDisplay").innerHTML = "<img src='" + generatedLink + "' alt='If you are seeing this You typed the Skin name wrong Sooo this is a Error'>";
+    }
+}
+
 
         // Function to check if the URL is a valid image
         function isValidImageURL(url) {
