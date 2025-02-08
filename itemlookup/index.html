@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link or Image Generator</title>
+    <title>Kirka skin look up</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
             padding: 20px;
             background-image: url('https://irrvlo.xyz/topo.svg'); /* Add the background image */
             background-size: cover; /* Ensure it covers the whole page */
-            color: white; /* Make the text white */
+            color: white;
         }
 
         .container {
@@ -50,10 +50,11 @@
     </style>
 </head>
 <body>
-    <h1>Say Something and Generate a Link or Display an Image</h1>
+    <h1>Kirka skin look up</h1>
     <p>Tip. If Vita, Scar, M60, Mac-10, Ar-9, Lar all have to be capital so VITA, SCAR, M60, MAC-10, AR-9, LAR</p>
+    <p>Thank you SheriffCarry For stuffs</p>
     <div class="container">
-        <input type="text" id="userInput" placeholder="Type something or image URL here...">
+        <input type="text" id="userInput" placeholder="Item name">
         <select id="menu">
             <option value="Characters">Characters</option>
             <option value="VITA">VITA</option>
@@ -114,7 +115,7 @@
 
             // Check if the input is a valid image URL (basic check for .jpeg, .jpg, .gif, .png, .webp)
             if (isValidImageURL(userInput)) {
-                document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='Image'>";
+                document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='" + userInput +"'>";
             } else {
                 // Display the generated link
                 document.getElementById("linkDisplay").innerHTML = "Skin Name: "+ userInput +" ";
