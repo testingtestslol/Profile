@@ -9,39 +9,26 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-            background-image: url('https://irrvlo.xyz/topo.svg'); /* Add the background image */
-            background-size: cover; /* Ensure it covers the whole page */
+            background-image: url('https://irrvlo.xyz/topo.svg');
+            background-size: cover;
+	    height: 98vh;
             color: white;
         }
-
         .container {
             margin-top: 30px;
         }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            width: 200px;
-            margin-right: 10px;
-        }
-
-        select {
+        input, select, button {
             padding: 10px;
             font-size: 16px;
             margin-right: 10px;
         }
-
         button {
-            padding: 10px;
-            font-size: 16px;
             cursor: pointer;
         }
-
         .generated-link, .generated-image {
             margin-top: 20px;
             font-size: 20px;
         }
-
         img {
             max-width: 100%;
             height: auto;
@@ -52,22 +39,11 @@
 <body>
     <h1>Kirka skin look up</h1>
     <p>Thank you SheriffCarry For stuffs</p>
+    <p>Akuma's code sucks, thanks to glitchy for the pr</p>
+    <p>-  <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.imgflip.com%2F3m29v9.jpg&f=1&nofb=1&ipt=235cdc2cabfad2e055b6219ef1b909da67c2c881cef20a1bd9d5370feddfd1ad&ipo=images" target="_blank">Glitchy</a></p>
     <div class="container">
         <input type="text" id="userInput" placeholder="Item name">
-        <select id="menu">
-            <option value="Characters">Characters</option>
-            <option value="VITA">VITA</option>
-            <option value="SCAR">SCAR</option>
-            <option value="LAR">LAR</option>
-            <option value="M60">M60</option>
-            <option value="MAC-10">MAC-10</option>
-            <option value="AR-9">AR-9</option>
-            <option value="Shark">Shark</option>
-            <option value="Tomahawk">Tomahawk</option>
-            <option value="Bayonet">Bayonet</option>
-            <option value="Revolver">Revolver</option>
-            <option value="Weatie">Weatie</option>
-        </select>
+        <select id="menu"></select>
         <button onclick="generateContent()">Look up</button>
     </div>
 
@@ -75,63 +51,41 @@
     <div class="generated-image" id="imageDisplay"></div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', populateDropdown);
+
+        const weaponTypes = [
+            "Characters",
+            "VITA",
+            "SCAR",
+            "LAR",
+            "M60",
+            "MAC-10",
+            "AR-9",
+            "Shark",
+            "Tomahawk",
+            "Bayonet",
+            "Revolver",
+            "Weatie"
+        ];
+
+        function populateDropdown() {
+            const menu = document.getElementById('menu');
+            weaponTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.innerText = type;
+                menu.appendChild(option);
+            });
+        }
+
         function generateContent() {
-    var userInput = document.getElementById("userInput").value;
-    var selectedOption = document.getElementById("menu").value;
-    var formattedInput = encodeURIComponent(userInput);
-
-    // Capitalize specific words if they're part of the user input
-    userInput = userInput.replace(/\b(Vita|Scar|M60|Mac-10|Ar-9|vita|scar|m60|mac-10|ar-9|ViTa|vItA|VitA|Lar|lar)\b/g, function(match) {
-        return match.toUpperCase();
-    });
-
-    // Adjust the link based on the selected option (h, d, s)
-    var generatedLink;
-    if (selectedOption === "Characters") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/" + userInput + "-render.png";
-    } else if (selectedOption === "VITA") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/VITA/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "SCAR") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/SCAR/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "Revolver") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Revolver/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "LAR") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/LAR/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "M60") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/M60/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "MAC-10") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/MAC-10/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "Tomahawk") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Tomahawk/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "AR-9") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/AR-9/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "Shark") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Shark/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "Bayonet") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-render-3d.webp";
-    } else if (selectedOption === "Weatie") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-render-3d.webp";
-    } 
-            
-    // Reset the content display areas
-    document.getElementById("linkDisplay").innerHTML = "";
-    document.getElementById("imageDisplay").innerHTML = "";
-
-    // Check if the input is a valid image URL (basic check for .jpeg, .jpg, .gif, .png, .webp)
-    if (isValidImageURL(userInput)) {
-        document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='" + userInput +"'>";
-    } else {
-        // Display the generated link
-        document.getElementById("linkDisplay").innerHTML = "Skin Name: "+ userInput +" ";
-        // Display the generated image
-        document.getElementById("imageDisplay").innerHTML = "<img src='" + generatedLink + "' alt='If you are seeing this You typed the Skin name wrong Sooo this is a Error'>";
-    }
-}
-
-
-        // Function to check if the URL is a valid image
-        function isValidImageURL(url) {
-            return (url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null);
+            const userInput = document.getElementById("userInput").value.trim();
+            const selectedOption = document.getElementById("menu").selectedOptions[0].innerText;
+            const formattedInput = userInput.replace(/\b(vita|scar|m60|mac-10|ar-9|lar)\b/gi, match => match.toUpperCase());
+            const baseURL = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/";
+            const suffix = selectedOption === "Characters" ? "-render.png" : "-render-3d.webp";
+            const generatedLink = `${baseURL}${selectedOption}/${formattedInput}${suffix}`;
+            document.getElementById("linkDisplay").textContent = `Skin Name: ${formattedInput}`;
+            document.getElementById("imageDisplay").innerHTML = `<img src="${generatedLink}" alt="If you are seeing this You typed the Skin name wrong Sooo this is a Error">`;
         }
     </script>
 </body>
