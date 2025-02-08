@@ -67,6 +67,9 @@
             <option value="Bayonet">Bayonet</option>
             <option value="Revolver">Revolver</option>
             <option value="Weatie">Weatie</option>
+         <select id="menu2">
+             <option value="render">Skin</option>
+             <option value="texture">texture</option>
         </select>
         <button onclick="generateContent()">Look up</button>
     </div>
@@ -78,6 +81,7 @@
         function generateContent() {
     var userInput = document.getElementById("userInput").value;
     var selectedOption = document.getElementById("menu").value;
+    var selectedOption2 = document.getElementById("menu2").value;
     var formattedInput = encodeURIComponent(userInput);
 
     // Capitalize specific words if they're part of the user input
@@ -111,6 +115,10 @@
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-render-3d.webp";
     } else if (selectedOption === "Weatie") {
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-render-3d.webp";
+    } else if (selectedOption2 === "render") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-"+ selectedOption2 +".webp";
+    } else if (selectedOption2 === "texture") {
+        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-"+ selectedOption2 +".webp";
     }
 
     // Reset the content display areas
