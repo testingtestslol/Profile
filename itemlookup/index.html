@@ -78,7 +78,6 @@
         function generateContent() {
     var userInput = document.getElementById("userInput").value;
     var selectedOption = document.getElementById("menu").value;
-    var selectedOption2 = document.getElementById("menu2").value;
     var formattedInput = encodeURIComponent(userInput);
 
     // Capitalize specific words if they're part of the user input
@@ -112,12 +111,8 @@
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-render-3d.webp";
     } else if (selectedOption === "Weatie") {
         generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-render-3d.webp";
-    } else if (selectedOption2 === "render-3d.webp") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Bayonet/" + userInput + "-"+ selectedOption2 +"";
-    } else if (selectedOption2 === "texture.png") {
-        generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Weatie/" + userInput + "-"+ selectedOption2 +"";
-    }
-
+    } 
+            
     // Reset the content display areas
     document.getElementById("linkDisplay").innerHTML = "";
     document.getElementById("imageDisplay").innerHTML = "";
