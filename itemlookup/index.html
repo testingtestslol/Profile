@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link or Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .generated-link, .generated-image {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Say Something and Generate a Link or Display an Image</h1>
+    <div class="container">
+        <input type="text" id="userInput" placeholder="Type something or image URL here...">
+        <button onclick="generateContent()">Generate</button>
+    </div>
+
+    <div class="generated-link" id="linkDisplay"></div>
+    <div class="generated-image" id="imageDisplay"></div>
+
+    <script>
+        function generateContent() {
+            var userInput = document.getElementById("userInput").value;
+            var formattedInput = encodeURIComponent(userInput);
+            var generatedLink = "https://raw.githubusercontent.com/SheriffCarry-backup/KirkaSkins/main/Characters/" + formattedInput + "-render.png";
+            
+            // Reset the content display areas
+            document.getElementById("linkDisplay").innerHTML = "";
+            document.getElementById("imageDisplay").innerHTML = "";
+
+            // Check if the input is a valid image URL (basic check for .jpeg, .jpg, .gif, .png)
+            if (isValidImageURL(userInput)) {
+                document.getElementById("imageDisplay").innerHTML = "<img src='" + userInput + "' alt='Image'>";
+            } else {
+                // Generate and display the GitHub image link, and display the image itself
+                document.getElementById("linkDisplay").innerHTML = "Generated Link: <a href='" + generatedLink + "' target='_blank'>" + generatedLink + "</a>";
+                document.getElementById("imageDisplay").innerHTML = "<img src='" + generatedLink + "' alt='Generated Image'>";
+            }
+        }
+
+        // Function to check if the URL is a valid image
+        function isValidImageURL(url) {
+            return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+        }
+    </script>
+</body>
+</html>
