@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Overlay Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .base-image, .overlay-image {
+            width: 400px; 
+            height: auto;
+        }
+        .overlay-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Image Overlay Tool</h2>
+    <div class="container">
+        <label>Base Image URL:</label>
+        <input type="text" id="baseImageUrl" placeholder="Enter Base Image URL"><br><br>
+        
+        <label>Overlay Image URL:</label>
+        <input type="text" id="overlayImageUrl" placeholder="Enter Overlay Image URL"><br><br>
+        
+        <button onclick="updateImages()">Show Images</button>
+        <button onclick="saveImage()">Save Image</button>
+    </div>
+
+    <div class="container">
+        <h3>Result:</h3>
+        <div class="image-wrapper">
+            <canvas id="canvas" width="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        function updateImages() {
+            const baseUrl = document.getElementById("baseImageUrl").value;
+            const overlayUrl = document.getElementById("overlayImageUrl").value;
+            
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const baseImage = new Image();
+            const overlayImage = new Image();
+            
+            baseImage.crossOrigin = "anonymous";
+            overlayImage.crossOrigin = "anonymous";
+            
+            baseImage.src = baseUrl;
+            overlayImage.src = overlayUrl;
+            
+            baseImage.onload = function() {
+                canvas.height = baseImage.height * (400 / baseImage.width);
+                ctx.drawImage(baseImage, 0, 0, 400, canvas.height);
+                overlayImage.onload = function() {
+                    ctx.globalAlpha = 0.7;
+                    ctx.drawImage(overlayImage, 0, 0, 400, canvas.height);
+                };
+            };
+        }
+
+        function saveImage() {
+            const canvas = document.getElementById("canvas");
+            const link = document.createElement("a");
+            link.download = "overlayed-image.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
