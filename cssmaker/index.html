@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shity css "maker"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        pre {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CSS Image Generator</h1>
+        <p>Enter an image URL and it will Make The CSS style!</p>
+      <p>First You put in a Background Image, Next Put in a Logo image, That's all i did for now Lol</p>
+
+        <input type="text" id="imageUrl" placeholder="Enter Custom Backgorund image URL" required><br>
+                <input type="text" id="textLogo" placeholder="Enter Custom logo image" value="textLogo"><br>
+
+        <button type="button" id="generateBtn">Get CSS</button>
+
+        <div id="cssOutput" class="hidden">
+            <h3>Generated CSS:</h3>
+            <pre id="cssCode"></pre>
+            <button id="copyBtn" class="hidden">Copy CSS Code</button>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const imageUrlInput = document.getElementById('imageUrl');
+        const textLogoInput = document.getElementById('textLogo');
+        const cssOutput = document.getElementById('cssOutput');
+        const cssCode = document.getElementById('cssCode');
+        const copyBtn = document.getElementById('copyBtn');
+
+        generateBtn.addEventListener('click', () => {
+            const imageUrl = imageUrlInput.value;
+            const textLogo = textLogoInput.value;
+
+            if (imageUrl) {
+                const css = `
+:root {
+--bg-image: url(${imageUrl});
+}
+/* Custom Backgorund */
+#app > div.interface.text-2 > div.background {
+/* Custom Backgorund */
+#app > div.interface.text-2 > div.backround {
+background-image: var(${imageUrl}) !important;
+background-size: cover !important;
+}
+/* Custom Backgorund */
+#app > div.interface.text-2 > div.background {
+    background-image: var(${imageUrl}) !important;
+    background-size: cover !important;
+}
+repeat;
+
+    background-size: cover;
+    -webkit-animation: loopPattern 40s linear infinite;
+    animation: loopPattern 40s linear infinite;
+    opacity: unset !important;
+}
+#logo {
+content: url('${textLogo}');
+}
+
+
+@keyframes loopPattern-data-v-50a88834 {
+    0% {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100vh;
+    }
+}
+
+@keyframes loopPattern-data-v-50a88834 {
+    0% {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100vh;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 1px #000, 0 0 2px var(--primary-1),
+            0 0 30px var(--primary-1), 0 0 4px var(--primary-1),
+            0 0 5px var(--primary-1), 0 0 6px var(--primary-1),
+            0 0 7px var(--primary-1);
+    }
+
+    to {
+        text-shadow: 0 0 2px var(--primary-1), 0 0 3px var(--secondary-7),
+            0 0 4px var(--secondary-7), 0 0 5px var(--secondary-7),
+            0 0 6px var(--secondary-7), 0 0 7px var(--secondary-7),
+            0 0 8px var(--secondary-7);
+    }
+}
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+
+    65% {
+        transform: translate(0, 15px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
+}
+                `;
+
+                cssCode.textContent = css;
+                cssOutput.classList.remove('hidden');
+                copyBtn.classList.remove('hidden');
+            } else {
+                alert("Please enter a valid image URL.");
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const range = document.createRange();
+            range.selectNode(cssCode);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+        });
+    </script>
+
+</body>
+</html>
