@@ -87,23 +87,32 @@
 }
 /* Custom Backgorund */
 #app > div.interface.text-2 > div.background {
-/* Custom Backgorund */
-#app > div.interface.text-2 > div.backround {
-background-image: url('${imageUrl}');
+background-image: var(--bg-image) !important;
 background-size: cover !important;
 }
 /* Custom Backgorund */
 #app > div.interface.text-2 > div.background {
-    background-image: url('${imageUrl}');
+    background-image: var(--bg-image) !important;
     background-size: cover !important;
 }
 repeat;
-
+{
     background-size: cover;
     -webkit-animation: loopPattern 40s linear infinite;
     animation: loopPattern 40s linear infinite;
     opacity: unset !important;
 }
+/* Background */
+#app > div.interface > div.background {
+    background-image: var(--bg-image) !important;
+    background-size: cover !important;
+}
+
+#app > div.interface > div.background > div.pattern-bg,
+#app > div.interface > div.background > div.bg-radial {
+    display: none !important;
+}
+
 #logo {
 content: url('${textLogo}');
 }
