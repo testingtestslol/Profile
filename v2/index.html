@@ -85,7 +85,7 @@
                 // Check if user is playing something
                 const playingActivity = activities.find(activity => activity.type === 0); // Type 0 = playing
                 if (playingActivity) {
-                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || '-'})`;
+                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
                 } else {
                     activityElement.textContent = "";
                 }
