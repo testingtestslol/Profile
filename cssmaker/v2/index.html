@@ -88,32 +88,93 @@
             if (imageUrl) {
                 const css = `
 :root {
-    --bg-image: url(${imageUrl});
-}
 
-/* Custom Background */
+:root {
+--bg-image: url(${imageUrl});
+}
+/* Custom Backgorund */
+#app > div.interface.text-2 > div.background {
+background-image: var(--bg-image) !important;
+background-size: cover !important;
+}
+/* Custom Backgorund */
 #app > div.interface.text-2 > div.background {
     background-image: var(--bg-image) !important;
     background-size: cover !important;
 }
+repeat;
+{
+    background-size: cover;
+    -webkit-animation: loopPattern 40s linear infinite;
+    animation: loopPattern 40s linear infinite;
+    opacity: unset !important;
+}
+/* Background */
+#app > div.interface > div.background {
+    background-image: var(--bg-image) !important;
+    background-size: cover !important;
+}
 
-/* Logo */
+#app > div.interface > div.background > div.pattern-bg,
+#app > div.interface > div.background > div.bg-radial {
+    display: none !important;
+}
+
 #logo {
-    content: url('${textLogo}');
+content: url('${textLogo}');
 }
 
-/* Background Pattern Animation */
-@keyframes loopPattern {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100vh; }
+
+@keyframes loopPattern-data-v-50a88834 {
+    0% {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100vh;
+    }
 }
 
-/* Floating Effect */
+@keyframes loopPattern-data-v-50a88834 {
+    0% {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100vh;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 1px #000, 0 0 2px var(--primary-1),
+            0 0 30px var(--primary-1), 0 0 4px var(--primary-1),
+            0 0 5px var(--primary-1), 0 0 6px var(--primary-1),
+            0 0 7px var(--primary-1);
+    }
+
+    to {
+        text-shadow: 0 0 2px var(--primary-1), 0 0 3px var(--secondary-7),
+            0 0 4px var(--secondary-7), 0 0 5px var(--secondary-7),
+            0 0 6px var(--secondary-7), 0 0 7px var(--secondary-7),
+            0 0 8px var(--secondary-7);
+    }
+}
 @keyframes floating {
-    0% { transform: translate(0, 0px); }
-    65% { transform: translate(0, 15px); }
-    100% { transform: translate(0, -0px); }
+    from {
+        transform: translate(0, 0px);
+    }
+
+    65% {
+        transform: translate(0, 15px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
 }
+                
+
                 `.trim();
 
                 cssCode.textContent = css;
