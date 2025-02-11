@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shitty CSS "Maker"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #606060;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        pre {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            text-align: left;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CSS "Generator"</h1>
+        <p>Enter an image URL and it will generate CSS for you!</p>
+        <p>First, enter a Background Image, then a Logo Image.</p>
+        <p>Discord image links may sometimes work.</p>
+
+        <input type="text" id="imageUrl" placeholder="Enter Background Image URL" required><br>
+        <input type="text" id="textLogo" placeholder="Enter Logo Image URL"><br>
+
+        <button type="button" id="generateBtn">Generate CSS</button>
+
+        <div id="cssOutput" class="hidden">
+            <h3>Generated CSS:</h3>
+            <pre id="cssCode"></pre>
+            <button id="copyBtn" class="hidden">Copy CSS</button>
+            <button id="downloadBtn" class="hidden">Download CSS</button>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const imageUrlInput = document.getElementById('imageUrl');
+        const textLogoInput = document.getElementById('textLogo');
+        const cssOutput = document.getElementById('cssOutput');
+        const cssCode = document.getElementById('cssCode');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        generateBtn.addEventListener('click', () => {
+            const imageUrl = imageUrlInput.value.trim();
+            const textLogo = textLogoInput.value.trim();
+
+            if (imageUrl) {
+                const css = `
+:root {
+    --bg-image: url(${imageUrl});
+}
+
+/* Custom Background */
+#app > div.interface.text-2 > div.background {
+    background-image: var(--bg-image) !important;
+    background-size: cover !important;
+}
+
+/* Logo */
+#logo {
+    content: url('${textLogo}');
+}
+
+/* Background Pattern Animation */
+@keyframes loopPattern {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
+
+/* Floating Effect */
+@keyframes floating {
+    0% { transform: translate(0, 0px); }
+    65% { transform: translate(0, 15px); }
+    100% { transform: translate(0, -0px); }
+}
+                `.trim();
+
+                cssCode.textContent = css;
+                cssOutput.classList.remove('hidden');
+                copyBtn.classList.remove('hidden');
+                downloadBtn.classList.remove('hidden');
+            } else {
+                alert("Please enter a valid image URL.");
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const textArea = document.createElement("textarea");
+            textArea.value = cssCode.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("CSS copied to clipboard!");
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            const blob = new Blob([cssCode.textContent], { type: "text/css" });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = "generated.css";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(a.href), 100);
+        });
+    </script>
+
+</body>
+</html>
