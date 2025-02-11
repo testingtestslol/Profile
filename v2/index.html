@@ -20,17 +20,43 @@
             color: green;
         }
         .offline {
-            color: Gray;
+            color: gray;
         }
         .dnd {
-            color: Red;
+            color: red;
+        }
+        #activity, #custom-status {
+            font-size: 20px;
+            margin-top: 10px;
+            color: orange;
         }
     </style>
 </head>
 <body>
     <h1>Hey :3</h1>
     <div id="status">Checking...</div>
-
+    <div id="activity"></div>
+    <div id="custom-status"></div>
+    <link rel="stylesheet" href="https://akuma-doesnt-get-paid.github.io/v2/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <span id="battery">Loading...</span> <i class="fa-solid fa-battery-three-quarters" style="color: #76baff;"></i>
+    <script>
+        const bt = document.getElementById('battery');  
+        function updateBatteryStatus(battery) {  
+            bt.innerHTML = `${Math.floor(battery.level * 100)}%`; 
+            if (battery.charging) {    
+                bt.innerHTML += ' (Its in 👀)';  
+            }   
+        }  
+        function batteryUpdate() {   
+            navigator.getBattery().then(battery => {     
+                updateBatteryStatus(battery);    
+                battery.addEventListener('levelchange', () => updateBatteryStatus(battery));      
+                battery.addEventListener('chargingchange', () => updateBatteryStatus(battery));    
+            });   
+        }    
+        document.addEventListener('DOMContentLoaded', batteryUpdate);
+    </script>
     <script>
         async function checkStatus() {
             const response = await fetch("https://api.lanyard.rest/v1/users/1169111190824308768");
@@ -38,8 +64,13 @@
 
             if (data.success) {
                 const status = data.data.discord_status;
+                const activities = data.data.activities;
+                const customStatus = data.data.activities.find(activity => activity.type === 4); // Type 4 = custom status
                 const statusElement = document.getElementById("status");
-                
+                const activityElement = document.getElementById("activity");
+                const customStatusElement = document.getElementById("custom-status");
+
+                // Set status color and text
                 if (status === "online") {
                     statusElement.textContent = "Online";
                     statusElement.className = "online";
@@ -49,6 +80,21 @@
                 } else {
                     statusElement.textContent = "Offline";
                     statusElement.className = "offline";
+                }
+
+                // Check if user is playing something
+                const playingActivity = activities.find(activity => activity.type === 0); // Type 0 = playing
+                if (playingActivity) {
+                    activityElement.textContent = `Playing: ${playingActivity.name}`;
+                } else {
+                    activityElement.textContent = "";
+                }
+
+                // Display custom status if available
+                if (customStatus && customStatus.state) {
+                    customStatusElement.textContent = `Status: ${customStatus.state}`;
+                } else {
+                    customStatusElement.textContent = "";
                 }
             } else {
                 document.getElementById("status").textContent = "Error fetching status";
@@ -60,22 +106,3 @@
     </script>
 </body>
 </html>
-<link rel="stylesheet" href="https://akuma-doesnt-get-paid.github.io/v2/assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<span id="battery">Loading...</span> <i class="fa-solid fa-battery-three-quarters" style="color: #76baff;"></i>
-<script>
-    const bt = document.getElementById('battery');  
-function updateBatteryStatus(battery) {  
-  bt.innerHTML = `${Math.floor(battery.level * 100)}%`; 
-  if (battery.charging) {    
-    bt.innerHTML += ' (Its in 👀)';  
-  }    }  
-function batteryUpdate() {   
-  navigator.getBattery().then(battery => {     
-    updateBatteryStatus(battery);    
-    battery.addEventListener('levelchange', () => updateBatteryStatus(battery));      
-    battery.addEventListener('chargingchange', () => updateBatteryStatus(battery));    
-  });   
-}    
-document.addEventListener('DOMContentLoaded', batteryUpdate);
-</script>
