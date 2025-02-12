@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Price Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+        }
+        #price {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Item Price Lookup</h1>
+    <input type="text" id="name" placeholder="Enter item name">
+    <button onclick="fetchPrice()">Check Price</button>
+    
+    <p>Price: <span id="price">-</span></p>
+
+    <script>
+        function fetchPrice() {
+            const name = document.getElementById("name").price;
+            if (!name) {
+                alert("Please enter an item name.");
+                return;
+            }
+
+            const apiUrl = `https://kirka.irrvlo.xyz/api/items?name=${encodeURIComponent(name)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.price !== undefined) {
+                        document.getElementById("price").textContent = `${price}`;
+                    } else {
+                        document.getElementById("price").textContent = "Not Found";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching price:", error);
+                    document.getElementById("price").textContent = "Error fetching price.";
+                });
+        }
+    </script>
+
+</body>
+</html>
