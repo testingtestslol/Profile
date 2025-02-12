@@ -69,6 +69,7 @@
                 const statusElement = document.getElementById("status");
                 const activityElement = document.getElementById("activity");
                 const customStatusElement = document.getElementById("custom-status");
+                const IfgameElement = document.getElementById("Ifgame");
 
                 // Set status color and text
                 if (status === "online") {
@@ -85,7 +86,7 @@
                 // Check if user is playing something
                 const playingActivity = activities.find(activity => activity.type === 0); // Type 0 = playing
                 if (playingActivity) {
-                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
+                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'}) Playing: ${Ifgame}`;
                 } else {
                     activityElement.textContent = "";
                 }
