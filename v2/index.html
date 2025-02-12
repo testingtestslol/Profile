@@ -68,8 +68,7 @@
                 const customStatus = data.data.activities.find(activity => activity.type === 4); // Type 4 = custom status
                 const statusElement = document.getElementById("status");
                 const activityElement = document.getElementById("activity");
-                const customStatusElement = document.getElementById("custom-status");
-                const ifgameElement = document.getElementById("ifgame");
+                const customStatusElement = document.getElementById("custom-status")
 
                 // Set status color and text
                 if (status === "online") {
@@ -86,7 +85,7 @@
                 // Check if user is playing something
                 const playingActivity = activities.find(activity => activity.type === 0); // Type 0 = playing
                 if (playingActivity) {
-                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'}) Playing: ${ifgame}`;
+                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
                 } else {
                     activityElement.textContent = "";
                 }
