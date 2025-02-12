@@ -24,20 +24,20 @@
 <body>
 
     <h1>Item Price Lookup</h1>
-    <input type="text" id="name" placeholder="Enter item name">
+    <input type="text" id="name2" placeholder="Enter item name">
     <button onclick="fetchPrice()">Check Price</button>
     
     <p>Price: <span id="price">-</span></p>
 
     <script>
         function fetchPrice() {
-            const name = document.getElementById("name").price;
-            if (!name) {
+            const name2 = document.getElementById("name2").price;
+            if (!name2) {
                 alert("Please enter an item name.");
                 return;
             }
 
-            const apiUrl = `https://kirka.irrvlo.xyz/api/items?name=${encodeURIComponent(name)}`;
+            const apiUrl = `https://kirka.irrvlo.xyz/api/items?name=${name2}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
