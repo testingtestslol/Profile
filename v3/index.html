@@ -92,7 +92,8 @@
                 const activityElement = document.getElementById("activity");
                 const customStatusElement = document.getElementById("custom-status");
                 const gameImageElement = document.getElementById("game-image");
-                const spotifyElement = document.getElementById("spotify");
+                const spotifysongElement = document.getElementById("spotify");
+                const spotifyartistElement = document.getElementById("spotify");
 
                 statusElement.classList.remove("online", "offline", "dnd");
 
@@ -129,12 +130,18 @@
 
                 // Spotify Listening Status
                 if (spotify) {
-                    spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> 
-                    by <strong>${spotify.artist}</strong>
-                    on <strong>${spotify.album}</strong>`;
-                    spotifyElement.style.display = 'block';
+                    spotifysongElement.innerHTML = `Listening to: <strong>${spotify.song}</strong>`;
+                    
+                    spotifysongElement.style.display = 'block';
                 } else {
-                    spotifyElement.style.display = 'none';
+                    spotifysongElement.style.display = 'none';
+                }
+                if (spotify) {
+                    spotifyartistElement.innerHTML = `By: <strong>${spotify.artist}</strong>`;
+                    
+                    spotifyartistElement.style.display = 'block';
+                } else {
+                    spotifyartistElement.style.display = 'none';
                 }
 
             } catch (error) {
