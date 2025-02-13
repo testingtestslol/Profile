@@ -129,7 +129,9 @@
 
                 // Spotify Listening Status
                 if (spotify) {
-                    spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> by <strong>${spotify.artist}</strong> on <strong>${spotify.album}</strong>`;
+                    spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> 
+                    by <strong>${spotify.artist}</strong>
+                    on <strong>${spotify.album}</strong>`;
                     spotifyElement.style.display = 'block';
                 } else {
                     spotifyElement.style.display = 'none';
