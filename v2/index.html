@@ -56,16 +56,12 @@
             max-width: 100px;
             display: none;
         }
-        .Text {
-            color: gray;
-            background-color: #240000;
-        }
     </style>
 </head>
 <body>
     <img id="game-image" src="" alt="Game Image">
     <br><br><br><br>
-    <div id="Text">Hey :3</div>
+    <div id="Text">Akuma </div> <div id="Text">(ppugclay)</div>
     <br>
     <div id="status">Checking...</div>
     <br>
@@ -125,7 +121,7 @@
                     gameImageElement.style.display = 'none';
                 }
 
-                customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.state}` : "";
+                customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.emoji.name} ${customStatus.state}` : "";
 
                 // Spotify Listening Status
                 if (spotify) {
