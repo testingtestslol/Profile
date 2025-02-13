@@ -125,23 +125,15 @@
                     activityElement.textContent = "";
                     gameImageElement.style.display = 'none';
                 }
-        {
+
                 customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.state}` : "";
-        
+
                 // Spotify Listening Status
                 if (spotify) {
-                    spotifysongElement.innerHTML = `Listening to: <strong>${spotify.song}</strong>`;
-                    
-                    spotifysongElement.style.display = 'block';
+                    spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> by <strong>${spotify.artist}</strong> on <strong>${spotify.album}</strong>`;
+                    spotifyElement.style.display = 'block';
                 } else {
-                    spotifysongElement.style.display = 'none';
-                }
-                if (spotifyartist) {
-                    spotifyartistElement.innerHTML = `By: <strong>${spotify.artist}</strong>`;
-                    
-                    spotifyartistElement.style.display = 'block';
-                } else {
-                    spotifyartistElement.style.display = 'none';
+                    spotifyElement.style.display = 'none';
                 }
 
             } catch (error) {
