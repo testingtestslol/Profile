@@ -33,7 +33,7 @@
             color: red;
             background-color: #240000;
         }
-        #activity, #custom-status, #spotify {
+        #activity, #custom-status, #spotify, #spotifyartist {
             font-size: 20px;
             margin-top: 20px;
             padding: 5px;
@@ -44,7 +44,7 @@
             color: orange;
             background-color: #333;
         }
-        #spotify {
+        #spotify, #spotifyartist {
             color: lightgreen;
             background-color: #222;
         }
@@ -136,7 +136,7 @@
                 } else {
                     spotifysongElement.style.display = 'none';
                 }
-                if (spotify) {
+                if (spotifyartist) {
                     spotifyartistElement.innerHTML = `By: <strong>${spotify.artist}</strong>`;
                     
                     spotifyartistElement.style.display = 'block';
