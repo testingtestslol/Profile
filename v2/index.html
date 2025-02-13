@@ -111,7 +111,7 @@
                 if (playingActivity) {
                     activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
                     if (playingActivity.assets && playingActivity.assets.large_image) {
-                        gameImageElement.src = `https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.small_image}.png`;
+                        gameImageElement.src = `https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.large_image}.png`;
                         gameImageElement.style.display = 'block';
                     } else {
                         gameImageElement.style.display = 'none';
