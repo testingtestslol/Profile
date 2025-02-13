@@ -125,9 +125,9 @@
                     activityElement.textContent = "";
                     gameImageElement.style.display = 'none';
                 }
-
+        {
                 customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.state}` : "";
-
+        
                 // Spotify Listening Status
                 if (spotify) {
                     spotifysongElement.innerHTML = `Listening to: <strong>${spotify.song}</strong>`;
