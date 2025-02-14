@@ -70,75 +70,88 @@
     <div id="custom-status"></div>
     <br>
     <div id="spotify" style="display: none;"></div>
+    <br>
+<div id="kv-note" style="display: none; font-size: 18px; color: cyan;"></div>
+
 
     <script>
-        async function checkStatus() {
-            try {
-                const response = await fetch("https://api.lanyard.rest/v1/users/1169111190824308768");
-                const data = await response.json();
+async function checkStatus() {
+    try {
+        const response = await fetch("https://api.lanyard.rest/v1/users/1169111190824308768");
+        const data = await response.json();
 
-                if (!data.success) throw new Error("API Error");
+        if (!data.success) throw new Error("API Error");
 
-                const status = data.data.discord_status;
-                const activities = data.data.activities;
-                const customStatus = activities.find(activity => activity.type === 4);
-                const spotify = data.data.spotify;
+        const status = data.data.discord_status;
+        const activities = data.data.activities;
+        const customStatus = activities.find(activity => activity.type === 4);
+        const spotify = data.data.spotify;
+        const kvNote = data.data.kv?.note; // Get the note from kv
 
-                const statusElement = document.getElementById("status");
-                const activityElement = document.getElementById("activity");
-                const customStatusElement = document.getElementById("custom-status");
-                const gameImageElement = document.getElementById("game-image");
-                const spotifyElement = document.getElementById("spotify");
+        const statusElement = document.getElementById("status");
+        const activityElement = document.getElementById("activity");
+        const customStatusElement = document.getElementById("custom-status");
+        const gameImageElement = document.getElementById("game-image");
+        const spotifyElement = document.getElementById("spotify");
 
-                statusElement.classList.remove("online", "offline", "dnd");
+        statusElement.classList.remove("online", "offline", "dnd");
 
-                switch (status) {
-                    case "online":
-                        statusElement.textContent = "Online";
-                        statusElement.classList.add("online");
-                        break;
-                    case "dnd":
-                        statusElement.textContent = "Do Not Disturb (Dnd)";
-                        statusElement.classList.add("dnd");
-                        break;
-                    default:
-                        statusElement.textContent = "Offline";
-                        statusElement.classList.add("offline");
-                        break;
-                }
-
-                const playingActivity = activities.find(activity => activity.type === 0);
-                if (playingActivity) {
-                    activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
-                    if (playingActivity.assets && playingActivity.assets.large_image) {
-                        gameImageElement.src = `https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.large_image}.png`;
-                        gameImageElement.style.display = 'block';
-                    } else {
-                        gameImageElement.style.display = 'none';
-                    }
-                } else {
-                    activityElement.textContent = "";
-                    gameImageElement.style.display = 'none';
-                }
-
-                customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.emoji.name} ${customStatus.state}` : "";
-
-                // Spotify Listening Status
-                if (spotify) {
-                    spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> by <strong>${spotify.artist}</strong> on <strong>${spotify.album}</strong>`;
-                    spotifyElement.style.display = 'block';
-                } else {
-                    spotifyElement.style.display = 'none';
-                }
-
-            } catch (error) {
-                document.getElementById("status").textContent = "Error fetching status";
-                console.error(error);
-            }
+        switch (status) {
+            case "online":
+                statusElement.textContent = "Online";
+                statusElement.classList.add("online");
+                break;
+            case "dnd":
+                statusElement.textContent = "Do Not Disturb (Dnd)";
+                statusElement.classList.add("dnd");
+                break;
+            default:
+                statusElement.textContent = "Offline";
+                statusElement.classList.add("offline");
+                break;
         }
 
-        checkStatus();
-        setInterval(checkStatus, 5000);
+        const playingActivity = activities.find(activity => activity.type === 0);
+        if (playingActivity) {
+            activityElement.textContent = `Playing: ${playingActivity.name} (${playingActivity.state || 'No end point'})`;
+            if (playingActivity.assets && playingActivity.assets.large_image) {
+                gameImageElement.src = `https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.large_image}.png`;
+                gameImageElement.style.display = 'block';
+            } else {
+                gameImageElement.style.display = 'none';
+            }
+        } else {
+            activityElement.textContent = "";
+            gameImageElement.style.display = 'none';
+        }
+
+        customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.emoji.name} ${customStatus.state}` : "";
+
+        // Display kv note if available
+        if (kvNote) {
+            const kvNoteElement = document.getElementById("kv-note");
+            kvNoteElement.textContent = `Note: ${kvNote}`;
+            kvNoteElement.style.display = 'block';
+        }
+
+        // Spotify Listening Status
+        if (spotify) {
+            spotifyElement.innerHTML = `Listening to: <strong>${spotify.song}</strong> by <strong>${spotify.artist}</strong> on <strong>${spotify.album}</strong>`;
+            spotifyElement.style.display = 'block';
+        } else {
+            spotifyElement.style.display = 'none';
+        }
+
+    } catch (error) {
+        document.getElementById("status").textContent = "Error fetching status";
+        console.error(error);
+    }
+}
+
+// Call the function initially and set interval
+checkStatus();
+setInterval(checkStatus, 5000);
+
     </script>
 
     <br>
