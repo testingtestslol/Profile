@@ -71,8 +71,7 @@
     <br>
     <div id="spotify" style="display: none;"></div>
     <br>
-<div id="kv-note(Not-set-rn-soz)" style="display: none; font-size: 18px; color: cyan;"></div>
-<div id="kv-dev" style="display: none; font-size: 18px; color: cyan;"></div>
+<div id="kv-note" style="display: none; font-size: 18px; color: cyan;"></div>
 
     <script>
 async function checkStatus() {
@@ -90,7 +89,6 @@ async function checkStatus() {
         const customStatus = activities.find(activity => activity.type === 4);
         const spotify = data.data.spotify;
         const kvNote = data.data.kv?.note;
-        const kvdev = data.data.kv?.dev;
 
         const statusElement = document.getElementById("status");
         const activityElement = document.getElementById("activity");
@@ -130,12 +128,7 @@ async function checkStatus() {
         }
 
         customStatusElement.textContent = customStatus && customStatus.state ? `Status: ${customStatus.emoji.name} ${customStatus.state}` : "";
-       
-        if (kvdev) {
-            const kvdevElement = document.getElementById("kv-dev");
-            kvdevElement.textContent = ` ${kvdev} `;
-            kvdevElement.style.display = 'block';
-        }
+
         if (kvNote) {
             const kvNoteElement = document.getElementById("kv-note");
             kvNoteElement.textContent = `Note: ${kvNote}`;
