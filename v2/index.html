@@ -88,7 +88,7 @@ async function checkStatus() {
         const activities = data.data.activities;
         const customStatus = activities.find(activity => activity.type === 4);
         const spotify = data.data.spotify;
-        const kvNote = data.data.kv?.dev;
+        const kvdev = data.data.kv?.dev;
 
         const statusElement = document.getElementById("status");
         const activityElement = document.getElementById("activity");
