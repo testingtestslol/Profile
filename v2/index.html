@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +71,9 @@
     <br>
     <div id="spotify" style="display: none;"></div>
     <br>
-<div id="kv-dev" style="display: none; font-size: 18px; color: cyan;"></div>
+   <div id="kv-dev" style="display: none; font-size: 18px; color: cyan;"></div>
+   <br>
+   <div id="kv-love" style="display: none; font-size: 18px; color: cyan;"></div>
 
     <script>
 async function checkStatus() {
@@ -89,6 +91,7 @@ async function checkStatus() {
         const customStatus = activities.find(activity => activity.type === 4);
         const spotify = data.data.spotify;
         const kvdev = data.data.kv?.dev;
+        const kvdev = data.data.kv?.love;
 
         const statusElement = document.getElementById("status");
         const activityElement = document.getElementById("activity");
@@ -131,8 +134,13 @@ async function checkStatus() {
 
         if (kvdev) {
             const kvdevElement = document.getElementById("kv-dev");
-            kvdevElement.textContent = `Note: ${kvdev}`;
+            kvdevElement.textContent = ` ${kvdev} `;
             kvdevElement.style.display = 'block';
+        }
+       if (kvlove) {
+            const kvloveElement = document.getElementById("kv-love");
+            kvloveElement.textContent = ` ${kvlove} `;
+            kvloveElement.style.display = 'block';
         }
 
         if (spotify) {
