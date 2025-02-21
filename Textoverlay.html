@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+        }
+
+        #imagePreview {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #textPreview {
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            text-align: center;
+        }
+
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Overlay</h1>
+        
+        <input type="file" id="imageInput" accept="image/*">
+        <input type="text" id="textInput" placeholder="Enter text to add">
+        <button id="addTextBtn" style="display:none;">Add Text to Image</button>
+        <button id="downloadBtn" style="display:none;">Download Image</button>
+        
+        <div id="imageContainer">
+            <img id="imagePreview" src="" alt="Image" style="max-width: 100%; display: none;">
+        </div>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const textInput = document.getElementById('textInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const addTextBtn = document.getElementById('addTextBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const canvas = document.createElement('canvas');
+
+        let uploadedImage = null;
+        let textContent = '';
+        let ctx = canvas.getContext('2d');
+
+        imageInput.addEventListener('change', function() {
+            const file = imageInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    addTextBtn.style.display = 'inline-block';  
+                    downloadBtn.style.display = 'none';  
+                    updateCanvas();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        textInput.addEventListener('input', function() {
+            textContent = textInput.value;
+        });
+
+        addTextBtn.addEventListener('click', function() {
+            if (textContent) {
+                
+                ctx.font = '30px Arial';
+                ctx.fillStyle = 'black';  
+                ctx.textAlign = 'center';
+                ctx.fillText(textContent, canvas.width / 2, canvas.height - 50);
+
+                
+                const dataURL = canvas.toDataURL('image/png');
+                imagePreview.src = dataURL;
+                imagePreview.style.display = 'block';
+                downloadBtn.style.display = 'inline-block';
+
+                // Hide text input and add text button
+                textInput.style.display = 'none';
+                addTextBtn.style.display = 'none';
+            }
+        });
+
+        downloadBtn.addEventListener('click', function() {
+            if (uploadedImage && textContent) {
+                const dataURL = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = dataURL;
+                link.download = 'Newimage.png';
+                link.click();
+            }
+        });
+
+        function updateCanvas() {
+            uploadedImage = imagePreview.src;
+            const img = new Image();
+            img.src = uploadedImage;
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+            };
+        }
+    </script>
+</body>
+</html>
