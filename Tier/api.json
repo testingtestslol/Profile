@@ -2,9 +2,11 @@
     "Donation": [
         {
             "Note": "Thank you {option_user} For (`{raw.response.Donation.0.LongassThing}`)",
-            "Note%50": "Thank you {option_user} This means a lot (`{raw.response.Donation.0.LongassThing}`)",
+            "Note%50": "Thank you {option_user} for (`{raw.response.Donation.0.LongassThing}`) This means a lot!",
             "Note2": "{raw.response.{option_tier}.0.Role}",
-            "Hold": "dominator07509 Hold's The Items",
+            "Hold": "dominator07509 / Ppugclay Hold's The Items",
+            "Holdppugclay": "ppugclay has the {option_item-gave}",
+            "Holddominator07509": "dominator07509 has the {option_item-gave}",
             "amount": "{option_item-gave}",
             "LongassThing": "{raw.response.Donation.0.amount}",
             "BotCommandCode": "CMD_a62f5850-9121-40e5-827d-d01d0aae10bc",
@@ -53,6 +55,15 @@
             "name": "1333311133976891462",
             "amount": "5m+",
             "if": "(Role Given)",
+            "color": "#440505"
+        }
+    ],
+    "Fake": [
+        {
+            "Role": "You have Unlocked (Role not Made/set)",
+            "name": "",
+            "amount": "20m+",
+            "if": "(Role Not Given)",
             "color": "#440505"
         }
     ],
