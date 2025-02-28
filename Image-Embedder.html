@@ -60,13 +60,18 @@
                     takenPaths[pathInput] = e.target.result;
                     localStorage.setItem("takenPaths", JSON.stringify(takenPaths)); // Store data persistently
 
-                    const imageUrl = `${window.location.origin}/${pathInput}`;
-                    linkDisplay.innerHTML = `<a href="${imageUrl}" target="_blank">${imageUrl}</a>`;
+                    const imageUrl = `${window.location.origin}/Domshelperbotapi/${pathInput}`;
+                    linkDisplay.innerHTML = `<a href="${imageUrl}" target="_blank" onclick="openInNewTab('${imageUrl}')">${imageUrl}</a>`;
                     imagePreview.src = e.target.result;
                     imagePreview.style.display = "block";
                 };
 
                 reader.readAsDataURL(file);
+            }
+
+            // Function to open the image in a new tab
+            function openInNewTab(url) {
+                window.open(url, '_blank');
             }
         }
     </script>
