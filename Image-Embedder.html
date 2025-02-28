@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Embedder</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        input, button { margin: 10px; padding: 10px; }
+        img { max-width: 100%; height: auto; margin-top: 20px; border: 2px solid #333; }
+    </style>
+</head>
+<body>
+
+    <script>
+        const takenPaths = JSON.parse(localStorage.getItem("takenPaths")) || {}; // Load stored paths
+        const urlPath = window.location.pathname.substring(1); // Get last part of the domain
+
+        if (urlPath && takenPaths[urlPath]) {
+            // If the URL path exists in storage, show only the image
+            document.body.innerHTML = `<h1>Embedded Image</h1><img src="${takenPaths[urlPath]}" alt="Embedded Image">`;
+        } else {
+            // Show upload interface if not a valid image URL
+            document.body.innerHTML = `
+                <h1>Upload an Image</h1>
+                <input type="file" id="imageInput" accept="image/*">
+                <input type="text" id="customPath" placeholder="Enter unique path (e.g., my-image)">
+                <button onclick="uploadImage()">Upload</button>
+                <h2>Generated Link:</h2>
+                <p id="generatedLink"></p>
+                <h2>Embedded Image:</h2>
+                <img id="imagePreview" style="display:none;">
+            `;
+
+            function uploadImage() {
+                const fileInput = document.getElementById("imageInput");
+                const pathInput = document.getElementById("customPath").value.trim();
+                const imagePreview = document.getElementById("imagePreview");
+                const linkDisplay = document.getElementById("generatedLink");
+
+                if (!fileInput.files.length) {
+                    alert("Please select an image.");
+                    return;
+                }
+
+                if (!pathInput) {
+                    alert("Please enter a unique path.");
+                    return;
+                }
+
+                if (takenPaths[pathInput]) {
+                    alert("This path is already taken. Try another.");
+                    return;
+                }
+
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    takenPaths[pathInput] = e.target.result;
+                    localStorage.setItem("takenPaths", JSON.stringify(takenPaths)); // Store data persistently
+
+                    const imageUrl = `${window.location.origin}/${pathInput}`;
+                    linkDisplay.innerHTML = `<a href="${imageUrl}" target="_blank">${imageUrl}</a>`;
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+</body>
+</html>
