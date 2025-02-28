@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2f3136;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            background-color: #1f2124;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #7289da;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5b6eae;
+        }
+        #userInfo {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Login with Discord</h1>
+        <button id="loginBtn">Login with Discord</button>
+        <div id="userInfo">
+            <h2>Welcome, <span id="username"></span></h2>
+        </div>
+    </div>
+
+    <script>
+        const DISCORD_CLIENT_ID = '1279136140875534387'; // Replace with your Discord Client ID
+        const DISCORD_REDIRECT_URI = 'https://akuma-doesnt-get-paid.github.io/Domshelperbotapi/testyyy.html'; // Replace with your redirect URI
+        const DISCORD_SCOPE = 'identify';
+
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            // Redirect to Discord OAuth2 login
+            window.location.href = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&response_type=code&scope=${DISCORD_SCOPE}`;
+        });
+
+        // Check if there is a code in the URL (i.e., the user has logged in)
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            // If there's a code, the user has logged in. Use it to get the user's info
+            // You can't securely exchange the code for a token in the frontend, but we can show a message.
+            // Normally, you'd send this code to your backend to exchange it for an access token.
+            fetchDiscordUserData(code);
+        }
+
+        async function fetchDiscordUserData(code) {
+            // The token exchange happens on the server, but here we mock the user data retrieval
+            // Normally you need a backend to exchange the code for an access token
+
+            // Mocked username after successful login
+            const username = "DiscordUser";  // This would be fetched after code exchange on your backend
+
+            // Show the username in the page
+            document.getElementById('username').textContent = username;
+            document.getElementById('userInfo').style.display = 'block';
+
+            // You would use the code to fetch real user info here
+            // Example: Fetch user info from your backend or Discord API using the token
+        }
+    </script>
+
+</body>
+</html>
