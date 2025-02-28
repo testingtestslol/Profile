@@ -61,7 +61,7 @@
                     localStorage.setItem("takenPaths", JSON.stringify(takenPaths)); // Store data persistently
 
                     const imageUrl = `${window.location.origin}/${pathInput}`;
-                    linkDisplay.innerHTML = `<a href="${imageUrl}" target="_blank" onclick="openInNewTab('${imageInput}')">${imageInput}</a>`;
+                    linkDisplay.innerHTML = `<a href="${imageInput}" target="_blank" onclick="openInNewTab('${imageInput}')">${imageInput}</a>`;
                     imagePreview.src = e.target.result;
                     imagePreview.style.display = "block";
                 };
