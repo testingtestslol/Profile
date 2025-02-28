@@ -60,7 +60,7 @@
                     takenPaths[pathInput] = e.target.result;
                     localStorage.setItem("takenPaths", JSON.stringify(takenPaths)); // Store data persistently
 
-                    const imageUrl = `${window.location.origin}/Domshelperbotapi/${pathInput}`;
+                    const imageUrl = `${takenPaths[urlPath]}`;
                     linkDisplay.innerHTML = `<a href="${imageUrl}" target="_blank" onclick="openInNewTab('${imageUrl}')">${imageUrl}</a>`;
                     imagePreview.src = e.target.result;
                     imagePreview.style.display = "block";
