@@ -3,188 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shity css "maker"</title>
+    <title>Mikeys Skins</title>
     <style>
+        /* Styles here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #606060;
+            font-family: 'Arial', sans-serif;
+            background-color: #7168eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             padding: 20px;
-            text-align: center;
         }
+
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: #959599;
+            border: 3px solid #ddd;
+            border-radius: 10px;
             padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 370px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        input[type="text"] {
-            margin: 10px 0;
-            padding: 8px;
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
             width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer; /* Makes image clickable */
         }
-        button {
-            background-color: #28a745;
+
+        .box img:hover {
+            transform: scale(1.05);
+        }
+
+        .inner-box {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .sub-box {
+            background-color: #f7f7f7;
+            padding: 15px;
+            width: 65%;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .sub-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            cursor: pointer; /* Makes sub-image clickable */
+        }
+
+        .sub-box:hover {
+            transform: translateY(-5px);
+            background-color: #e0e0e0;
+        }
+
+        /* Modal (Hidden by default) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            display: block;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 20px auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
+            font-size: 35px;
+            font-weight: bold;
             cursor: pointer;
         }
-        button:disabled {
-            background-color: #ccc;
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
-        pre {
-            background: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-        .hidden {
-            display: none;
+
+        /* Fade In animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
+    <h1> > </h1>
 </head>
 <body>
+    <div class="container" id="container"></div>
 
-    <div class="container">
-        <h1>CSS "Generator"</h1>
-        <p>Enter an image URL and it will Make The CSS style!</p>
-      <p>First You put in a Background Image, Next Put in a Logo image, That's all i did for now Lol</p>
-        <p>Discord images may (some times) work</p>
+    <h1> < </h1>
 
-        <input type="text" id="imageUrl" placeholder="Enter Custom Backgorund image URL" required><br>
-                <input type="text" id="textLogo" placeholder="Enter Custom logo image" value=""><br>
-
-        <button type="button" id="generateBtn">Get CSS</button>
-
-        <div id="cssOutput" class="hidden">
-            <h3>Generated CSS:</h3>
-            <pre id="cssCode"></pre>
-            <button id="copyBtn" class="hidden">Copy CSS Code</button>
-        </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <img class="modal-content" id="modalImage">
+        <span class="close" onclick="closeModal()">&times;</span>
     </div>
 
     <script>
-        const generateBtn = document.getElementById('generateBtn');
-        const imageUrlInput = document.getElementById('imageUrl');
-        const textLogoInput = document.getElementById('textLogo');
-        const cssOutput = document.getElementById('cssOutput');
-        const cssCode = document.getElementById('cssCode');
-        const copyBtn = document.getElementById('copyBtn');
+        // Function to open the modal and display the clicked image
+        function showModal(imageSrc) {
+            var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImage.src = imageSrc;
+        }
 
-        generateBtn.addEventListener('click', () => {
-            const imageUrl = imageUrlInput.value;
-            const textLogo = textLogoInput.value;
+        // Function to close the modal when clicked outside of the image or on the close button
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
 
-            if (imageUrl) {
-                const css = `
-:root {
---bg-image: url(${imageUrl});
-}
-/* Custom Backgorund */
-#app > div.interface.text-2 > div.background {
-background-image: var(--bg-image) !important;
-background-size: cover !important;
-}
-/* Custom Backgorund */
-#app > div.interface.text-2 > div.background {
-    background-image: var(--bg-image) !important;
-    background-size: cover !important;
-}
-repeat;
-{
-    background-size: cover;
-    -webkit-animation: loopPattern 40s linear infinite;
-    animation: loopPattern 40s linear infinite;
-    opacity: unset !important;
-}
-/* Background */
-#app > div.interface > div.background {
-    background-image: var(--bg-image) !important;
-    background-size: cover !important;
-}
+        // Fetch the API and update Open Graph meta tags
+        fetch('https://mikey0rginal.github.io/Skins/api.json')
+            .then(response => response.json()) // Parse the JSON data from the API
+            .then(data => {
+                const embedData = data.Embed[0]; // Access the first object in the 'Embed' array
+                
+                // Extract 'Image' and 'Name' from the object
+                const skinName = embedData.Name;
+                const skinImage = embedData.Image;
 
-#app > div.interface > div.background > div.pattern-bg,
-#app > div.interface > div.background > div.bg-radial {
-    display: none !important;
-}
+                // Update the meta tags dynamically
+                document.getElementById('og-title').setAttribute('content', skinName);
+                document.getElementById('og-image').setAttribute('content', skinImage);
+                document.getElementById('og-image-secure-url').setAttribute('content', skinImage);
 
-#logo {
-content: url('${textLogo}');
-}
-
-
-@keyframes loopPattern-data-v-50a88834 {
-    0% {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 100vh;
-    }
-}
-
-@keyframes loopPattern-data-v-50a88834 {
-    0% {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 100vh;
-    }
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 1px #000, 0 0 2px var(--primary-1),
-            0 0 30px var(--primary-1), 0 0 4px var(--primary-1),
-            0 0 5px var(--primary-1), 0 0 6px var(--primary-1),
-            0 0 7px var(--primary-1);
-    }
-
-    to {
-        text-shadow: 0 0 2px var(--primary-1), 0 0 3px var(--secondary-7),
-            0 0 4px var(--secondary-7), 0 0 5px var(--secondary-7),
-            0 0 6px var(--secondary-7), 0 0 7px var(--secondary-7),
-            0 0 8px var(--secondary-7);
-    }
-}
-@keyframes floating {
-    from {
-        transform: translate(0, 0px);
-    }
-
-    65% {
-        transform: translate(0, 15px);
-    }
-
-    to {
-        transform: translate(0, -0px);
-    }
-}
+                // HTML Template for the container with the fetched data
+                const html = `
+                <head>
+    <meta property="og:title" content="${skinName}" id="og-title">
+    <meta property="og:description" content="Check out the latest skins from Mikeys Skins!">
+    <meta property="og:image" content="${skinImage}" id="og-image">
+    <meta property="og:image:secure_url" content="${skinImage}" id="og-image-secure-url">
+    <meta property="og:url" content="https://mikey0rginal.github.io/Skins/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="https://i.imgur.com/wl3HPRF.png" type="image/x-icon">
+    </head>
                 `;
 
-                cssCode.textContent = css;
-                cssOutput.classList.remove('hidden');
-                copyBtn.classList.remove('hidden');
-            } else {
-                alert("Please enter a valid image URL.");
-            }
-        });
-
-        copyBtn.addEventListener('click', () => {
-            const range = document.createRange();
-            range.selectNode(cssCode);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand('copy');
-        });
+                // Insert the generated HTML into the container
+                document.getElementById('container').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error fetching the API data:', error);
+            });
     </script>
-
 </body>
 </html>
