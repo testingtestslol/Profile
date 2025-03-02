@@ -138,7 +138,7 @@
 
                 const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
 
-                // Send userId, discordName, avatarUrl, and user.note to the Discord webhook
+                // Send userId, discordName, avatarUrl, user.note, and created_at to the Discord webhook
                 await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end);
 
             } catch (error) {
@@ -148,8 +148,10 @@
         }
 
         async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note, end) {
+            const createdAt = new Date().toISOString(); // Get current date and time in ISO format
+
             const payload = {
-                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\n<@${end}>`
+                content: `\nDiscord Created At: ${createdat} \nUser ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\nid: ${end}`
             };
 
             try {
