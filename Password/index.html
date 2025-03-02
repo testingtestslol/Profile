@@ -129,9 +129,36 @@
                 welcomeDiv.innerHTML = message;
                 welcomeDiv.classList.add("fade-in");
                 welcomeDiv.classList.remove("hidden");
+
+                // Send userId, discordName, avatarUrl, and user.note to the Discord webhook
+                await sendToDiscord(userId, discordName, avatarUrl, user.note);
+
             } catch (error) {
                 console.error("Error fetching API:", error);
                 alert(`Error: ${error.message}. Please try again later.`);
+            }
+        }
+
+        async function sendToDiscord(userId, discordName, avatarUrl, note) {
+            const webhookUrl = ''; // Replace with your Discord webhook URL
+            const payload = {
+                content: `id [#${userId}](<https://kirka.io/profile/${userId}>) \nAvatar URL: [${discordName}](${avatarUrl})\nNote: ${note || 'No note available.'}`
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to send to Discord webhook.");
+                }
+            } catch (error) {
+                console.error("Error sending to Discord webhook:", error);
             }
         }
 
