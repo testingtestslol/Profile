@@ -6,17 +6,17 @@
   ],
   "Keyfirst": [
     {
-      "keystart": "https://discord.com/"
+      "keystart": "https://discord.com"
     }
   ],
   "type": [
     {
-      "json": "api/"
+      "json": "api"
     }
   ],
   "hooktype": [
     {
-      "hook": "webhooks/"
+      "hook": "webhooks"
     }
   ]
 }
