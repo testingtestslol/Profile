@@ -87,11 +87,11 @@
 
                     loginForm.classList.add("hidden"); // Hide login form
 
-                    let message = `<h2>Hi ${user.Discord},</h2>
-                                   <p>Kirka username is <strong>${user.Kirka}</strong>.</p>`;
+                    let message = `<h2>Mr. ${user.Discord},</h2>
+                                   <p><strong>${user.Kirka}</strong>.</p>`;
 
                     if (user.note) {
-                        message += `<p><strong>Note:</strong> ${user.note}</p>`;
+                        message += `<p><strong></strong> ${user.note}</p>`;
                     }
 
                     welcomeDiv.innerHTML = message;
