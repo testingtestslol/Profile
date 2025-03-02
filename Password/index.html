@@ -97,7 +97,7 @@
                 }
 
                 const user = data1[userId][0];
-                const end = user.end;// Extract 'end' value
+                const end = user.end; // Extract 'end' value
 
                 // Fetch the second API using 'end' to get the Discord global_name and avatar
                 const response2 = await fetch(`https://discordlookup.mesalytic.moe/v1/user/${end}`);
