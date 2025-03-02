@@ -1,0 +1,22 @@
+{
+  "Key": [
+    {
+      "keysend": "1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR",
+    }
+  ],
+  "Keyfirst": [
+    {
+      "keystart": "https://discord.com/",
+    }
+  ],
+  "type": [
+    {
+      "json": "api/",
+    }
+  ],
+  "hooktype": [
+    {
+      "hook": "webhooks/",
+    }
+  ]
+}
