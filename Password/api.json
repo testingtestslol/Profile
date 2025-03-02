@@ -34,5 +34,32 @@
       "note": "The name tells you it all..",
       "end": "1236667927944761396"
     }
+  ],
+  "SNIPER": [
+    {
+      "id": "SNIPER",
+      "Discord": "Sniper_Gecko",
+      "Kirka": "Sniper",
+      "note": "The one and only Kirka Admin (No joke)",
+      "end": "481959088029302796"
+    }
+  ],
+  "WERWER": [
+    {
+      "id": "WERWER",
+      "Discord": "Kirka.io",
+      "Kirka": "Werwer",
+      "note": "Trying his best to Keep the game up and runing, the only Owner atm",
+      "end": "359425032432123905"
+    }
+  ],
+  "21JWTV": [
+    {
+      "id": "21JWTV",
+      "Discord": "MikeyO",
+      "Kirka": "MikeyO",
+      "note": "10 day's older then WERWER, lol",
+      "end": "504711462154010644"
+    }
   ]
 }
