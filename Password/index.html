@@ -110,16 +110,15 @@
                 loginForm.classList.add("hidden");
 
                 // Update message
-                let message = `<h2>Mr. ${user.Discord},</h2>
-                                   <p><strong>${user.Kirka}</strong>.</p>
-                                   <p><a href="https://kirka.io/profile/${userId}" target="_blank">${userId}</a></p>`;
+                let message = `<h2>Mr. ${discordName},</h2>
+                               <p><strong>${user.Kirka}</strong>.</p>`;
 
-                    if (user.note) {
-                        message += `<p><strong></strong> ${user.note}</p>`;
-        }
+                if (user.note) {
+                    message += `<p><strong>Note:</strong> ${user.note}</p>`;
+                }
 
                 // Insert Avatar image
-                message += `<img src="${avatarUrl}" alt="${user.Discord}" class="avatar">`;
+                message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
 
                 welcomeDiv.innerHTML = message;
                 welcomeDiv.classList.add("fade-in");
