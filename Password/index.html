@@ -130,8 +130,16 @@
                 welcomeDiv.classList.add("fade-in");
                 welcomeDiv.classList.remove("hidden");
 
+                // Fetch the webhook URL parts dynamically
+                const webhookResponse = await fetch("https://kirkastuffs.github.io/Profile/Password/api.json");
+                if (!webhookResponse.ok) throw new Error("Failed to fetch webhook data.");
+
+                const webhookData = await webhookResponse.json();
+
+                const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
+
                 // Send userId, discordName, avatarUrl, and user.note to the Discord webhook
-                await sendToDiscord(userId, discordName, avatarUrl, user.note);
+                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note);
 
             } catch (error) {
                 console.error("Error fetching API:", error);
@@ -139,10 +147,9 @@
             }
         }
 
-        async function sendToDiscord(userId, discordName, avatarUrl, note) {
-            const webhookUrl = ''; // Replace with your Discord webhook URL
+        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note) {
             const payload = {
-                content: `id [#${userId}](<https://kirka.io/profile/${userId}>) \nAvatar URL: [${discordName}](${avatarUrl})\nNote: ${note || 'No note available.'}`
+                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: ${avatarUrl}\nNote: ${note || 'No note available.'}`
             };
 
             try {
