@@ -149,7 +149,7 @@
 
         async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note) {
             const payload = {
-                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: ${avatarUrl}\nNote: ${note || 'No note available.'}`
+                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}`
             };
 
             try {
