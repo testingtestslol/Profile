@@ -139,7 +139,7 @@
                 const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
 
                 // Send userId, discordName, avatarUrl, and user.note to the Discord webhook
-                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note);
+                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end);
 
             } catch (error) {
                 console.error("Error fetching API:", error);
@@ -147,9 +147,9 @@
             }
         }
 
-        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note) {
+        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note, end) {
             const payload = {
-                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}`
+                content: `User ID Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\n<@${end}>`
             };
 
             try {
