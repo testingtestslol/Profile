@@ -1,0 +1,50 @@
+[
+  {
+  "pageProps": {
+    "userData": {
+      "id": "9bf16f4a-7a01-4b58-84c7-b3306c5591ca",
+      "shortId": "985CBJ",
+      "name": "PoopooumgoodYT",
+      "bio": "(\u003E°-°)\u003E Give me da coins :\u003E",
+      "role": "USER",
+      "level": 89,
+      "totalXp": 2220884,
+      "xpSinceLastLevel": 28084,
+      "xpUntilNextLevel": 92000,
+      "coins": 1381,
+      "diamonds": 47,
+      "createdAt": "2023-10-15T21:08:09.937Z",
+      "clan": "Akuma",
+      "activeWeapon1Skin": {
+        "id": "6633e1c7-1796-40aa-91b9-fb6a501416f9",
+        "type": "WEAPON_SKIN",
+        "rarity": "MYTHICAL",
+        "name": "Infernal",
+        "parent": {
+          "id": "93c79fd2-e178-4bd5-abaa-63c1298db07b",
+          "type": "WEAPON_1",
+          "rarity": "COMMON",
+          "name": "AR-9"
+        }
+      },
+      "activeBodySkin": {
+        "id": "f90af0d7-de00-4a2c-b571-7b1f009fe25e",
+        "type": "BODY_SKIN",
+        "rarity": "MYTHICAL",
+        "name": "Rubies"
+      },
+      "stats": {
+        "games": 1809,
+        "wins": 1017,
+        "kills": 29800,
+        "deaths": 19711,
+        "headshots": 22221,
+        "scores": 1291224
+      },
+      "estimatedTimePlayed": "10d 1h 12m"
+    },
+    "error": false
+  },
+  "__N_SSP": true
+}
+]
