@@ -138,18 +138,19 @@
                 // Insert Avatar image
                 message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
 
-                // Add badges if they exist
+                // Add badges if they exist and are valid
                 let badgeHtml = '';
-                if (user.bage) {
+                if (user.bage && user.bage.trim() !== "") {
                     badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
                 }
-                if (user.bage2) {
+                if (user.bage2 && user.bage2.trim() !== "") {
                     badgeHtml += `<img src="${user.bage2}" alt="Badge 2" class="badge">`;
                 }
-
+                
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
                 }
+
 
                 welcomeDiv.innerHTML = message;
                 welcomeDiv.classList.add("fade-in");
