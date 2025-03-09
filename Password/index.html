@@ -72,7 +72,7 @@
             width: 80px;
             height: 80px;
             margin-top: 10px;
-            border: 3px solid white;
+            border: 3px solid red;
         }
 
         .badge {
@@ -134,7 +134,7 @@
                 loginForm.classList.add("hidden");
 
                 // Update message
-                let message = `<h2>Mr.<span style="color:${user.color};">${discordName}</span>,</h2>
+                let message = `<h2><span style="color:${user.color};">Mr. ${discordName}</span>,</h2>
                                <p><strong>${user.Kirka}</strong>.</p>`;
 
                 if (user.note) {
