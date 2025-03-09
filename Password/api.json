@@ -28,8 +28,9 @@
       "Kirka": "Jmac",
       "note": "Dam Hacker, and NO i am not saying this bc he beat me in a 1v1 ;-;",
       "end": "1103790739525210123",
-      "bage": "https://discord.com/assets/c64b52fae182324d.svg",
-      "bage2": "https://cdn.discordapp.com/emojis/1348368529988255744.webp?size=128"
+      "bage": "https://cdn.discordapp.com/emojis/1196230060911366245.webp?size=128",
+      "bage2": "https://cdn.discordapp.com/emojis/1348368529988255744.webp?size=128",
+      "bage3": "https://cdn.discordapp.com/emojis/1332046297389072496.webp?size=128"
     }
   ],
   "X7PLHD": [
@@ -39,7 +40,7 @@
       "Kirka": "IncestRights",
       "note": "The name tells you it all...",
       "end": "1236667927944761396",
-      "bage": "",
+      "bage": "https://cdn.discordapp.com/emojis/1336316781626916916.webp?size=128",
       "bage2": ""
     }
   ],
@@ -86,7 +87,7 @@
       "note": "Rich, got a Gf, and overall good guy.",
       "end": "1250556926597533889",
       "bage": "https://whatemoji.org/wp-content/uploads/2020/07/Goat-Emoji.png",
-      "bage2": ""
+      "bage2": "https://cdn.discordapp.com/emojis/917627940815122462.webp?size=128"
     }
   ],
   "JZWLFF": [
@@ -141,7 +142,19 @@
       "note": "Sucks at the game (2025 - 💀)",
       "end": "1316511775990222868",
       "bage": "https://i.pinimg.com/originals/91/86/a4/9186a4f4d3f24827af0cead5a779936c.png",
-      "bage2": ""
+      "bage2": "https://cdn.discordapp.com/emojis/1329086570480926843.webp?size=128"
+    }
+  ],
+  "H8N3U4": [
+    {
+      "Id": "H8N3U4",
+      "discord": "irrvlo",
+      "Kirka": "Irrvlo",
+      "note": "Dev of kirka.irrvlo.xyz, and Juice Client the #1 Kirka Client (Trust)",
+      "end": "871895500490678273",
+      "bage": "https://cdn.discordapp.com/emojis/1246231152902148149.webp?size=128",
+      "bage2": "https://cdn.discordapp.com/emojis/1297292311281008671.webp?size=128",
+      "bage3": "https://irrvlo.xyz/irrvlo.png"
     }
   ]
 }
