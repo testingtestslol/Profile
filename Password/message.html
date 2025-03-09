@@ -144,7 +144,10 @@
                     badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
                 }
                 if (user.bage2 && user.bage2.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage2}" alt="Badge 2" class="badge">`;
+                    badgeHtml += `<img src="${user.bage2}" alt="Badge" class="badge">`;
+                }
+                if (user.bage3 && user.bage3.trim() !== "") {
+                    badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
                 }
                 
                 if (badgeHtml) {
