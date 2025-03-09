@@ -1,4 +1,4 @@
-{
+l{
   "Y2OOB2": [
     {
       "Id": "Y2OOB2",
@@ -105,6 +105,15 @@
       "Kirka": "Jolly",
       "note": "Im the Jolliest Semi-Pro in kirka",
       "end": "776091563558043648"
+    }
+  ],
+      "YMLB6S": [
+    {
+      "id": "YMLB6S",
+      "Discord": "Jacob12091266",
+      "Kirka": "Jacob",
+      "note": "Sucks at the game (2025 - 💀)",
+      "end": "1316511775990222868"
     }
   ]
 }
