@@ -54,7 +54,7 @@
       "bage": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=128",
       "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png",
       "bage3": "https://images.emojiterra.com/twitter/v12/512px/1f98e.png",
-      "bagesniper": "https://irrvlo.xyz/snipergecko.png"
+      "bagesniper": "https://i.imgur.com/BppMogc.png"
     }
   ],
   "WERWER": [
@@ -158,6 +158,27 @@
       "bage4": "https://cdn.discordapp.com/emojis/1278746636922785792.webp?size=128",
       "bage3": "https://irrvlo.xyz/irrvlo.png",
       "bage5": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png"
+    }
+  ],
+  "99KI3O": [
+    {
+      "Id": "99KI3O",
+      "discord": "yum_ramen",
+      "Kirka": "Ramen",
+      "note": "That one kirka moderator",
+      "end": "994748187753590945",
+      "bage": "https://i.imgur.com/N37HT5h.png",
+      "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
+    }
+  ],
+  "A2647V": [
+    {
+      "Id": "A2647V",
+      "discord": "leminator9",
+      "Kirka": "Efkbawbfgbawje",
+      "note": "Nice guy :)",
+      "end": "994748187753590945",
+      "bage": "https://i.imgur.com/PmWkP4B.png"
     }
   ]
 }
