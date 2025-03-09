@@ -152,6 +152,9 @@
                 if (user.bage4 && user.bage4.trim() !== "") {
                     badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
                 }
+                if (user.bage5 && user.bage5.trim() !== "") {
+                    badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
+                }
                 
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
