@@ -149,6 +149,9 @@
                 if (user.bage3 && user.bage3.trim() !== "") {
                     badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
                 }
+                if (user.bage4 && user.bage4.trim() !== "") {
+                    badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
+                }
                 
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
@@ -207,7 +210,7 @@
         <div id="loginForm">
             <h2>Enter A Friend ID</h2>
             <p>Dont put the "#"</p>
-            <p>So far, only 13 IDs are in my API (/id)</p>
+            <p>So far, only 14 IDs are in my API (/id)</p>
             <input type="text" id="userId" placeholder="Enter your ID (Short id only)">
             <button>Look up</button>
         </div>
