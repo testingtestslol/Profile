@@ -85,6 +85,12 @@
             border-radius: 10%;
             margin: 5px;
         }
+        .bagesniper img {
+            width: 70px;
+            height: 40px;
+            border-radius: 10%;
+            margin: 5px;
+        }
     </style>
     <script>
         async function login() {
@@ -154,6 +160,9 @@
                 }
                 if (user.bage5 && user.bage5.trim() !== "") {
                     badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
+                }
+                if (user.bagesniper && user.bagesniper.trim() !== "") {
+                    badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
                 }
                 
                 if (badgeHtml) {
