@@ -1,9 +1,9 @@
 {
   "Y2OOB2": [
     {
-      "Id": "Y2OOB2",
-      "Discord": "Ppugclay",
-      "Kirka": "Akuma",
+      "id": "Y2OOB2",
+      "discord": "Ppugclay",
+      "kirka": "Akuma",
       "note": "I suck at games ;-;",
       "end": "1169111190824308768",
       "bage": "https://cdn3.emoji.gg/emojis/4102-owner.png",
@@ -13,36 +13,41 @@
   "985CBJ": [
     {
       "id": "985CBJ",
-      "Discord": "Ppugclay",
-      "Kirka": "PoopooumgoodYT",
+      "discord": "Ppugclay",
+      "kirka": "PoopooumgoodYT",
       "note": "This is My Bank acc my main is Y2OOB2",
-      "end": "1169111190824308768"
+      "end": "1169111190824308768",
+      "bage": "",
+      "bage2": ""
     }
   ],
   "KY25PX": [
     {
       "id": "KY25PX",
-      "Discord": "jmac2634",
-      "Kirka": "Jmac",
+      "discord": "jmac2634",
+      "kirka": "Jmac",
       "note": "Dam Hacker, and NO i am not saying this bc he beat me in a 1v1 ;-;",
       "end": "1103790739525210123",
-      "bage": "https://discord.com/assets/c64b52fae182324d.svg"
+      "bage": "https://discord.com/assets/c64b52fae182324d.svg",
+      "bage2": ""
     }
   ],
   "X7PLHD": [
     {
       "id": "X7PLHD",
-      "Discord": "Glitchy",
-      "Kirka": "IncestRights",
+      "discord": "Glitchy",
+      "kirka": "IncestRights",
       "note": "The name tells you it all...",
-      "end": "1236667927944761396"
+      "end": "1236667927944761396",
+      "bage": "",
+      "bage2": ""
     }
   ],
   "SNIPER": [
     {
       "id": "SNIPER",
-      "Discord": "Sniper_Gecko",
-      "Kirka": "Sniper",
+      "discord": "Sniper_Gecko",
+      "kirka": "Sniper",
       "note": "The one and only Kirka Admin (No joke)",
       "end": "481959088029302796",
       "bage": "https://cdn3.emoji.gg/emojis/2805-icon-moderatorprogram.png",
@@ -52,76 +57,89 @@
   "WERWER": [
     {
       "id": "WERWER",
-      "Discord": "Kirka.io",
-      "Kirka": "Werwer",
-      "note": "Trying his best to Keep the game up and runing, the only Owner atm",
-      "end": "359425032432123905"
+      "discord": "Kirka.io",
+      "kirka": "Werwer",
+      "note": "Trying his best to Keep the game up and running, the only Owner atm",
+      "end": "359425032432123905",
+      "bage": "",
+      "bage2": ""
     }
   ],
   "21JWTV": [
     {
       "id": "21JWTV",
-      "Discord": "MikeyO",
-      "Kirka": "MikeyO",
-      "note": "10 day's older then WERWER, lol",
+      "discord": "MikeyO",
+      "kirka": "MikeyO",
+      "note": "10 day's older than WERWER, lol",
       "end": "504711462154010644",
-      "bage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png"
+      "bage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png",
+      "bage2": ""
     }
   ],
   "1LEJ1I": [
     {
       "id": "1LEJ1I",
-      "Discord": "Dom",
-      "Kirka": "[DOM_IS_BACK]",
-      "note": "Rich, got a Gf, and over all good guy.",
-      "end": "1250556926597533889"
+      "discord": "Dom",
+      "kirka": "[DOM_IS_BACK]",
+      "note": "Rich, got a Gf, and overall good guy.",
+      "end": "1250556926597533889",
+      "bage": "",
+      "bage2": ""
     }
   ],
   "JZWLFF": [
     {
       "id": "JZWLFF",
-      "Discord": "Caydub",
-      "Kirka": "Caydub",
-      "note": "I exist, therefore i am",
-      "end": "924303535879888916"
+      "discord": "Caydub",
+      "kirka": "Caydub",
+      "note": "I exist, therefore I am",
+      "end": "924303535879888916",
+      "bage": "",
+      "bage2": ""
     }
   ],
-    "LRBCL7": [
+  "LRBCL7": [
     {
       "id": "LRBCL7",
-      "Discord": "Pure|Nah",
-      "Kirka": "PureNah",
+      "discord": "Pure|Nah",
+      "kirka": "PureNah",
       "note": "Worst lvl 90+",
-      "end": "1334217883634372700"
+      "end": "1334217883634372700",
+      "bage": "",
+      "bage2": ""
     }
   ],
-    "8STSOJ": [
+  "8STSOJ": [
     {
       "id": "8STSOJ",
-      "Discord": "disco_verified",
-      "Kirka": "Disc^2",
-      "note": "I miss 2 shots and i blame the lag",
-      "end": "1344420653406879746"
+      "discord": "disco_verified",
+      "kirka": "Disc^2",
+      "note": "I miss 2 shots and I blame the lag",
+      "end": "1344420653406879746",
+      "bage": "",
+      "bage2": ""
     }
   ],
-    "QW950O": [
+  "QW950O": [
     {
       "id": "QW950O",
-      "Discord": "jollysoup",
-      "Kirka": "Jolly",
-      "note": "Im the Jolliest Semi-Pro in kirka",
+      "discord": "jollysoup",
+      "kirka": "Jolly",
+      "note": "I'm the Jolliest Semi-Pro in kirka",
       "end": "776091563558043648",
-      "bage": "https://images.emojiterra.com/google/android-12l/512px/1f372.png"
+      "bage": "https://images.emojiterra.com/google/android-12l/512px/1f372.png",
+      "bage2": ""
     }
   ],
-    "YMLB6S": [
+  "YMLB6S": [
     {
       "id": "YMLB6S",
-      "Discord": "Jacob12091266",
-      "Kirka": "Jacob",
+      "discord": "Jacob12091266",
+      "kirka": "Jacob",
       "note": "Sucks at the game (2025 - 💀)",
       "end": "1316511775990222868",
-      "bage": "https://discord.com/assets/a1517e1c721b84d1.svg"
+      "bage": "https://discord.com/assets/a1517e1c721b84d1.svg",
+      "bage2": ""
     }
   ]
 }
