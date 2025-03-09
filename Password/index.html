@@ -134,7 +134,7 @@
                 loginForm.classList.add("hidden");
 
                 // Update message
-                let message = `<h2>Mr. ${discordName},</h2>
+                let message = `<h2>Mr.<span style="color:${user.color};">${discordName}</span>,</h2>
                                <p><strong>${user.Kirka}</strong>.</p>`;
 
                 if (user.note) {
