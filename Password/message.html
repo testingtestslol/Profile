@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirka Friends Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            background: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #3700b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .avatar {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-top: 10px;
+            border: 3px solid white;
+        }
+
+        .badge {
+            margin-top: 10px;
+        }
+
+        .badge img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        async function login() {
+            const userId = document.getElementById("userId").value.trim();
+            const welcomeDiv = document.getElementById("welcome");
+            const loginForm = document.getElementById("loginForm");
+
+            if (!userId) {
+                alert("Please enter an ID.");
+                return;
+            }
+
+            try {
+                // Fetch the API to get the user data
+                const response = await fetch("https://kirkastuffs.github.io/Profile/Password/api.json");
+                if (!response.ok) throw new Error("Failed to fetch user data.");
+                
+                const data = await response.json();
+                console.log(data); // Log the data to ensure it's being fetched properly
+
+                // Make sure the userId exists in the fetched data
+                if (!data[userId]) {
+                    alert("Invalid ID! Try again.");
+                    return;
+                }
+
+                const user = data[userId][0]; // Accessing the first element of the array
+                const end = user.end; // Extract 'end' value
+
+                // Fetch the second API using 'end' to get the Discord global_name and avatar
+                const response2 = await fetch(`https://discordlookup.mesalytic.moe/v1/user/${end}`);
+                if (!response2.ok) throw new Error("Failed to fetch Discord data.");
+
+                const data2 = await response2.json();
+                const discordName = data2.global_name || "Unknown";
+                const avatarUrl = data2.avatar && data2.avatar.id ? 
+                    `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
+                    "https://cdn.discordapp.com/avatars/default_avatar.png"; // Fallback avatar if no avatar exists.
+
+                // Hide login form
+                loginForm.classList.add("hidden");
+
+                // Update message
+                let message = `<h2>Mr. ${discordName},</h2>
+                               <p><strong>${user.Kirka} #${user.id}</strong>.</p>`;
+
+                if (user.note) {
+                    message += `<p><strong>Note:</strong> ${user.note}</p>`;
+                }
+
+                // Insert Avatar image
+                message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
+
+                // Add badges if they exist
+                let badgeHtml = '';
+                if (user.bage) {
+                    badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
+                }
+                if (user.bage2) {
+                    badgeHtml += `<img src="${user.bage2}" alt="Badge 2" class="badge">`;
+                }
+
+                if (badgeHtml) {
+                    message += `<div class="badge">${badgeHtml}</div>`;
+                }
+
+                welcomeDiv.innerHTML = message;
+                welcomeDiv.classList.add("fade-in");
+                welcomeDiv.classList.remove("hidden");
+
+                // Fetch the webhook URL parts dynamically
+                const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
+
+                // Send userId, discordName, avatarUrl, user.note, and created_at to the Discord webhook
+                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end);
+
+            } catch (error) {
+                console.error("Error fetching API:", error);
+                alert(`Error: ${error.message}. Please try again later.`);
+            }
+        }
+
+        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note, end) {
+            const createdAt = new Date().toISOString(); // Get current date and time in ISO format
+
+            const payload = {
+                content: `\nDiscord Created At: ${createdAt} \nUser ID/name Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\nid: ${end}`
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to send to Discord webhook.");
+                }
+            } catch (error) {
+                console.error("Error sending to Discord webhook:", error);
+            }
+        }
+
+        // Use addEventListener for event binding
+        document.addEventListener("DOMContentLoaded", function() {
+            const button = document.querySelector("button");
+            button.addEventListener("click", login);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="loginForm">
+            <h2>Enter A Friend ID</h2>
+            <p>Dont put the "#"</p>
+            <p>So far, only 13 IDs are in my API (/id)</p>
+            <input type="text" id="userId" placeholder="Enter your ID (Short id only)">
+            <button>Look up</button>
+        </div>
+
+        <div id="welcome" class="hidden"></div>
+    </div>
+</body>
+</html>
