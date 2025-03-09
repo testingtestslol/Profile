@@ -171,6 +171,7 @@
       "Kirka": "Ramen",
       "note": "That one kirka moderator",
       "end": "994748187753590945",
+      "color": "#ffac33",
       "bage": "https://i.imgur.com/N37HT5h.png",
       "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
     }
@@ -182,7 +183,21 @@
       "Kirka": "Efkbawbfgbawje",
       "note": "Nice guy :)",
       "end": "1006094227618414592",
+      "color": "#fadc00",
       "bage": "https://i.imgur.com/PmWkP4B.png"
+    }
+  ],
+  "AZ0KBI": [
+    {
+      "Id": "AZ0KBI",
+      "discord": "Apollox.dev",
+      "Kirka": "ApolloX",
+      "note": "That friends Friend...",
+      "end": "1132415037512896612",
+      "color": "#3a9f00",
+      "bage": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=4096",
+      "bage2": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
+      "bage3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png"
     }
   ]
 }
