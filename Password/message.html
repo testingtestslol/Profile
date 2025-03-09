@@ -79,12 +79,14 @@
             margin-top: 10px;
         }
 
-        .badge img {
-            width: 40px;
+        /* New .bagesniper class for custom badge size */
+        .bagesniper {
+            width: 100px;
             height: 40px;
-            border-radius: 10%;
+            border-radius: 5px; /* Optional: adjust the radius if you want */
             margin: 5px;
         }
+
     </style>
     <script>
         async function login() {
@@ -138,7 +140,7 @@
                 // Insert Avatar image
                 message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
 
-                // Add badges if they exist and are valid
+                // Add badges if they exist and are valid, apply the new .bagesniper class
                 let badgeHtml = '';
                 if (user.bage && user.bage.trim() !== "") {
                     badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
@@ -149,11 +151,13 @@
                 if (user.bage3 && user.bage3.trim() !== "") {
                     badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
                 }
+                if (user.bagesniper && user.bagesniper.trim() !== "") {
+                    badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
+                }
                 
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
                 }
-
 
                 welcomeDiv.innerHTML = message;
                 welcomeDiv.classList.add("fade-in");
