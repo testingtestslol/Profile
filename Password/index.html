@@ -175,7 +175,7 @@
                 if (!response2.ok) throw new Error("Failed to fetch Discord data.");
 
                 const data2 = await response2.json();
-                const discordName = data2.username || "Unknown";
+                const discordName = data2.global_name || "Irrvlo"; // Irrvlo Get a global_name or gay
                 const avatarUrl = data2.avatar && data2.avatar.id ? 
                     `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
                     "https://cdn.discordapp.com/avatars/default_avatar.png";
@@ -323,7 +323,7 @@
             <li>KY25PX (Jmac)</li>
             <li>X7PLHD (IncestRights)</li>
             <li>21JWTV (MikeyO)</li>
-            <li>1LEJ1I ([Dom_Is_Back]</li>
+            <li>1LEJ1I ([Dom_Is_Back])</li>
             <li>JZWLFF (Caydub)</li>
             <li>LRBCL7 (PureNah)</li>
             <li>8STSOJ (Disc^2)</li>
