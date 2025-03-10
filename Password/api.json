@@ -261,5 +261,18 @@
       "bage2": "https://irrvlo.xyz/ss03.png",
       "bage3": "https://daymian.xyz/Icons/flow.jpg"
     }
+  ],
+  "694TAJ": [
+    {
+      "Id": "694TAJ",
+      "discord": "CarryGold",
+      "Kirka": "CarryGold",
+      "note": "Kirka bot",
+      "end": "1040930828164800512",
+      "Role": "VERIFIED_BOT",
+      "color": "#c12d2d",
+      "bage": "https://cdn3.emoji.gg/emojis/81825-bot.png",
+      "bage3": "https://daymian.xyz/Icons/flow.jpg"
+    }
   ]
 }
