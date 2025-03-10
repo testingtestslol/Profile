@@ -245,7 +245,21 @@
       "end": "951534684490309682",
       "color": "#ff0000",
       "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
-      "bage2": "https://cdn3.emoji.gg/emojis/1202-youtube.png"
+      "bage2": "https://cdn3.emoji.gg/emojis/1202-youtube.png",
+      "bage3": "https://daymian.xyz/Icons/flow.jpg"
+    }
+  ],
+  "RX1J29": [
+    {
+      "Id": "RX1J29",
+      "discord": "d4ym1an",
+      "Kirka": "ForGod+Country",
+      "note": "That one Youtuber That never uploads",
+      "end": "666539355896152074",
+      "color": "#9FE2BF",
+      "bage": "https://juice.irrvlo.xyz/juicemod.png",
+      "bage2": "https://irrvlo.xyz/ss03.png",
+      "bage3": "https://daymian.xyz/Icons/flow.jpg"
     }
   ]
 }
