@@ -31,7 +31,6 @@
       "note": "Dam Hacker, and NO i am not saying this bc he beat me in a 1v1 ;-;",
       "end": "1103790739525210123",
       "bage": "https://cdn.discordapp.com/emojis/1196230060911366245.webp?size=40",
-      "bage2": "https://cdn.discordapp.com/emojis/1348368529988255744.webp?size=40",
       "bage3": "https://cdn.discordapp.com/emojis/1332046297389072496.webp?size=40"
     }
   ],
@@ -52,9 +51,9 @@
       "Id": "SNIPER",
       "discord": "Sniper_Gecko",
       "Kirka": "Sniper",
-      "note": "The one and only Kirka Admin (No joke)",
+      "note": "one of the only Kirka Admins (No joke)",
       "end": "481959088029302796",
-      "role": "[Admin]",
+      "role": "[Staff]",
       "color": "#7ce415" ,
       "bage": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
       "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
@@ -72,7 +71,7 @@
       "color": "#008aff",
       "bage": "https://cdn.discordapp.com/emojis/1113822215113285774.webp?size=40",
       "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
-      "bage3": "https://cdn.discordapp.com/emojis/1348368538611613736.webp?size=40",
+      "bage3": "https://cdn.discordapp.com/emojis/921341310873522206.webp?size=40",
       "bagesniper": "https://cdn.discordapp.com/emojis/1348499858033475594.webp?size=40"
     }
   ],
@@ -182,7 +181,7 @@
       "Kirka": "Ramen",
       "note": "That one kirka moderator",
       "end": "994748187753590945",
-      "role": "[Moderator]",
+      "role": "[Staff]",
       "color": "#ffac33",
       "bage": "https://i.imgur.com/N37HT5h.png",
       "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
@@ -206,7 +205,7 @@
       "Kirka": "ApolloX",
       "note": "That friends Friend...",
       "end": "1132415037512896612",
-      "role": "[Moderator]",
+      "role": "[Staff]",
       "color": "#3a9f00",
       "bage": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=40",
       "bage2": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
@@ -273,6 +272,23 @@
       "color": "#c12d2d",
       "bage": "https://cdn3.emoji.gg/emojis/9435-blurple-bot.png",
       "bage3": "https://daymian.xyz/Icons/flow.jpg"
+    }
+  ],
+  "1AI5EU": [
+    {
+      "Id": "1AI5EU",
+      "discord": "awesome.sam",
+      "Kirka": "AwesomeSam",
+      "note": "Kirka bot",
+      "end": "771601176155783198",
+      "role": "[Staff]",
+      "color": "#c12d2d",
+      "bage": "https://cdn.discordapp.com/emojis/942313044455882752.webp?size=40&animated=true",
+      "bage2": "https://cdn.discordapp.com/emojis/921341308323381270.webp?size=40",
+      "bage3": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
+      "bage4": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage5": "https://cdn.discordapp.com/emojis/921341332314800158.webp?size=40",
+      "bagesniper": "https://cdn.discordapp.com/emojis/921341328703508510.webp?size=40"
     }
   ]
 }
