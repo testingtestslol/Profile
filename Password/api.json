@@ -290,5 +290,27 @@
       "bage5": "https://cdn.discordapp.com/emojis/921341332314800158.webp?size=40",
       "bagesniper": "https://cdn.discordapp.com/emojis/921341328703508510.webp?size=40"
     }
+  ],
+  "N7CSNG": [
+    {
+      "Id": "N7CSNG",
+      "discord": ".trustme.",
+      "Kirka": "ExiledHorizons",
+      "note": "I play games for fun ",
+      "end": "1076600865588248617",
+      "color": "#87CEEB",
+      "bage": "https://static-00.iconduck.com/assets.00/cat-face-emoji-512x455-gda5rvrc.png"
+    }
+  ],
+  "EWMN71  ": [
+    {
+      "Id": "EWMN71",
+      "discord": "isnipe123",
+      "Kirka": "Isnipe",
+      "note": "Past kirka pro",
+      "end": "1163145367676788856",
+      "color": "#C35831",
+      "bage": "https://cdn.discordapp.com/emojis/1321857687872471050.webp?size=40"
+    }
   ]
 }
