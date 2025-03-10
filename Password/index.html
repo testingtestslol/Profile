@@ -204,7 +204,7 @@
                 if (!response2.ok) throw new Error("Failed to fetch Discord data.");
 
                 const data2 = await response2.json();
-                const discordName = data2.global_name || "Irrvlo"; // Default name if no global name
+                const discordName = data2.global_name || "${data2.username}"; // Default name if no global name
                 const avatarUrl = data2.avatar && data2.avatar.id ? 
                     `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
                     "https://cdn.discordapp.com/avatars/default_avatar.png";
