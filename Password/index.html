@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
 
         .container {
@@ -85,12 +86,57 @@
             border-radius: 10%;
             margin: 5px;
         }
+
         .bagesniper img {
             width: 70px;
             height: 40px;
             border-radius: 10%;
             margin: 5px;
         }
+
+        /* Add new styles for the button and list of IDs */
+        .side-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #6200ea;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .id-list {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .id-list ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .id-list li {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .id-list li:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+
     </style>
     <script>
         async function login() {
@@ -109,31 +155,26 @@
                 if (!response.ok) throw new Error("Failed to fetch user data.");
                 
                 const data = await response.json();
-                console.log(data); // Log the data to ensure it's being fetched properly
 
-                // Make sure the userId exists in the fetched data
                 if (!data[userId]) {
                     alert("Invalid ID! Try again.");
                     return;
                 }
 
-                const user = data[userId][0]; // Accessing the first element of the array
-                const end = user.end; // Extract 'end' value
+                const user = data[userId][0];
+                const end = user.end;
 
-                // Fetch the second API using 'end' to get the Discord global_name and avatar
                 const response2 = await fetch(`https://discordlookup.mesalytic.moe/v1/user/${end}`);
                 if (!response2.ok) throw new Error("Failed to fetch Discord data.");
 
                 const data2 = await response2.json();
-                const discordName = data2.username || "Unknown";
+                const discordName = data2.global_name || "Irrvlo"; // No way you don't have a global_name Irrvlo 👀 💀
                 const avatarUrl = data2.avatar && data2.avatar.id ? 
                     `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
-                    "https://cdn.discordapp.com/avatars/default_avatar.png"; // Fallback avatar if no avatar exists.
+                    "https://cdn.discordapp.com/avatars/default_avatar.png";
 
-                // Hide login form
                 loginForm.classList.add("hidden");
 
-                // Update message
                 let message = `<h2><span style="color:${user.color};">Mr. ${discordName}</span>,</h2>
                                <p><strong>${user.Kirka}</strong>.</p>`;
 
@@ -142,34 +183,19 @@
                                <p>${user.note}</p>`;
                 }
 
-                // Insert Avatar image
                 message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
 
-                // Add badges if they exist and are valid
                 let badgeHtml = '';
-                if (user.bage && user.bage.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
-                }
-                if (user.bage2 && user.bage2.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage2}" alt="Badge" class="badge">`;
-                }
-                if (user.bage3 && user.bage3.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
-                }
-                if (user.bage4 && user.bage4.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
-                }
-                if (user.bage5 && user.bage5.trim() !== "") {
-                    badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
-                }
-                if (user.bagesniper && user.bagesniper.trim() !== "") {
-                    badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
-                }
+                if (user.bage) badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
+                if (user.bage2) badgeHtml += `<img src="${user.bage2}" alt="Badge" class="badge">`;
+                if (user.bage3) badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
+                if (user.bage4) badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
+                if (user.bage5) badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
+                if (user.bagesniper) badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
                 
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
                 }
-
 
                 welcomeDiv.innerHTML = message;
                 welcomeDiv.classList.add("fade-in");
@@ -216,6 +242,11 @@
             const button = document.querySelector("button");
             button.addEventListener("click", login);
         });
+
+        function toggleIdList() {
+            const idList = document.getElementById("idList");
+            idList.style.display = idList.style.display === "none" || idList.style.display === "" ? "block" : "none";
+        }
     </script>
 </head>
 <body>
@@ -230,6 +261,32 @@
         </div>
 
         <div id="welcome" class="hidden"></div>
+    </div>
+
+    <!-- Side button -->
+    <button class="side-btn" onclick="toggleIdList()">List</button>
+
+    <!-- List of IDs -->
+    <div id="idList" class="id-list">
+        <ul>
+            <li>Y2OOB2 (Akuma)</li>
+            <li>985CBJ (PoopooumgoodYT)</li>
+            <li>WERWER (Xip)</li>
+            <li>SNIPER (Gecko)</li>
+            <li>KY25PX (Jmac)</li>
+            <li>X7PLHD (IncestRights)</li>
+            <li>21JWTV (MikeyO)</li>
+            <li>1LEJ1I ([Dom_Is_Back]</li>
+            <li>JZWLFF (Caydub)</li>
+            <li>LRBCL7 (PureNah)</li>
+            <li>8STSOJ (Disc^2)</li>
+            <li>QW950O (Jolly)</li>            
+            <li>YMLB6S (Jacob)</li>
+            <li>H8N3U4 (Irrvlo)</li>
+            <li>A2647V (Efkbawbfgbawje)</li>
+            <li>99KI3O (Ramen)</li>
+            <li>AZ0KBI (ApolloX)</li>
+        </ul>
     </div>
 </body>
 </html>
