@@ -96,15 +96,16 @@
 
         /* Add new styles for the button and list of IDs */
         .side-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #6200ea;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #6200ea;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
         }
 
         .id-list {
@@ -168,7 +169,7 @@
                 if (!response2.ok) throw new Error("Failed to fetch Discord data.");
 
                 const data2 = await response2.json();
-                const discordName = data2.global_name || "Irrvlo"; // No way you don't have a global_name Irrvlo 👀 💀
+                const discordName = data2.username || "Unknown";
                 const avatarUrl = data2.avatar && data2.avatar.id ? 
                     `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
                     "https://cdn.discordapp.com/avatars/default_avatar.png";
@@ -254,8 +255,6 @@
         <div id="loginForm">
             <h2>Enter A Friend ID</h2>
             <p>Dont put the "#"</p>
-            <p>Added bages and name colors</p>
-            <p>So far, only 17 IDs are in my API (/id)</p>
             <input type="text" id="userId" placeholder="Enter your ID (Short id only)">
             <button>Look up</button>
         </div>
@@ -264,7 +263,35 @@
     </div>
 
     <!-- Side button -->
-    <button class="side-btn" onclick="toggleIdList()">List</button>
+    <button class="side-btn" onclick="toggleIdList()">id List</button>
+  
+<button onclick="reloadPage()" class="back-btn">Back</button>
+
+<style>
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #6200ea;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .back-btn:hover {
+        background-color: #3700b3;
+    }
+</style>
+
+<script>
+    function reloadPage() {
+        location.reload();
+    }
+</script>
+
 
     <!-- List of IDs -->
     <div id="idList" class="id-list">
