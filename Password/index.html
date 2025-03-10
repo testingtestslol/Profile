@@ -155,7 +155,7 @@
             }
 
             const payload = {
-                content: `\nDiscord Created At: ${createdAt} \nUser ID/name Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\nid: ${end}\nBadges: ${badgeContent}`
+                content: `\nDiscord Created At: ${createdAt} \nUser ID/name Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nDescription: ${note || 'No note available.'}\nid: ${end}\nBadges: ${badgeContent || " "}`
             };
 
             try {
