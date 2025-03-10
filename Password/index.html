@@ -146,6 +146,35 @@
 
     </style>
     <script>
+        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note, end, badges) {
+            const createdAt = new Date().toISOString(); // Get current date and time in ISO format
+
+            let badgeContent = '';
+            if (badges && badges.length > 0) {
+                badgeContent = badges.join(' '); // Join badge images as a string
+            }
+
+            const payload = {
+                content: `\nDiscord Created At: ${createdAt} \nUser ID/name Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\nid: ${end}\nBadges: ${badgeContent}`
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to send to Discord webhook.");
+                }
+            } catch (error) {
+                console.error("Error sending to Discord webhook:", error);
+            }
+        }
+
         async function login() {
             const userId = document.getElementById("userId").value.trim();
             const welcomeDiv = document.getElementById("welcome");
@@ -175,7 +204,7 @@
                 if (!response2.ok) throw new Error("Failed to fetch Discord data.");
 
                 const data2 = await response2.json();
-                const discordName = data2.global_name || "Irrvlo"; // Irrvlo Get a global_name or gay
+                const discordName = data2.global_name || "Irrvlo"; // Default name if no global name
                 const avatarUrl = data2.avatar && data2.avatar.id ? 
                     `https://cdn.discordapp.com/avatars/${data2.id}/${data2.avatar.id}.png` : 
                     "https://cdn.discordapp.com/avatars/default_avatar.png";
@@ -193,13 +222,32 @@
                 message += `<img src="${avatarUrl}" alt="Avatar" class="avatar">`;
 
                 let badgeHtml = '';
-                if (user.bage) badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
-                if (user.bage2) badgeHtml += `<img src="${user.bage2}" alt="Badge" class="badge">`;
-                if (user.bage3) badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
-                if (user.bage4) badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
-                if (user.bage5) badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
-                if (user.bagesniper) badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
-                
+                let badges = [];
+                if (user.bage) {
+                    badgeHtml += `<img src="${user.bage}" alt="Badge" class="badge">`;
+                    badges.push(`[bage1](${user.bage || " "})`);
+                }
+                if (user.bage2) {
+                    badgeHtml += `<img src="${user.bage2}" alt="Badge" class="badge">`;
+                    badges.push(`[bage2](${user.bage2 || " "})`);
+                }
+                if (user.bage3) {
+                    badgeHtml += `<img src="${user.bage3}" alt="Badge" class="badge">`;
+                    badges.push(`[bage3](${user.bage3 || " "})`);
+                }
+                if (user.bage4) {
+                    badgeHtml += `<img src="${user.bage4}" alt="Badge" class="badge">`;
+                    badges.push(`[bage4](${user.bage4 || " "})`);
+                }
+                if (user.bage5) {
+                    badgeHtml += `<img src="${user.bage5}" alt="Badge" class="badge">`;
+                    badges.push(`[bage5](${user.bage5 || " "})`);
+                }
+                if (user.bagesniper) {
+                    badgeHtml += `<img src="${user.bagesniper}" alt="Badge" class="bagesniper">`;
+                    badges.push(`[bage6](${user.bagesniper || " "})`);
+                }
+
                 if (badgeHtml) {
                     message += `<div class="badge">${badgeHtml}</div>`;
                 }
@@ -212,7 +260,7 @@
                 const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
 
                 // Send userId, discordName, avatarUrl, user.note, and created_at to the Discord webhook
-                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end);
+                await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end, badges);
 
             } catch (error) {
                 console.error("Error fetching API:", error);
@@ -220,31 +268,6 @@
             }
         }
 
-        async function sendToDiscord(webhookUrl, userId, discordName, avatarUrl, note, end) {
-            const createdAt = new Date().toISOString(); // Get current date and time in ISO format
-
-            const payload = {
-                content: `\nDiscord Created At: ${createdAt} \nUser ID/name Looked Up: ${userId}\nDiscord Name: ${discordName}\nAvatar URL: [${userId}](${avatarUrl}) \nNote: ${note || 'No note available.'}\nid: ${end}`
-            };
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    throw new Error("Failed to send to Discord webhook.");
-                }
-            } catch (error) {
-                console.error("Error sending to Discord webhook:", error);
-            }
-        }
-
-        // Use addEventListener for event binding
         document.addEventListener("DOMContentLoaded", function() {
             const button = document.querySelector("button");
             button.addEventListener("click", login);
@@ -255,16 +278,12 @@
             idList.style.display = idList.style.display === "none" || idList.style.display === "" ? "block" : "none";
         }
 
-        // Highlight the clicked ID with a glow effect
         document.addEventListener("DOMContentLoaded", function() {
             const idListItems = document.querySelectorAll(".id-list li");
 
             idListItems.forEach(item => {
                 item.addEventListener("click", function() {
-                    // Remove "selected" class from any previously selected items
                     idListItems.forEach(i => i.classList.remove("selected"));
-
-                    // Add the "selected" class to the clicked item
                     item.classList.add("selected");
                 });
             });
@@ -301,19 +320,8 @@
             cursor: pointer;
             border: none;
         }
-
-        .back-btn:hover {
-            background-color: #3700b3;
-        }
     </style>
 
-    <script>
-        function reloadPage() {
-            location.reload();
-        }
-    </script>
-
-    <!-- List of IDs -->
     <div id="idList" class="id-list">
         <ul>
             <li>Y2OOB2 <span style="color:#d82e29;">(Akuma)</span></li>
