@@ -94,18 +94,17 @@
             margin: 5px;
         }
 
-        /* Add new styles for the button and list of IDs */
         .side-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #6200ea;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #6200ea;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
         }
 
         .id-list {
@@ -131,11 +130,18 @@
         .id-list li {
             padding: 10px;
             border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .id-list li:hover {
             background-color: #444;
             cursor: pointer;
+            box-shadow: 0 0 10px 2px orange; /* Adds orange glow effect on hover */
+        }
+
+        .id-list li.selected {
+            background-color: #333; /* Darker background for selected item */
+            box-shadow: 0 0 20px 5px orange; /* Stronger orange glow for selected item */
         }
 
     </style>
@@ -248,6 +254,21 @@
             const idList = document.getElementById("idList");
             idList.style.display = idList.style.display === "none" || idList.style.display === "" ? "block" : "none";
         }
+
+        // Highlight the clicked ID with a glow effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const idListItems = document.querySelectorAll(".id-list li");
+
+            idListItems.forEach(item => {
+                item.addEventListener("click", function() {
+                    // Remove "selected" class from any previously selected items
+                    idListItems.forEach(i => i.classList.remove("selected"));
+
+                    // Add the "selected" class to the clicked item
+                    item.classList.add("selected");
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -265,41 +286,40 @@
     <!-- Side button -->
     <button class="side-btn" onclick="toggleIdList()">id List</button>
   
-<button onclick="reloadPage()" class="back-btn">Back</button>
+    <button onclick="reloadPage()" class="back-btn">Back</button>
 
-<style>
-    .back-btn {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background-color: #6200ea;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-    }
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #6200ea;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
 
-    .back-btn:hover {
-        background-color: #3700b3;
-    }
-</style>
+        .back-btn:hover {
+            background-color: #3700b3;
+        }
+    </style>
 
-<script>
-    function reloadPage() {
-        location.reload();
-    }
-</script>
-
+    <script>
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
 
     <!-- List of IDs -->
     <div id="idList" class="id-list">
         <ul>
-            <li>Y2OOB2 (Akuma)</li>
+            <li>Y2OOB2 <span style="color:#d82e29;">(Akuma)</span></li>
             <li>985CBJ (PoopooumgoodYT)</li>
             <li>WERWER (Xip)</li>
-            <li>SNIPER (Gecko)</li>
+            <li>SNIPER <span style="color:#7ce415;">(Gekco)</span></li>
             <li>KY25PX (Jmac)</li>
             <li>X7PLHD (IncestRights)</li>
             <li>21JWTV (MikeyO)</li>
@@ -307,12 +327,12 @@
             <li>JZWLFF (Caydub)</li>
             <li>LRBCL7 (PureNah)</li>
             <li>8STSOJ (Disc^2)</li>
-            <li>QW950O (Jolly)</li>            
+            <li>QW950O <span style="color:#ff0000;">(Jolly)</span></li>            
             <li>YMLB6S (Jacob)</li>
-            <li>H8N3U4 (Irrvlo)</li>
-            <li>A2647V (Efkbawbfgbawje)</li>
-            <li>99KI3O (Ramen)</li>
-            <li>AZ0KBI (ApolloX)</li>
+            <li>H8N3U4 <span style="color:#eebe42;">(Irrvlo)</span></li>
+            <li>A2647V <span style="color:#fadc00;">(Efkbawbfgbawje)</span></li>
+            <li>99KI3O <span style="color:#ffac33;">(Ramen)</span></li>
+            <li>AZ0KBI <span style="color:#3a9f00;">(ApolloX)</span></li>
         </ul>
     </div>
 </body>
