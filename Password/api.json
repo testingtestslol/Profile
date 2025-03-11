@@ -352,5 +352,18 @@
       "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
       "bage2": "https://i.imgur.com/QtRlGYb.png"
     }
+  ],
+  "7VUNQK": [
+    {
+      "Id": "7VUNQK",
+      "discord": "skywalk_",
+      "Kirka": "skywalk",
+      "note": "Owner of kirka.lukeskywalk.com (promo)",
+      "end": "330501044532674570",
+      "role": "[Verified]",
+      "color": "#fff",
+      "bage": "https://cdn.discordapp.com/emojis/1113822244548915312.webp?size=40",
+      "bage2": "https://cdn.discordapp.com/emojis/1200079405226143764.webp?size=40"
+    }
   ]
 }
