@@ -324,5 +324,30 @@
       "color": "#C35831",
       "bage": "https://cdn.discordapp.com/emojis/1321857687872471050.webp?size=40"
     }
+  ],
+  "1XJNNT": [
+    {
+      "Id": "1XJNNT",
+      "discord": "judgeweenor",
+      "Kirka": "Golden",
+      "note": "I am pure Gold",
+      "end": "1233193437168271370",
+      "color": "#E5B80B",
+      "bage": "https://irrvlo.xyz/kirka_guilded.png",
+      "bage2": "https://gamepedia.cursecdn.com/minecraft_gamepedia/5/57/Gold_Ingot_JE3_BE2.png",
+      "bage3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png"
+    }
+  ],
+  "HVCL3P": [
+    {
+      "Id": "HVCL3P",
+      "discord": "yzzzmtz",
+      "Kirka": "yzzz$",
+      "note": "Owner of resunz.org (promo)",
+      "end": "1114324111611666512",
+      "color": "#fff",
+      "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
+      "bage2": "https://irrvlo.xyz/RNEW.png"
+    }
   ]
 }
