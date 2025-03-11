@@ -7,6 +7,7 @@
       "note": "I suck at games ;-;",
       "end": "1169111190824308768",
       "color": "#d82e29",
+      "color2": "#fff",
       "bage": "https://cdn.discordapp.com/emojis/1348476502299119626.webp?size=40",
       "bage2": "https://th.bing.com/th/id/R.13de93312873883ddaea43472744aaa5?rik=nE1nQVXhAlqLeQ&pid=ImgRaw&r=0",
       "bage3": "https://cdn.discordapp.com/emojis/1086211972997062736.webp?size=40"
@@ -54,7 +55,8 @@
       "note": "one of the only Kirka Admins (No joke)",
       "end": "481959088029302796",
       "role": "[Staff]",
-      "color": "#7ce415" ,
+      "color": "#7ce415",
+      "color2": "#00FF00",
       "bage": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
       "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
       "bage3": "https://images.emojiterra.com/twitter/v12/512px/1f98e.png"
@@ -69,6 +71,7 @@
       "end": "359425032432123905",
       "role": "[Owner]",
       "color": "#008aff",
+      "color2": "#fff",
       "bage": "https://cdn.discordapp.com/emojis/1113822215113285774.webp?size=40",
       "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
       "bage3": "https://cdn.discordapp.com/emojis/921341310873522206.webp?size=40",
@@ -107,7 +110,8 @@
       "Kirka": "Caydub",
       "note": "I exist, therefore I am",
       "end": "924303535879888916",
-      "color": "#5800e6" ,
+      "color": "#5800e6",
+      "color2": "#7f30ff",
       "bage": "https://cdn-0.emojis.wiki/emoji-pics/twitter/beverage-box-twitter.png",
       "bage2": ""
     }
@@ -142,6 +146,7 @@
       "note": "I'm the Jolliest Semi-Pro in kirka",
       "end": "776091563558043648",
       "color": "#ff0000",
+      "color2": "#f59bff",
       "bage": "https://images.emojiterra.com/google/android-12l/512px/1f372.png",
       "bage2": "https://th.bing.com/th/id/R.50d3c8bc0f38ce6637cf9e373ecefb66?rik=lAyUzpH1AgPeRQ&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2fgoogle%2fnoto-emoji-food-drink%2f1024%2f32427-lollipop-icon.png&ehk=skggIsyc6aNRNsnSysrbFn1f0s9Dje82I2g6%2fBYL%2b%2f0%3d&risl=&pid=ImgRaw&r=0"
     }
@@ -154,6 +159,7 @@
       "note": "Sucks at the game (2025 - 💀)",
       "end": "1316511775990222868",
       "color": "#5d4000",
+      "color2": "#422d00",
       "bage": "https://i.pinimg.com/originals/91/86/a4/9186a4f4d3f24827af0cead5a779936c.png",
       "bage2": "https://cdn.discordapp.com/emojis/1329086570480926843.webp?size=40"
     }
@@ -167,6 +173,7 @@
       "end": "871895500490678273",
       "role": "[Verified]",
       "color": "#eebe42",
+      "color2": "#ffeec2"
       "bage": "https://cdn.discordapp.com/emojis/1246231152902148149.webp?size=40",
       "bage2": "https://cdn.discordapp.com/emojis/1297292311281008671.webp?size=40",
       "bage4": "https://cdn.discordapp.com/emojis/1278746636922785792.webp?size=40",
@@ -183,6 +190,7 @@
       "end": "994748187753590945",
       "role": "[Staff]",
       "color": "#ffac33",
+      "color2": "#ffffff",
       "bage": "https://i.imgur.com/N37HT5h.png",
       "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
     }
@@ -207,6 +215,7 @@
       "end": "1132415037512896612",
       "role": "[Staff]",
       "color": "#3a9f00",
+      "color2": "#00FF00",
       "bage": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=40",
       "bage2": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
       "bage3": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
@@ -242,7 +251,8 @@
       "Kirka": "Fabin",
       "note": "#1 kirka player And the best kirka Youtuber (Sorry winky)",
       "end": "951534684490309682",
-      "color": "#ff0000",
+      "color": "#000000",
+      "color2": "#ff0000",
       "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
       "bage2": "https://cdn3.emoji.gg/emojis/1202-youtube.png",
       "bage3": "https://daymian.xyz/Icons/flow.jpg"
@@ -255,7 +265,8 @@
       "Kirka": "ForGod+Country",
       "note": "That one Youtuber That never uploads",
       "end": "666539355896152074",
-      "color": "#9FE2BF",
+      "color": "#008000",
+      "color2": "#9FE2BF",
       "bage": "https://juice.irrvlo.xyz/juicemod.png",
       "bage2": "https://irrvlo.xyz/ss03.png",
       "bage3": "https://daymian.xyz/Icons/flow.jpg"
@@ -283,6 +294,7 @@
       "end": "771601176155783198",
       "role": "[Staff]",
       "color": "#fadc00",
+      "color2": "#ffeec2",
       "bage": "https://cdn.discordapp.com/emojis/942313044455882752.webp?size=40&animated=true",
       "bage2": "https://cdn.discordapp.com/emojis/921341308323381270.webp?size=40",
       "bage3": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
