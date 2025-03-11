@@ -336,7 +336,8 @@
       "color": "#E5B80B",
       "bage": "https://irrvlo.xyz/kirka_guilded.png",
       "bage2": "https://gamepedia.cursecdn.com/minecraft_gamepedia/5/57/Gold_Ingot_JE3_BE2.png",
-      "bage3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png"
+      "bage3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage4": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
     }
   ],
   "HVCL3P": [
@@ -350,6 +351,34 @@
       "color": "#fff",
       "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
       "bage2": "https://i.imgur.com/QtRlGYb.png"
+    }
+  ],
+  "HVCL3P": [
+    {
+      "Id": "HVCL3P",
+      "discord": "yzzzmtz",
+      "Kirka": "yzzz$",
+      "note": "Owner of resunz.org (promo)",
+      "end": "1114324111611666512",
+      "role": "[Verified]",
+      "color": "#fff",
+      "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
+      "bage2": "https://i.imgur.com/QtRlGYb.png"
+    }
+  ],
+  "59FF4W": [
+    {
+      "Id": "59FF4W",
+      "discord": "s4b3",
+      "Kirka": "Sabe",
+      "note": "🏆 10x Tournament Wins 🏆 #1",
+      "end": "267778563158048769",
+      "color": "#957ee6",
+      "color2": "#ddb0cb",
+      "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
+      "bage2": "https://i.imgur.com/askdM1j.png",
+      "bage3": "https://daymian.xyz/Icons/flow.jpg",
+      "bage4": "https://whatemoji.org/wp-content/uploads/2020/07/Goat-Emoji.png"
     }
   ]
 }
