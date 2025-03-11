@@ -1,14 +1,14 @@
 {
-  "updatev1.1": [
+  "updatev0.2": [
     {
       "text": "Update v1.1: Added Gradient names to few Users",
       "date": "2025-03-11",
       "by": "ppugclay"
     }
   ],
-  "updatev1.0": [
+  "updatev0.1": [
     {
-      "text": "Update v1.0: Added Bages and Colors to names, added The id list and Back buttons",
+      "text": "Update v1.0: Added Bages and Colors to names, added The id list and Back buttons, added animated=true to some bages",
       "date": "2025-03-10",
       "by": "ppugclay"
     }
