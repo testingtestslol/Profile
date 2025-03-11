@@ -43,8 +43,9 @@
       "note": "The name tells you it all...",
       "end": "1236667927944761396",
       "color": "#d000a5",
+      "color2": "#fff",
       "bage": "https://cdn.discordapp.com/emojis/1336316781626916916.webp?size=40",
-      "bage2": ""
+      "bage2": null
     }
   ],
   "SNIPER": [
@@ -88,7 +89,7 @@
       "color": "#0080d0",
       "role": "[Verified]",
       "bage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
-      "bage2": ""
+      "bage2": null
     }
   ],
   "1LEJ1I": [
@@ -113,7 +114,7 @@
       "color": "#5800e6",
       "color2": "#7f30ff",
       "bage": "https://cdn-0.emojis.wiki/emoji-pics/twitter/beverage-box-twitter.png",
-      "bage2": ""
+      "bage2": null
     }
   ],
   "LRBCL7": [
@@ -123,8 +124,8 @@
       "Kirka": "PureNah",
       "note": "Worst lvl 90+",
       "end": "1334217883634372700",
-      "bage": "",
-      "bage2": ""
+      "bage": null,
+      "bage2": null
     }
   ],
   "8STSOJ": [
@@ -134,8 +135,8 @@
       "Kirka": "Disc^2",
       "note": "I miss 2 shots and I blame the lag",
       "end": "1344420653406879746",
-      "bage": "",
-      "bage2": ""
+      "bage": null,
+      "bage2": null
     }
   ],
   "QW950O": [
@@ -187,142 +188,13 @@
       "discord": "yum_ramen",
       "Kirka": "Ramen",
       "note": "That one kirka moderator",
-      "end": "994748187753590945",
-      "role": "[Staff]",
-      "color": "#ffac33",
-      "color2": "#ffffff",
-      "bage": "https://i.imgur.com/N37HT5h.png",
-      "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
-    }
-  ],
-  "A2647V": [
-    {
-      "Id": "A2647V",
-      "discord": "leminator9",
-      "Kirka": "Efkbawbfgbawje",
-      "note": "Nice guy :)",
-      "end": "1006094227618414592",
-      "color": "#fadc00",
-      "bage": "https://i.imgur.com/PmWkP4B.png"
-    }
-  ],
-  "AZ0KBI": [
-    {
-      "Id": "AZ0KBI",
-      "discord": "Apollox.dev",
-      "Kirka": "ApolloX",
-      "note": "That friends Friend...",
-      "end": "1132415037512896612",
-      "role": "[Staff]",
-      "color": "#3a9f00",
-      "color2": "#00FF00",
-      "bage": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=40",
-      "bage2": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
-      "bage3": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
-    }
-  ],
-  "RN7TFR": [
-    {
-      "Id": "RN7TFR",
-      "discord": "nyr_s",
-      "Kirka": "Nayyras",
-      "note": "The best VinK staff ever :3",
-      "end": "844043494439124992",
-      "color": "#440808",
-      "bage": "https://cdn.discordapp.com/emojis/1086211972997062736.webp?size=40",
-      "bage2": "https://th.bing.com/th/id/R.357fa7ddf6bd0be58c9644d031b161be?rik=7bi3Y%2b3Olub%2fFw&pid=ImgRaw&r=0"
-    }
-  ],
-  "RBVNJ5": [
-    {
-      "Id": "RBVNJ5",
-      "discord": "mr_nobody_96",
-      "Kirka": "MR_NOBODY",
-      "note": "just trader in kirka.io",
-      "end": "1270161474135916555",
-      "color": "#5cffb5",
-      "bage": "https://cdn.discordapp.com/role-icons/1331388360161361967/5ced46577cb76042681c179d843c9b07.webp?size=56&quality=lossless"
-    }
-  ],
-  "DUQG02": [
-    {
-      "Id": "DUQG02",
-      "discord": "demonivel",
-      "Kirka": "Fabin",
-      "note": "#1 kirka player And the best kirka Youtuber (Sorry winky)",
-      "end": "951534684490309682",
-      "color": "#000000",
-      "color2": "#ff0000",
-      "bage": "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f3c6.svg",
-      "bage2": "https://cdn3.emoji.gg/emojis/1202-youtube.png",
-      "bage3": "https://daymian.xyz/Icons/flow.jpg"
-    }
-  ],
-  "RX1J29": [
-    {
-      "Id": "RX1J29",
-      "discord": "d4ym1an",
-      "Kirka": "ForGod+Country",
-      "note": "That one Youtuber That never uploads",
-      "end": "666539355896152074",
-      "color": "#008000",
-      "color2": "#9FE2BF",
-      "bage": "https://juice.irrvlo.xyz/juicemod.png",
-      "bage2": "https://irrvlo.xyz/ss03.png",
-      "bage3": "https://daymian.xyz/Icons/flow.jpg"
-    }
-  ],
-  "694TAJ": [
-    {
-      "Id": "694TAJ",
-      "discord": "CarryGold",
-      "Kirka": "CarryGold",
-      "note": "Kirka bot",
-      "end": "1040930828164800512",
-      "role": "VERIFIED_BOT",
-      "color": "#c12d2d",
-      "bage": "https://cdn3.emoji.gg/emojis/9435-blurple-bot.png",
-      "bage3": "https://daymian.xyz/Icons/flow.jpg"
-    }
-  ],
-  "1AI5EU": [
-    {
-      "Id": "1AI5EU",
-      "discord": "awesome.sam",
-      "Kirka": "AwesomeSam",
-      "note": "Kirka bot",
-      "end": "771601176155783198",
-      "role": "[Staff]",
-      "color": "#fadc00",
-      "color2": "#ffeec2",
-      "bage": "https://cdn.discordapp.com/emojis/942313044455882752.webp?size=40&animated=true",
-      "bage2": "https://cdn.discordapp.com/emojis/921341308323381270.webp?size=40",
-      "bage3": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
-      "bage4": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
-      "bage5": "https://cdn.discordapp.com/emojis/921341332314800158.webp?size=40",
-      "bagesniper": "https://cdn.discordapp.com/emojis/921341328703508510.webp?size=40"
-    }
-  ],
-  "N7CSNG": [
-    {
-      "Id": "N7CSNG",
-      "discord": ".trustme.",
-      "Kirka": "ExiledHorizons",
-      "note": "I play games for fun ",
-      "end": "1076600865588248617",
-      "color": "#87CEEB",
-      "bage": "https://static-00.iconduck.com/assets.00/cat-face-emoji-512x455-gda5rvrc.png"
-    }
-  ],
-  "EWMN71": [
-    {
-      "Id": "EWMN71",
-      "discord": "isnipe123",
-      "Kirka": "Isnipe",
-      "note": "Past kirka pro",
-      "end": "1163145367676788856",
-      "color": "#C35831",
-      "bage": "https://cdn.discordapp.com/emojis/1321857687872471050.webp?size=40"
+      "end": "1234176692327417091",
+      "role": "[Moderator]",
+      "color": "#673ab7",
+      "color2": "#9c27b0",
+      "bage": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
+      "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage3": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40"
     }
   ]
 }
