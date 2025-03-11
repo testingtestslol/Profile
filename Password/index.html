@@ -264,9 +264,13 @@
                 welcomeDiv.classList.add("fade-in");
                 welcomeDiv.classList.remove("hidden");
 
-                // Fetch the webhook URL parts dynamically
-                const webhookUrl = `https://discord.com/api/webhooks/1345606347441438783/QfuWXfhoAOpy9tSnvHeYCINisbavHAKpWWTyO08NcF1kW75v9nrLXt9SwmKrADeOw3jR`;
+                // Fetch the webhook URL parts dynamically from the external JSON file
+                const webhookPartsResponse = await fetch("https://kirkastuffs.github.io/Profile/Password/send.json");
+                if (!webhookPartsResponse.ok) throw new Error("Failed to fetch webhook parts.");
 
+                const webhookParts = await webhookPartsResponse.json();
+                const webhookUrl = `${webhookParts.part1}1345606347441438783/${webhookParts.part3}AKpWWTyO08NcF1kW75v9nrLXt9${webhookParts.part8}`;
+                
                 // Send userId, discordName, avatarUrl, user.note, and created_at to the Discord webhook
                 await sendToDiscord(webhookUrl, userId, discordName, avatarUrl, user.note, end, badges);
 
