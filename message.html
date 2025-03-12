@@ -110,7 +110,7 @@
         const discordData = await fetchDiscordData(user.end);
         const globalName = discordData.global_name || user.username;
         const discordImageUrl = discordData.avatar.link;
-        const role = user.role || "No Role";
+        const role = user.role || "User";
         
         const color = user.color || "#FFFFFF";
         document.documentElement.style.setProperty('--default-color', color);
