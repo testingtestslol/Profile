@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Profile Image with Stats</title>
     <style>
+        :root {
+            --default-color: #ffffff; /* Default white color */
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #2f3136; /* Dark background color */
+            background-color: #2f3136;
             color: white;
             margin: 0;
             padding: 0;
@@ -25,13 +29,13 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            background-color: rgba(0, 0, 0, 0.7); /* Dark container with some opacity */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         h1 {
             font-size: 32px;
             margin-bottom: 20px;
-            color: #ffcc00; /* Gold color for the title */
+            color: var(--default-color);
             font-weight: bold;
         }
 
@@ -43,7 +47,7 @@
             border-radius: 10px;
             border: 1px solid #ccc;
             background-color: #333;
-            color: black;
+            color: white;
         }
 
         .generate-btn, .download-btn {
@@ -64,50 +68,10 @@
 
         canvas {
             margin-top: 30px;
-            border-radius: 15px; /* Rounded corners for the canvas */
+            border-radius: 15px;
             border: 1px solid #ccc;
         }
 
-        /* Stats layout (Horizontal Cards with Label/Value structure) */
-        .profile-stats {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-        }
-
-        .stat-card {
-            background-color: #3e434a;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: left;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffcc00; /* Gold color for labels */
-        }
-
-        .stat-value {
-            font-size: 20px;
-            color: black;
-            margin-left: 10px;
-        }
-
-        /* Responsive layout for small screens */
-        @media (max-width: 768px) {
-            .profile-stats {
-                grid-template-columns: 1fr; /* Stack stats on smaller screens */
-            }
-        }
     </style>
 </head>
 <body>
@@ -145,48 +109,47 @@
             return;
         }
 
-        const discordData = await fetchDiscordData(user.end);  // Fetch Discord data using the 'end' ID
-        const globalName = discordData.global_name || user.username;  // Use global_name if available, fallback to username
-        const discordImageUrl = discordData.avatar.link; // Get the Discord profile image URL
-        const role = user.role || "User";  // Get the role from the first API (with a fallback value)
-
-        console.log("Discord Image URL:", discordImageUrl);  // Debugging: Check if the URL is correct
+        const discordData = await fetchDiscordData(user.end);
+        const globalName = discordData.global_name || user.username;
+        const discordImageUrl = discordData.avatar.link;
+        const role = user.role || "No Role";
+        
+        const color = user.color || "#FFFFFF";
+        document.documentElement.style.setProperty('--default-color', color);
 
         const canvas = document.getElementById("profileCanvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        img.src = "https://images4.alphacoders.com/130/1305422.jpg";
+        img.src = "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/861197199757213.66edb099de9f2.png";
 
-        img.onload = function() {
+        img.onload = function () {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            // Load and draw the Discord profile image in the top-left corner
             const discordImage = new Image();
             discordImage.src = discordImageUrl;
 
-            discordImage.onload = function() {
-                // Draw image without rounded corners (removed clipping)
+            discordImage.onload = function () {
                 ctx.drawImage(discordImage, 20, 20, 50, 50);
 
-                ctx.fillStyle = "black";
+                ctx.fillStyle = color;
                 ctx.font = "20px Arial";
                 ctx.textAlign = "left";
-                ctx.fillText(globalName, 80, 40);  // Display the global name or username right after the image
+                ctx.fillText(globalName, 80, 40);
                 ctx.font = "16px Arial";
-                ctx.fillText(role, 80, 70);  // Display the role just below the username
+                ctx.fillText(role, 80, 70);
             };
 
-            discordImage.onerror = function() {
+            discordImage.onerror = function () {
                 console.error("Failed to load the Discord image.");
             };
 
+            ctx.fillStyle = "white";
             ctx.font = "30px Arial";
             ctx.textAlign = "right";
-            ctx.fillText(userId, canvas.width - 20, 40);  // Display userId in the top-right corner
+            ctx.fillText(userId, canvas.width - 20, 40);
 
-            // Loop through all badges and display them at the bottom-left (no rounded corners)
-            let badgeY = canvas.height - 60; // Position badges at the bottom-left
+            let badgeY = canvas.height - 60;
             const badgeUrls = [
                 user.bage, 
                 user.bage2, 
@@ -200,17 +163,12 @@
             badgeUrls.forEach((badgeUrl, index) => {
                 if (badgeUrl) {
                     const badgeImg = new Image();
-                    badgeImg.crossOrigin = "anonymous";  // Allow cross-origin loading
+                    badgeImg.crossOrigin = "anonymous";
                     badgeImg.src = badgeUrl;
 
                     badgeImg.onload = function() {
-                        // Draw badge without rounded corners (removed clipping)
                         ctx.drawImage(badgeImg, 20 + (index * 50), badgeY, 40, 40);
                         loadedBadges++;
-                        // Ensure all badges are loaded before continuing
-                        if (loadedBadges === badgeUrls.length) {
-                            console.log("All badges loaded.");
-                        }
                     };
                 }
             });
