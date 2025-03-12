@@ -128,13 +128,13 @@
             discordImage.src = discordImageUrl;
 
             discordImage.onload = function () {
-                ctx.drawImage(discordImage, 20, 20, 50, 50);
+                ctx.drawImage(discordImage, 20, 20, 60, 60);
 
                 ctx.fillStyle = color;
                 ctx.font = "30px Arial";
                 ctx.textAlign = "left";
                 ctx.fillText(globalName, 80, 40);
-                ctx.font = "30px Arial";
+                ctx.font = "20px Arial";
                 ctx.fillText(role, 80, 70);
             };
 
