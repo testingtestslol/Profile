@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Profile Image with Stats</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2f3136; /* Dark background color */
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 1024px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7); /* Dark container with some opacity */
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffcc00; /* Gold color for the title */
+            font-weight: bold;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 18px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: white;
+        }
+
+        .generate-btn, .download-btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ffcc00;
+            color: #2f3136;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .generate-btn:hover, .download-btn:hover {
+            background-color: #ff9900;
+        }
+
+        canvas {
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Stats layout (Horizontal Cards with Label/Value structure) */
+        .profile-stats {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        .stat-card {
+            background-color: #3e434a;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00; /* Gold color for labels */
+        }
+
+        .stat-value {
+            font-size: 20px;
+            color: white;
+            margin-left: 10px;
+        }
+
+        /* Responsive layout for small screens */
+        @media (max-width: 768px) {
+            .profile-stats {
+                grid-template-columns: 1fr; /* Stack stats on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Enter Your Info</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <input type="text" id="idInput" placeholder="Enter your in-game ID" />
+    <br />
+    <button class="generate-btn" onclick="generateImage()">Generate Image</button>
+
+    <br /><br />
+    <canvas id="profileCanvas" width="890" height="400"></canvas>
+    <br />
+    <button class="download-btn" onclick="downloadImage()">Download Image</button>
+</div>
+
+<script>
+    // New user profile data
+    const user = {
+        name: "Akuma",
+        bio: "Discord Ppugclay, Get Juice rn",
+        role: "USER",
+        level: 97,
+        totalXp: 3783251,
+        xpSinceLastLevel: 233451,
+        xpUntilNextLevel: 730000,
+        coins: 83552,
+        diamonds: 378,
+        createdAt: "2024-01-20T15:42:39.545Z",
+        clan: "VinK"
+    };
+
+    const canvas = document.getElementById("profileCanvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.src = "https://user-images.githubusercontent.com/3369400/133268513-5bfe2f93-4402-42c9-a403-81c9e86934b6.jpeg"; // Updated image URL
+
+    img.onload = function() {
+        generateImage(); // Initial image generation with placeholder values
+    };
+
+    function generateImage() {
+        const name = document.getElementById("nameInput").value || user.name; // Get name input or default text
+        const gameId = document.getElementById("idInput").value || "Enter your in-game ID"; // Get ID input or default text
+
+        // Clear previous canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw image to canvas (resize the image to fit the canvas)
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Set up text style
+        ctx.fillStyle = "white";
+        
+        // Name & Game ID at top-left and top-right
+        ctx.font = "30px Arial";
+        ctx.textAlign = "left";
+        ctx.fillText(name, 20, 40); // Name in the top-left
+        ctx.textAlign = "right";
+        ctx.fillText(gameId, canvas.width - 20, 40); // Game ID in the top-right
+
+        // Role below the name
+        ctx.textAlign = "left";
+        ctx.font = "20px Arial";
+        ctx.fillText(`Role: ${user.role}`, 20, 80);
+
+        // Stats below the Role
+        ctx.font = "18px Arial";
+        ctx.fillText(`Level: ${user.level}`, 20, 150);
+        ctx.fillText(`Total XP: ${user.totalXp}`, 20, 180);
+        ctx.fillText(`XP This Level: ${user.xpSinceLastLevel}`, 20, 210);
+        ctx.fillText(`XP to Next Level: ${user.xpUntilNextLevel}`, 20, 240);
+        ctx.fillText(`Coins: ${user.coins}`, 20, 270);
+        ctx.fillText(`Diamonds: ${user.diamonds}`, 20, 300);
+        ctx.fillText(`Clan: ${user.clan}`, 20, 330);
+        ctx.fillText(`Joined: ${new Date(user.createdAt).toLocaleDateString()}`, 20, 360);
+
+      // bio below the Stats
+        ctx.fillText(`Bio: ${user.bio}`, 20, 110);
+    }
+
+    function downloadImage() {
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "profile_with_stats.png";
+        link.click();
+    }
+</script>
+
+</body>
+</html>
