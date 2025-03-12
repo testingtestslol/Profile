@@ -64,7 +64,7 @@
 
         canvas {
             margin-top: 30px;
-            border-radius: 10px;
+            border-radius: 15px; /* Rounded corners for the canvas */
             border: 1px solid #ccc;
         }
 
@@ -114,8 +114,7 @@
 
 <div class="container">
     <h1>Enter Your Info</h1>
-    <input type="text" id="nameInput" placeholder="Enter your name" />
-    <input type="text" id="idInput" placeholder="Enter your in-game ID" />
+    <input type="text" id="idInput" placeholder="Enter your ID" />
     <br />
     <button class="generate-btn" onclick="generateImage()">Generate Image</button>
 
@@ -126,72 +125,110 @@
 </div>
 
 <script>
-    // New user profile data
-    const user = {
-        name: "Pure|Nah",
-        bio: "IMAGINE NOT LIVING IN KIRKA !!",
-        role: "USER",
-        level: 97,
-        totalXp: 3722566,
-        xpSinceLastLevel: 172766,
-        xpUntilNextLevel: 730000,
-        coins: 4236,
-        diamonds: 479,
-        createdAt: "2024-03-27T14:42:01.430Z",
-        clan: "Pure.Skill"
-    };
-    
-    const canvas = document.getElementById("profileCanvas");
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
-    img.src = "https://images4.alphacoders.com/130/1305422.jpg"; // Updated image URL
+    async function fetchApiData() {
+        const response = await fetch('https://kirkastuffs.github.io/Profile/Password/api.json');
+        return await response.json();
+    }
 
-    img.onload = function() {
-        generateImage(); // Call generateImage when image is loaded
-    };
+    async function fetchDiscordData(discordId) {
+        const response = await fetch(`https://discordlookup.mesalytic.moe/v1/user/${discordId}`);
+        return await response.json();
+    }
 
-    function generateImage() {
-        const name = document.getElementById("nameInput").value || user.name; // Get name input or default text
-        const gameId = document.getElementById("idInput").value || "Enter your in-game ID"; // Get ID input or default text
+    async function generateImage() {
+        const userId = document.getElementById("idInput").value;
+        const apiData = await fetchApiData();
+        const user = apiData[userId]?.[0];
 
-        // Clear previous canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (!user) {
+            alert("User not found.");
+            return;
+        }
 
-        // Draw image to canvas (resize the image to fit the canvas)
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const discordData = await fetchDiscordData(user.end);  // Fetch Discord data using the 'end' ID
+        const globalName = discordData.global_name || user.username;  // Use global_name if available, fallback to username
+        const discordImageUrl = discordData.avatar.link; // Get the Discord profile image URL
+        const role = user.role || "No Role";  // Get the role from the first API (with a fallback value)
 
-        // Set up text style
-        ctx.fillStyle = "black";
-        
-        // Name & Game ID at top-left and top-right
-        ctx.font = "30px Arial";
-        ctx.textAlign = "left";
-        ctx.fillText(name, 20, 40); // Name in the top-left
-        ctx.textAlign = "right";
-        ctx.fillText(gameId, canvas.width - 20, 40); // Game ID in the top-right
+        console.log("Discord Image URL:", discordImageUrl);  // Debugging: Check if the URL is correct
 
-        // Role below the name
-        ctx.textAlign = "left";
-        ctx.font = "20px Arial";
-        ctx.fillText(`Role: ${user.role}`, 20, 80);
+        const canvas = document.getElementById("profileCanvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        img.src = "https://images4.alphacoders.com/130/1305422.jpg";
 
-        // Stats below the Role
-        ctx.font = "18px Arial";
-        ctx.fillText(`Level: ${user.level}`, 20, 150);
-        ctx.fillText(`Total XP: ${user.totalXp}`, 20, 180);
-        ctx.fillText(`XP This Level: ${user.xpSinceLastLevel}`, 20, 210);
-        ctx.fillText(`XP to Next Level: ${user.xpUntilNextLevel}`, 20, 240);
-        ctx.fillText(`Coins: ${user.coins}`, 20, 270);
-        ctx.fillText(`Diamonds: ${user.diamonds}`, 20, 300);
-        ctx.fillText(`Clan: ${user.clan}`, 20, 330);
-        ctx.fillText(`Joined: ${new Date(user.createdAt).toLocaleDateString()}`, 20, 360);
+        img.onload = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // bio below the Stats
-        ctx.fillText(`Bio: ${user.bio}`, 20, 110);
+            // Load and draw the Discord profile image in the top-left corner
+            const discordImage = new Image();
+            discordImage.src = discordImageUrl;
+
+            discordImage.onload = function() {
+                // Draw image with rounded corners (use arc method to create mask)
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(45, 45, 25, 0, Math.PI * 2, false);  // Create rounded corners for the image
+                ctx.clip();  // Clip the region to create rounded effect
+                ctx.drawImage(discordImage, 20, 20, 50, 50);
+                ctx.restore();
+
+                ctx.fillStyle = "black";
+                ctx.font = "20px Arial";
+                ctx.textAlign = "left";
+                ctx.fillText(globalName, 80, 40);  // Display the global name or username right after the image
+                ctx.font = "16px Arial";
+                ctx.fillText(role, 80, 70);  // Display the role just below the username
+            };
+
+            discordImage.onerror = function() {
+                console.error("Failed to load the Discord image.");
+            };
+
+            ctx.font = "30px Arial";
+            ctx.textAlign = "right";
+            ctx.fillText(userId, canvas.width - 20, 40);  // Display userId in the top-right corner
+
+            // Loop through all badges and display them at the bottom-left with rounded corners
+            let badgeY = canvas.height - 60; // Position badges at the bottom-left
+            const badgeUrls = [
+                user.bage, 
+                user.bage2, 
+                user.bage3, 
+                user.bage4, 
+                user.bage5, 
+                user.bagesniper
+            ];
+
+            let loadedBadges = 0;
+            badgeUrls.forEach((badgeUrl, index) => {
+                if (badgeUrl) {
+                    const badgeImg = new Image();
+                    badgeImg.crossOrigin = "anonymous";  // Allow cross-origin loading
+                    badgeImg.src = badgeUrl;
+
+                    badgeImg.onload = function() {
+                        // Draw badge with rounded corners
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(20 + (index * 50) + 20, badgeY + 20, 20, 0, Math.PI * 2, false);
+                        ctx.clip(); // Clip the region for rounded corners
+                        ctx.drawImage(badgeImg, 20 + (index * 50), badgeY, 40, 40);
+                        ctx.restore();
+                        loadedBadges++;
+                        // Ensure all badges are loaded before continuing
+                        if (loadedBadges === badgeUrls.length) {
+                            console.log("All badges loaded.");
+                        }
+                    };
+                }
+            });
+        };
     }
 
     function downloadImage() {
-        // Check if image has been generated
+        const canvas = document.getElementById("profileCanvas");
         if (!canvas.toDataURL()) {
             alert("Please generate an image first.");
             return;
