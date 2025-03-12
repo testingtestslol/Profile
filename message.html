@@ -148,7 +148,7 @@
         const discordData = await fetchDiscordData(user.end);  // Fetch Discord data using the 'end' ID
         const globalName = discordData.global_name || user.username;  // Use global_name if available, fallback to username
         const discordImageUrl = discordData.avatar.link; // Get the Discord profile image URL
-        const role = user.role || "No Role";  // Get the role from the first API (with a fallback value)
+        const role = user.role || "User";  // Get the role from the first API (with a fallback value)
 
         console.log("Discord Image URL:", discordImageUrl);  // Debugging: Check if the URL is correct
 
@@ -166,13 +166,8 @@
             discordImage.src = discordImageUrl;
 
             discordImage.onload = function() {
-                // Draw image with rounded corners (use arc method to create mask)
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(45, 45, 25, 0, Math.PI * 2, false);  // Create rounded corners for the image
-                ctx.clip();  // Clip the region to create rounded effect
+                // Draw image without rounded corners (removed clipping)
                 ctx.drawImage(discordImage, 20, 20, 50, 50);
-                ctx.restore();
 
                 ctx.fillStyle = "black";
                 ctx.font = "20px Arial";
@@ -190,7 +185,7 @@
             ctx.textAlign = "right";
             ctx.fillText(userId, canvas.width - 20, 40);  // Display userId in the top-right corner
 
-            // Loop through all badges and display them at the bottom-left with rounded corners
+            // Loop through all badges and display them at the bottom-left (no rounded corners)
             let badgeY = canvas.height - 60; // Position badges at the bottom-left
             const badgeUrls = [
                 user.bage, 
@@ -209,13 +204,8 @@
                     badgeImg.src = badgeUrl;
 
                     badgeImg.onload = function() {
-                        // Draw badge with rounded corners
-                        ctx.save();
-                        ctx.beginPath();
-                        ctx.arc(20 + (index * 50) + 20, badgeY + 20, 20, 0, Math.PI * 2, false);
-                        ctx.clip(); // Clip the region for rounded corners
+                        // Draw badge without rounded corners (removed clipping)
                         ctx.drawImage(badgeImg, 20 + (index * 50), badgeY, 40, 40);
-                        ctx.restore();
                         loadedBadges++;
                         // Ensure all badges are loaded before continuing
                         if (loadedBadges === badgeUrls.length) {
