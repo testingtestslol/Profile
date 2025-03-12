@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Webhook Form</h2>
+        <form id="webhookForm">  
+
+            <label for="userid">Kirka id:</label>
+            <input type="text" id="userid" name="userid" required>
+
+            <label for="discord">Discord Username:</label>
+            <input type="text" id="discord" name="discord" required>
+
+            <label for="kirka">Kirka:</label>
+            <input type="text" id="kirka" name="kirka" required>
+
+            <label for="note">Note:</label>
+            <textarea id="note" name="note" rows="4" required></textarea>
+
+            <label for="end">Discord ID:</label>
+            <input type="text" id="end" name="end">
+
+            <label for="color">Color (Hex):</label>
+            <input type="text" id="color" name="color" required>
+
+            <label for="color2">Secondary Color (Hex):</label>
+            <input type="text" id="color2" name="color2" required>
+
+            <label for="bage">Bage URL:</label>
+            <input type="url" id="bage" name="bage" required>
+
+            <button type="submit">Send Data</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("webhookForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const discord = document.getElementById("userid").value;
+            const discord = document.getElementById("discord").value;
+            const kirka = document.getElementById("kirka").value;
+            const note = document.getElementById("note").value;
+            const end = document.getElementById("end").value;
+            const color = document.getElementById("color").value;
+            const color2 = document.getElementById("color2").value;
+            const bage = document.getElementById("bage").value;
+
+            const data = {
+                "${userid}": [
+                    {
+                        "Id": userid,
+                        "discord": discord,
+                        "Kirka": kirka,
+                        "note": note,
+                        "end": end,
+                        "color": color,
+                        "color2": color2,
+                        "bage": bage
+                    }
+                ]
+            };
+
+            // Replace with your actual webhook URL
+            const webhookURL = "YOUR_WEBHOOK_URL";
+
+            fetch(webhookURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(responseData => {
+                alert("Data sent successfully!");
+                // Optionally, clear form after sending
+                document.getElementById("webhookForm").reset();
+            })
+            .catch(error => {
+                alert("Error sending data.");
+                console.error("Error:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
