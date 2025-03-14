@@ -62,6 +62,7 @@
       "role": "[Owner]",
       "color": "#008aff",
       "color2": "#fff",
+      "bg": "https://i.imgur.com/3YRNHoS.png",
       "bage": "https://cdn.discordapp.com/emojis/1113822215113285774.webp?size=40",
       "bage2": "https://i.imgur.com/q7f4vTJ.png",
       "bage3": "https://cdn.discordapp.com/emojis/921341310873522206.webp?size=40",
@@ -114,6 +115,7 @@
       "Kirka": "PureNah",
       "note": "Worst lvl 90+",
       "end": "1334217883634372700",
+      "bg": "https://i.imgur.com/YysvYTM.png",
       "bage": "",
       "bage2": ""
     }
@@ -182,8 +184,10 @@
       "role": "[Staff]",
       "color": "#ffac33",
       "color2": "#ffffff",
-      "bage": "https://i.imgur.com/N37HT5h.png",
-      "bage2": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
+      "bg": "https://i.imgur.com/3YRNHoS.png",
+      "bage": "https://i.imgur.com/q7f4vTJ.png"
+      "bage"2: "https://i.imgur.com/N37HT5h.png",
+      "bage3": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
     }
   ],
   "A2647V": [
@@ -207,9 +211,10 @@
       "role": "[Staff]",
       "color": "#3a9f00",
       "color2": "#00FF00",
-      "bage": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=40",
-      "bage2": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
-      "bage3": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
+      "bage": "https://i.imgur.com/q7f4vTJ.png",
+      "bage2": "https://cdn.discordapp.com/avatars/1132415037512896612/ddfcbf629668e427f151e84c60fd6e35.png?size=40",
+      "bage3": "https://th.bing.com/th/id/R.8d4a745f8f3285d24b65d3e6abc0e89b?rik=YL1VKOXtohABCA&pid=ImgRaw&r=0",
+      "bage4": "https://cdn3.emoji.gg/emojis/9765-badge-moderators.png"
     }
   ],
   "RN7TFR": [
