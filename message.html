@@ -116,7 +116,7 @@
         document.documentElement.style.setProperty('--default-color', color);
 
         // Use custom background if available, otherwise use the default one
-        const backgroundUrl = user.bg || "https://images4.alphacoders.com/136/thumb-350-1363796.webp";
+        const backgroundUrl = user.bg || "https://images4.alphacoders.com/130/thumbbig-1305422.webp";
 
         const canvas = document.getElementById("profileCanvas");
         const ctx = canvas.getContext("2d");
@@ -145,7 +145,7 @@
                 console.error("Failed to load the Discord image.");
             };
 
-            ctx.fillStyle = "white";
+            ctx.fillStyle = color;
             ctx.font = "30px Arial";
             ctx.textAlign = "right";
             ctx.fillText(userId, canvas.width - 20, 40);
