@@ -48,7 +48,7 @@
       "color2": "#00FF00",
       "bg": "https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-green-grass-natural-draw-png-image_6006418.png",
       "bage": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
-      "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage2": "https://i.imgur.com/q7f4vTJ.png",
       "bage3": "https://i.imgur.com/KN9Fl8E.png"
     }
   ],
@@ -63,7 +63,7 @@
       "color": "#008aff",
       "color2": "#fff",
       "bage": "https://cdn.discordapp.com/emojis/1113822215113285774.webp?size=40",
-      "bage2": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage2": "https://i.imgur.com/q7f4vTJ.png",
       "bage3": "https://cdn.discordapp.com/emojis/921341310873522206.webp?size=40",
       "bage4": "https://cdn.discordapp.com/emojis/1059276314818912276.webp?size=40",
       "bage5": "https://cdn.discordapp.com/emojis/1348499858033475594.webp?size=40"
@@ -78,7 +78,7 @@
       "end": "504711462154010644",
       "color": "#0080d0",
       "role": "[Verified]",
-      "bage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage": "https://i.imgur.com/q7f4vTJ.png",
       "bage2": ""
     }
   ],
@@ -168,7 +168,7 @@
       "bage2": "https://cdn.discordapp.com/emojis/1297292311281008671.webp?size=40",
       "bage4": "https://cdn.discordapp.com/emojis/1278746636922785792.webp?size=40",
       "bage3": "https://irrvlo.xyz/irrvlo.png",
-      "bage5": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png"
+      "bage5": "https://i.imgur.com/q7f4vTJ.png"
     }
   ],
   "99KI3O": [
@@ -274,6 +274,7 @@
       "role": "[VERIFIED_BOT]",
       "color": "#c12d2d",
       "bage": "https://cdn3.emoji.gg/emojis/9435-blurple-bot.png",
+      "bage2": "https://i.imgur.com/q7f4vTJ.png",
       "bage3": "https://i.imgur.com/i0ilOp6.jpeg"
     }
   ],
@@ -291,7 +292,7 @@
       "bage": "https://cdn.discordapp.com/emojis/942313044455882752.webp?size=40&animated=true",
       "bage2": "https://cdn.discordapp.com/emojis/921341308323381270.webp?size=40",
       "bage3": "https://cdn.discordapp.com/emojis/1348368523097018449.webp?size=40",
-      "bage4": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png",
+      "bage4": "https://i.imgur.com/q7f4vTJ.png",
       "bage5": "https://cdn.discordapp.com/emojis/921341332314800158.webp?size=40",
       "bagesniper": "https://cdn.discordapp.com/emojis/921341328703508510.webp?size=40"
     }
@@ -329,7 +330,7 @@
       "color": "#E5B80B",
       "bage": "https://irrvlo.xyz/kirka_guilded.png",
       "bage2": "https://i.imgur.com/0B9XyR8.png",
-      "bage3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/40px-Twitter_Verified_Badge.svg.png"
+      "bage3": "https://i.imgur.com/q7f4vTJ.png"
     }
   ],
   "HVCL3P": [
@@ -342,7 +343,8 @@
       "role": "[Verified]",
       "color": "#fff",
       "bage": "https://i.imgur.com/eBQTGap.png",
-      "bage2": "https://i.imgur.com/QtRlGYb.png"
+      "bage2": "https://i.imgur.com/QtRlGYb.png",
+      "bage3": "https://i.imgur.com/q7f4vTJ.png"
     }
   ],
   "7VUNQK": [
@@ -355,7 +357,8 @@
       "role": "[Verified]",
       "color": "#fff",
       "bage": "https://cdn.discordapp.com/emojis/1113822244548915312.webp?size=40",
-      "bage2": "https://cdn.discordapp.com/emojis/1200079405226143764.webp?size=40"
+      "bage2": "https://cdn.discordapp.com/emojis/1200079405226143764.webp?size=40",
+      "bage3": "https://i.imgur.com/q7f4vTJ.png"
     }
   ],
   "59FF4W": [
@@ -369,7 +372,7 @@
       "color": "#957ee6",
       "color2": "#ddb0cb",
       "bage": "https://i.imgur.com/askdM1j.png",
-      "bage2": "https://i.imgur.com/i0ilOp6.jpeg"
+      "bage2": "https://i.imgur.com/i0ilOp6.jpeg",
     }
   ],
   "2R9DP4": [
@@ -435,7 +438,8 @@
       "end": "784133050203635754",
       "color": "green",
       "color2": "Red",
-      "bage": "https://i.imgur.com/W7nqqVj.png"
+      "bage": "https://i.imgur.com/W7nqqVj.png",
+      "bage3": "https://i.imgur.com/q7f4vTJ.png"
     }
   ]
 }
