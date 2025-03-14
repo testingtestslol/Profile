@@ -80,7 +80,6 @@
     <h1>Enter Your Info</h1>
     <input type="text" id="idInput" placeholder="Enter your ID" />
     <br />
-    <button class="generate-btn" onclick="generateImage()">Generate Image</button>
 
     <br /><br />
     <canvas id="profileCanvas" width="890" height="400"></canvas>
@@ -176,12 +175,6 @@
         };
     }
 
-    function downloadImage() {
-        const canvas = document.getElementById("profileCanvas");
-        if (!canvas.toDataURL()) {
-            alert("Please generate an image first.");
-            return;
-        }
 
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
