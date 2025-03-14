@@ -79,6 +79,8 @@
 <div class="container">
     <h1>Enter Your Info</h1>
     <input type="text" id="idInput" placeholder="Enter your ID" />
+    <br />
+    <button class="generate-btn" onclick="generateImage()">Generate Image</button>
 
     <br /><br />
     <canvas id="profileCanvas" width="890" height="400"></canvas>
@@ -113,13 +115,10 @@
         const color = user.color || "#FFFFFF";
         document.documentElement.style.setProperty('--default-color', color);
 
-        // Use custom background if available, otherwise use the default one
-        const backgroundUrl = user.bg || "https://images4.alphacoders.com/130/thumbbig-1305422.webp";
-
         const canvas = document.getElementById("profileCanvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        img.src = backgroundUrl;  // Use custom background
+        img.src = "https://images4.alphacoders.com/136/thumb-350-1363796.webp";
 
         img.onload = function () {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -143,7 +142,7 @@
                 console.error("Failed to load the Discord image.");
             };
 
-            ctx.fillStyle = color;
+            ctx.fillStyle = "white";
             ctx.font = "30px Arial";
             ctx.textAlign = "right";
             ctx.fillText(userId, canvas.width - 20, 40);
@@ -174,12 +173,12 @@
         };
     }
 
-     function downloadImage() {
-         const canvas = document.getElementById("profileCanvas");
-         if (!canvas.toDataURL()) {
-             alert("Please generate an image first.");
-             return;
-         }
+    function downloadImage() {
+        const canvas = document.getElementById("profileCanvas");
+        if (!canvas.toDataURL()) {
+            alert("Please generate an image first.");
+            return;
+        }
 
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
