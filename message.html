@@ -118,7 +118,7 @@
         const canvas = document.getElementById("profileCanvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        img.src = "https://images4.alphacoders.com/136/thumb-350-1363796.webp";
+        img.src = bg || "https://images4.alphacoders.com/136/thumb-350-1363796.webp";
 
         img.onload = function () {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -142,7 +142,7 @@
                 console.error("Failed to load the Discord image.");
             };
 
-            ctx.fillStyle = "white";
+            ctx.fillStyle = color;
             ctx.font = "30px Arial";
             ctx.textAlign = "right";
             ctx.fillText(userId, canvas.width - 20, 40);
