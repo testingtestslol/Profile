@@ -113,7 +113,8 @@
         const role = user.role || "[User]";
         
         const color = user.color || "#000000";
-        document.documentElement.style.setProperty('--default-color', color);
+        const color2 = user.color2 || "#000000";
+        document.documentElement.style.setProperty('--default-color', color, color2);
 
         // Use custom background if available, otherwise use the default one
         const backgroundUrl = user.bg || "https://images4.alphacoders.com/130/thumbbig-1305422.webp";
